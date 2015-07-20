@@ -1,0 +1,383 @@
+html{
+  width:100%;
+  height:100%;
+  position: relative;
+  font-size: 65%;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@-webkit-keyframes rotation {
+  10% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+
+  50%, 60% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg)
+  }
+
+  90% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+
+  100% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+}
+
+@keyframes rotation {
+  10% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+
+  50%, 60% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg)
+  }
+
+  90% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+
+  100% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg)
+  }
+}
+
+#orientLayer {
+  display: none;
+}
+
+@media screen and (min-aspect-ratio: 13/9) {
+  #orientLayer {
+    display: block;
+  }
+}
+
+.mod-orient-layer {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 9997
+}
+
+.mod-orient-layer__content {
+  position: absolute;
+  width: 100%;
+  top: 45%;
+  margin-top: -75px;
+  text-align: center
+}
+
+.mod-orient-layer__icon-orient {
+  background-image: url('../../images/spring/heng.png');
+  display: inline-block;
+  width: 67px;
+  height: 109px;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -webkit-animation: rotation infinite 1.5s ease-in-out;
+  animation: rotation infinite 1.5s ease-in-out;
+  -webkit-background-size: 67px;
+  background-size: 67px
+}
+
+.mod-orient-layer__desc {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #fff
+}
+
+
+/* outlet */
+#outlet{
+  width:100%;
+  height:100%;
+  background:#ebebeb;
+  position: absolute;
+  top:0;
+  left:0;
+  overflow: hidden;
+}
+.logo{
+  width: 50%;
+  position: relative;
+  margin: 6% 0 4% 25%;
+}
+.outlet_footer{
+  width:100%;
+  height:40px;
+  background: #959595;
+  position:absolute;
+  bottom:0;
+  left:0;
+
+}
+.outlet_tel,.outlet_method{
+  height: 45%;
+}
+.outlet_tel{
+  position: relative;
+  margin: 12px 0 0 20px;
+}
+.outlet_method{
+  position: relative;
+  float: right;
+  margin: 12px 20px 0 0;
+}
+
+/* flagship */
+#flagship{
+  width:100%;
+  height:100%;
+  background:#ebebeb;
+  position: absolute;
+  top:0;
+  left:0;
+  overflow: hidden;
+}
+
+/* brand */
+#brand{
+  width:100%;
+  background:#ebebeb;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.jewelry{
+  position: relative;
+  margin:4% 0 4% 0;
+}
+.brand_space{
+  padding: 4% 0;
+}
+.line{
+  border-bottom: 1px solid #959595;
+}
+
+/* personal */
+#personal{
+  width:100%;
+  background:#ebebeb;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.personal_content{
+  width:100%;
+  position: relative;
+  margin:2% 0 0 0;
+}
+.personal_title{
+  width:80%;
+  position: relative;
+  margin:2% 0 0 10%;
+}
+.personal_footer{
+  width:100%;
+  background: url("../../images/spring/personal/choose_bg.png") no-repeat;
+  background-size:100%; 
+  position: fixed;
+  bottom:0;
+  left:0;
+}
+.submit_btn{
+  width:30%;
+  position: relative;
+  float: right;
+  padding:6% 4% 2% 0;
+}
+.form{
+  width:100%;
+  position: relative;
+  margin:4% 0 0 0;
+}
+.form ul{
+  width:80%; 
+  position: relative;
+  margin:0 0 0 10%;
+}
+.form ul li{
+  width:100%;
+  height:40px;
+  
+}
+.form ul li span{
+  width:20%;
+  display: inline-block;
+  float:left;
+}
+.form ul li select{
+  border-radius: 0px;
+  width:80%;
+  display: inline-block;
+  float:right;
+  background: url("../../images/spring/personal/arrow.png") no-repeat #fff;
+  background-size: 8%;
+  background-position: 94%;
+  font-size: 16px;
+  border: 1px solid #c5c5c5;
+  height: 28px;
+  -webkit-appearance: none;
+  margin:0 0 10px 0;
+}
+
+.form ul li input[type="text"]{
+  width:80%;
+  display: inline-block;
+  float:right;
+  background: #fff;
+  font-size: 16px;
+  border: 1px solid #c5c5c5;
+  height: 28px;
+  -webkit-appearance: none;
+  margin: 0 0 10px 0;
+}
+
+.form ul li img{
+  height:15px;
+  float:left;
+  margin:4px 0 0 0;
+}
+.form ul li span.book{
+  width:40%;
+}
+
+.form ul li input[type="date"]{
+  width:60%;
+  display: inline-block;
+  float:right;
+  background: #fff;
+  font-size: 16px;
+  border: 1px solid #c5c5c5;
+  height: 28px;
+  -webkit-appearance: none;
+  margin: 0 0 10px 0;
+  padding:4px 0 0 0;
+}
+
+
+.form ul li select.time,.form ul li select.contact{
+  width:60%;
+  background: url("../../images/spring/personal/arrow.png") no-repeat #fff;
+  background-size: 11%;
+  background-position: 92%;  
+}
+
+.form ul li input.method{
+  width:100%;
+}
+ .radio-btn {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  float: left;
+  margin: 3px 7px 0 0;
+  cursor: pointer;
+  position: relative;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 1px #ccc;
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+}
+.checkedRadio {
+  -moz-box-shadow: inset 0 0 5px 1px #ccc;
+  -webkit-box-shadow: inset 0 0 5px 1px #ccc;
+  box-shadow: inset 0 0 5px 1px #ccc;
+}
+
+.radio-btn i {
+  border: 1px solid #E1E2E4;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.checkedRadio i {
+  background-color: #5c5c5c;
+}
+.form ul li img.radio_img {
+  height:12px;
+}
+
+.radio-choose{
+  display: inline-block;
+  width:32%;
+}
+.radio-btn input[type="radio"]{
+    visibility: hidden;
+}
+
+/* congratulation */
+#congratulation{
+  width:100%;
+  height:100%;
+  background:#ebebeb;
+  overflow: hidden;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.congra_title{
+  width:80%;
+  position:relative;
+  margin:5% 0 0 10%;
+
+}
+.congra_con{
+  position:relative;
+  margin: 20% 0 0 0;
+}
+
+/* login */
+#login{
+  width:100%;
+  height:100%;
+  background: url("../../images/spring/login/bg.jpg") no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+}
+.login_con{
+  width:70%;
+  height:70%;
+  background: rgba(116,187,226,0.8);
+  position:absolute;
+  top:8%;
+  left:15%;
+}
+
+
+
+
+
+

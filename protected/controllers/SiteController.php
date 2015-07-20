@@ -12,21 +12,28 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
-	public function actionSpring()
-	{
-		$this->render('spring');
+	public function actionOutlet(){
+		$this->render('outlet');
 	}
 
-	public function actionProduct(){
-		$this->render('product');
+	public function actionFlagship(){
+		$this->render('flagship');
 	}
 
-	public function actionFounder(){
-		$this->render('founder');
+	public function actionBrand(){
+		$this->render('brand');
 	}
 
-	public function actionHistory(){
-		$this->render('history');
+	public function actionPersonal(){
+		$this->render('personal');
+	}
+
+	public function actionCongratulation(){
+		$this->render('congratulation');
+	}
+
+	public function actionLogin(){
+		$this->render('login');
 	}
 
 	public function actionStore($id)
