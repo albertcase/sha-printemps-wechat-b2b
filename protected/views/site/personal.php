@@ -66,7 +66,7 @@
 				<li>
 				    <div class="radio">
 					    <div class="radio-choose">
-					    	<div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
+					    	<div class="radio-btn"><i><input type="radio" name="radio-btn" value="1" checked="checked"></i>
 					    	</div>
 			            	<img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type1.png" />
 			            </div>
@@ -105,15 +105,17 @@
 				</li>
 
 				<li>
-					<br/>
 					<span>
 						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/pro_type.png" />
 					</span>
 				</li>
+				<li></li>
+				<li></li>
 				<li>
+					<br/>
+					
 				</li>
-				<li>
-				</li>	
+				
 				
 
 			</ul>	

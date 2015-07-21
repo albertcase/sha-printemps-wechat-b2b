@@ -14,4 +14,4 @@
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/outlet/method.png" class="outlet_method"/>
 	</div>
 	
-</div>	
+</div>

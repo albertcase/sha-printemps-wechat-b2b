@@ -1,9 +1,10 @@
-html{
+html,body{
   width:100%;
   height:100%;
   position: relative;
   font-size: 65%;
 }
+
 
 *{
   margin: 0;
@@ -363,20 +364,128 @@ html{
 #login{
   width:100%;
   height:100%;
-  background: url("../../images/spring/login/bg.jpg") no-repeat;
-  background-size: 100%;
-  overflow: hidden;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: 1;
 }
 .login_con{
   width:70%;
-  height:70%;
   background: rgba(116,187,226,0.8);
   position:absolute;
   top:8%;
   left:15%;
+  padding:0 0 5% 0;
+}
+.login{
+  width:80%;
+  margin:10% 0 0 10%;
+}
+.tour_con{
+  width:100%;
+  height:250px;
+  
+}
+.tips{
+  width:80%;
+  margin:10% 0 0 10%;
 }
 
+.tour_form{
+  width:80%;
+  margin: 10% 0 0 10%;
+ 
+}
+.tour_label{
+  width:45%;
+  margin:0 0 4% 0;
+}
+.tour{
+  width:100%;
+  height:24px;
+  font-size: 20px;
+  color:#74bbe2;
+  text-transform: lowercase;
+  margin:0 0 4% 0;
+  border:1px solid #c5c5c5;
+  border-radius:2px; 
+}
+.tour_btn{
+  width:40%;
+  margin:10% 0 0 30%;
+}
 
+/* iphone 4-4s */
+@media only screen and (min-width: 320px) and (max-height:416px) {
+  .flagship_datail{
+    width:84%;
+    position: relative;
+    margin: 0 0 0 8%;
+  }
+  .login_con{
+    width:70%;
+  }
+  .outlet_datail{
+    width:84%;
+    position: relative;
+    margin: 0 0 0 8%;
+  }
+
+  .outlet_footer{
+    width:100%;
+    height:30px;
+    background: #959595;
+    position:absolute;
+    bottom:0;
+    left:0;
+  }
+  .outlet_tel,.outlet_method{
+    height: 50%;
+  }
+  .outlet_tel{
+    position: relative;
+    margin: 8px 0 0 20px;
+  }
+  .outlet_method{
+    position: relative;
+    float: right;
+    margin: 8px 20px 0 0;
+  }
+  
+}
+/* HUAWEI HONOR */
+@media only screen and (min-width: 360px) and (max-height:519px) {
+  .flagship_datail{
+    width:88%;
+    position: relative;
+    margin: 0 0 0 6%;
+  }
+  .outlet_datail{
+    width:88%;
+    position: relative;
+    margin: 0 0 0 6%;
+  }
+ 
+  
+}
+
+@media only screen and (min-width: 320px) and (max-width: 359px){
+  .form ul li img.radio_img {
+    height:10px;
+  }
+  .radio-btn{
+    margin: 1px 5px 0 0;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 374px){
+  .form ul li img.radio_img {
+    height:11px;
+  }
+  .radio-btn{
+    margin: 3px 5px 0 0;
+  }
+}   
 
 
 
