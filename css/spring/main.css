@@ -172,6 +172,9 @@ html,body{
 .line{
   border-bottom: 1px solid #959595;
 }
+.line_dot{
+  border-bottom: 1px dotted #959595;
+}
 
 /* personal */
 #personal{
@@ -335,6 +338,22 @@ html,body{
   display: inline-block;
   width:32%;
 }
+/*label:nth-child(3n+1){
+  display: inline-block;
+  width:40%;
+  background: #fababa;
+}
+label:nth-child(3n+2){
+  display: inline-block;
+  width:34%;
+  background: #bababa;
+}
+label:nth-child(3n+3){
+  display: inline-block;
+  width:24%;
+  background: #cababa;
+}*/
+
 .radio-btn input[type="radio"]{
     visibility: hidden;
 }

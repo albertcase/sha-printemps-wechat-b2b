@@ -3,8 +3,8 @@
 		<div class="Z">
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title0.jpg" width="100%" class="brand_space line" />
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title1.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title2.jpg" width="100%" class="brand_space" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/line.png" width="100%" />
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title2.jpg" width="100%" class="brand_space line_dot" />
+			<!-- <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/line.png" width="100%" /> -->
 		</div>		
 	</div>
 
