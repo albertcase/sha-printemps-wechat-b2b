@@ -65,40 +65,53 @@
 				</li>
 				<li>
 				    <div class="radio">
+					    <label>
 					    <div class="radio-choose">
 					    	<div class="radio-btn"><i><input type="radio" name="radio-btn" value="1" checked="checked"></i>
 					    	</div>
 			            	<img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type1.png" />
 			            </div>
+			        	</label>
 
+			        	<label>
 			            <div class="radio-choose">
 				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
 				            </div>
 				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type2.png" />
 				        </div>
+				    	</label>
+
+				    	<label>
 				        <div class="radio-choose">
 				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
 				            </div>
 				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type3.png" />
 			            </div>
+			        	</label>
 
+			        	<label>
 			            <div class="radio-choose">
 				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
 				            </div>
 				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type4.png" />
 				        </div>
+				    	</label>
 
+				    	<label>	
 				        <div class="radio-choose">
 				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
 				            </div>
 				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type5.png" />
 			            </div>
+			        	</label>
 
+			        	<label>
 			            <div class="radio-choose">
 				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
 				            </div>
 				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type6.png" />
 				        </div>
+				    	</label>
 
 			        </div>
 
@@ -129,7 +142,7 @@
 <script>
 $(".radio-btn").on("click", function () {
     var _this = $(this),
-        block = _this.parent().parent();
+        block = _this.parent().parent().parent();
     block.find("input:radio").attr("checked", false);
     block.find(".radio-btn").removeClass("checkedRadio");
     _this.addClass("checkedRadio");
