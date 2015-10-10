@@ -13,20 +13,13 @@
 	<meta name="Keywords" content="">
 	<meta name="Description" content="...">
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/spring/reset.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/spring/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/css/style.css" />
 
 
-	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/spring/jquery.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/js/jquery.js"></script>
 </head>
 <body>
-	<div id="orientLayer" class="mod-orient-layer">
-		<div class="mod-orient-layer__content">
-		  <i class="icon mod-orient-layer__icon-orient"></i>
-		  <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
-		</div>
-	</div>
-
 	<?php echo $content; ?>
 </body>
 </html>

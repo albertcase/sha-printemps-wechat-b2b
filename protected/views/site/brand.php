@@ -1,28 +1,54 @@
-<div id="brand">	
-	<div class="brand_title">
-		<div class="Z">
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title0.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title1.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/Z_title2.jpg" width="100%" class="brand_space line_dot" />
-			<!-- <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/line.png" width="100%" /> -->
-		</div>		
+<div class="page sort">
+	<div class="sortTheme">
+		<div class="con">
+			<h2>珠宝与高级钟表</h2>
+			<p>
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/sortimg.jpg" width="100%" />	
+			</p>
+		</div>
 	</div>
-
-	<div class="jewelry">
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/jewelry.jpg" width="100%" />
-	</div>
-	<div class="brand_title">
-		<div class="A">
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/A.jpg" width="100%" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/A_title.jpg" width="100%" class="brand_space" />	
+	<div class="sortList">
+		<div class="sortCategory">
+			<h3>A</h3>
+			<ul>
+				<li>
+					<div class="con">
+						<h4>AS/29</h4>
+						<p>春天百货女士时尚馆，一层</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="sortCategory">
+			<h3>D</h3>
+			<ul>
+				<li>
+					<div class="con">
+						<h4>DAVID YURMAN</h4>
+						<p>春天百货女士时尚馆，一层</p>
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<h4>DE BEERSAGNELLE</h4>
+						<p>春天百货女士时尚馆，一层</p>
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<h4>DINH VAN</h4>
+						<p>春天百货女士时尚馆，一层</p>
+					</div>
+				</li>
+				<li>
+					<div class="con">
+						<h4>DIOR JOAILLERIE</h4>
+						<p>春天百货女士时尚馆，一层</p>
+					</div>
+				</li>
+			</ul>
 		</div>
 
-		<div class="D">
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/D.jpg" width="100%" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/D_title1.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/D_title2.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/D_title3.jpg" width="100%" class="brand_space line" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/brand/D_title4.jpg" width="100%" class="brand_space" />	
-		</div>	
-	</div>	
-</div>		
+	</div>
+</div>

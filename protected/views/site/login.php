@@ -1,33 +1,47 @@
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/bg.jpg" width="100%" class="login_bg"/>
-<div id="login">
-	<div class="login_con">
-		<div class="login">
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/logo.png" width="100%" />
-		</div>
-		<div class="tour_con">
-			<div class="tips">
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/tips.png" width="100%" />
+<div class="page login">
+	
+	<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/login_bg.jpg" width="100%" />
+	<div class="loginContainer">
+		<div class="login_con">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/logo.png" width="100%" />
+			<div class="login_tips">
+				欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！
 			</div>
-			<div class="tour_form">
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/number.png" width="100%" class="tour_label"/>
-			    <input type="text" class="tour tour_no"/>
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/name.png" width="100%" class="tour_label"/>
-			    <input type="text" class="tour tour_name"/>	
 
+			<div class="login_form">
+				<ul>
+					<li>
+						<p>导游证编号：</p>
+						<input type="text" name="code">
+					</li>
+					<li>
+						<p>姓名：</p>
+						<input type="text" name="name">
+					</li>
+				</ul>
 			</div>
-		</div>	
-		<div class="tour_btn">
-	    	<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/submit_btn.png" width="100%"/>
-	    </div>
-	</div>	
+
+			<a href="javascript:checkForm();" class="submit_btn">
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/submit_btn.png" width="100%" />
+			</a>
+		</div>
+	</div>
+
 </div>
+
 <script type="text/javascript">
-  $(".tour_btn").on("click",function(){
-  	var number=$(".tour_no").val();
-  	var name=$(".tour_name").val();
-  	if(number==""||name==""){
-  		$(".tips img").attr("src","<?php echo Yii::app()->request->baseUrl; ?>/images/spring/tour/sorry.png");
-  	}
-  
-  })
-</script>	
+	function checkForm(){
+		var codenum = $("input[name=code]").val();
+		var name = $("input[name=name]").val();
+
+		if(codenum == ""){
+			alert("导游证编号不能为空！");
+		}else if(name == ""){
+			alert("姓名不能为空！");
+		}else{
+			$(".login_tips").addClass("error").html("很抱歉，登录失败，请重新登录");
+			$("input").val("");
+			setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 3000)
+		}
+	}
+</script>

@@ -1,151 +1,123 @@
-<div id="personal">
-	<div class="personal_content">
-		<div class="personal_title">
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/personal.jpg" width="100%" />
-			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/logo.png" width="100%" style="margin: 4% 0 0 0 "/>
+<article>
+<header>
+	<img src="/vstyle/imgs/order_header.jpg" width="100%" />
+</header>
+<section class="container">
+	
+	<div class="personal_con">
+		<div class="personal_about">
+			法国春天百货奥斯曼总店設有中文导购团队为您提供量身定制形象顾问指导、订购限量版奢华精品等多种服务。预约私人导购服务, 请填写以下信息 :
 		</div>
-		<div class="form">
-			<ul>
-				<li>
-					<span>
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/sex.png" />
-					</span>
-					<select class="sex">
-						<option value="0"></option>
-						<option value="1">先生</option>
-						<option value="2">女士</option>
-					</select>	
-				</li>
-				<li>
-					<span>
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/name_l.png" />
-					</span>
-					<input type="text" class="name_l"/>
-				</li>
-				<li>
-					<span>
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/name_f.png" />
-					</span>
-					<input type="text" class="name_f"/>
-				</li>
-				<li>
-					<span class="book">
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/date.png" />
-					</span>
-					<input type="date" class="date"/>
-					
-				</li>
-				<li>
-					<span class="book">
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/time.png" />
-					</span>
-					<select class="time">
-						<option value="0"></option>
-						<option value="1">10:00</option>
-						<option value="2">11:00</option>
-					</select>
-				</li>
-				<li>
-					<span class="book">
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/contact.png" />
-					</span>
-					<select class="contact">
-						<option value="0"></option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-					</select>	
-				</li>
-				<li>
-					<input type="text" class="method"/>
-				</li>
-				<li>
-					<span>
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/pro_type.png" />
-					</span>
-				</li>
-				<li>
-				    <div class="radio">
-					    <label>
-					    <div class="radio-choose">
-					    	<div class="radio-btn"><i><input type="radio" name="radio-btn" value="1" checked="checked"></i>
-					    	</div>
-			            	<img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type1.png" />
-			            </div>
-			        	</label>
+		
+		<ul class="personal_form">
+			<li class="fstyle-1">
+				<span>称呼：</span> 
+				<select name="gender">
+					<option>请选择</option>
+					<option>先生</option>
+					<option>女士</option>
+				</select>
+			</li>
+			<li class="fstyle-1">
+				<span>姓：</span> 
+				<input type="text" name="surname">
+			</li>
+			<li class="fstyle-1">
+				<span>名：</span> 
+				<input type="text" name="name">
+			</li>
 
-			        	<label>
-			            <div class="radio-choose">
-				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
-				            </div>
-				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type2.png" />
-				        </div>
-				    	</label>
+			<li class="fstyle-2">
+				<span>希望预约日期：</span> 
+				<input type="date" name="date" value="2011-01-04">
+			</li>
+			<li class="fstyle-2">
+				<span>希望预约时间：</span> 
+				<input type="time" name="hour" value="10:00">
+			</li>
+			<li class="fstyle-2">
+				<span>希望联系方式：</span> 
+				<select name="contact">
+					<option>电话</option>
+					<option>邮箱</option>
+				</select>
+			</li>
+			<li class="fstyle-3">
+				<input type="text" name="contactVal">
+			</li>
+			<li class="fstyle-4">
+				<p>你寻找的产品类型：</p>
+				<span>
+					<label><input type="checkbox" name="chosetype" value="奢侈品与配饰">奢侈品与配饰</label>
+					<label><input type="checkbox" name="chosetype" value="女士时尚">女士时尚</label>
+					<label><input type="checkbox" name="chosetype" value="男士时尚">男士时尚 </label>
+					<label><input type="checkbox" name="chosetype" value="美妆与护肤">美妆与护肤</label>
+					<label><input type="checkbox" name="chosetype" value="儿童">儿童</label>
+					<label><input type="checkbox" name="chosetype" value="內衣">內衣</label>
+				</span>
+			</li>
 
-				    	<label>
-				        <div class="radio-choose">
-				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
-				            </div>
-				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type3.png" />
-			            </div>
-			        	</label>
+		</ul>
 
-			        	<label>
-			            <div class="radio-choose">
-				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
-				            </div>
-				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type4.png" />
-				        </div>
-				    	</label>
-
-				    	<label>	
-				        <div class="radio-choose">
-				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
-				            </div>
-				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type5.png" />
-			            </div>
-			        	</label>
-
-			        	<label>
-			            <div class="radio-choose">
-				            <div class="radio-btn"><i><input type="radio" name="radio-btn" checked="checked"></i>
-				            </div>
-				            <img class="radio_img" src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/type6.png" />
-				        </div>
-				    	</label>
-
-			        </div>
-
-				</li>
-
-				<li>
-					<span>
-						<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/pro_type.png" />
-					</span>
-				</li>
-				<li></li>
-				<li></li>
-				<li>
-					<br/>
-					
-				</li>
-				
-				
-
-			</ul>	
-		</div>	
 	</div>
-	<div class="personal_footer">
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/spring/personal/submit_btn.png" width="100%" class="submit_btn"/>
-	</div>		
-</div>
 
-<script>
-$(".radio-btn").on("click", function () {
-    var _this = $(this),
-        block = _this.parent().parent().parent();
-    block.find("input:radio").attr("checked", false);
-    block.find(".radio-btn").removeClass("checkedRadio");
-    _this.addClass("checkedRadio");
-    _this.find("input:radio").attr("checked", true);
-});
-</script>	
+</section>
+</article>
+<footer class="personal_footer">
+	<div class="con">
+		<a href="javascript:orderForm();">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/submit_btn.png" width="100%" />
+		</a>
+	</div>
+	<img src="/vstyle/imgs/footer_bg.png" width="100%" />
+</footer>
+
+<script type="text/javascript">
+	
+	function orderForm(){
+		var _gender = $("select[name='gender']").val();
+		var _surname = $("input[name='surname']").val();
+		var _name = $("input[name='name']").val();
+		var _date = $("input[name='date']").val();
+		var _hour = $("input[name='time']").val();
+		var _contactVal = $("input[name='contactVal']").val();
+		var _typeArr = [];
+
+		$("input[name='chosetype']").each(function(){
+			if($(this).is(':checked')){
+				_typeArr.push($(this).val());
+			}
+		})
+
+		if(_gender == "请选择"){
+			alert("请选择称呼！");
+		}else if(_surname == ""){
+			alert("姓不能为空！");
+		}else if(_name == ""){
+			alert("名不能为空！");
+		}else if(_contactVal == ""){
+			alert("请输入您的联系方式！");
+		}else if(_typeArr == ""){
+			alert("请选择您寻找的产品类型！");
+		}else{
+			alert("提交成功！");
+		}
+
+	}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
