@@ -349,6 +349,7 @@ footer.personal_footer .con a img{
 
 .personal_form li.fstyle-1 input{
 	border: 1px #c5c5c5 solid;
+	padding: 0 3%;
 }
 
 .personal_form li.fstyle-3 input{
@@ -358,6 +359,7 @@ footer.personal_footer .con a img{
 	vertical-align: middle;
 	width: 100%;
 	border: 1px #c5c5c5 solid;
+	padding: 0 3%;
 }
 
 .personal_form li.fstyle-2 span{
