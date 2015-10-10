@@ -8,6 +8,10 @@ body{
 	font-family: Arial,"微软雅黑";
 }
 
+.page{
+	position: relative;
+}
+
 .page,.sortTheme,.sortList,.sortCategory,.sortCategory ul{
 	width: 100%;
 	text-align: center;
@@ -183,12 +187,12 @@ footer .con a img{
 /* login */
 .loginContainer{
 	width: 80%;
-	height: 90%;
+	height: 70%;
 	background: rgba(255,255,255,0.75);
 	position: absolute;
 	left: 50%;
-	top: 50%;
-	margin: -45% 0 0 -40%;
+	top: 15%;
+	margin: 0 0 0 -40%;
 }
 
 .login_con{
@@ -200,7 +204,7 @@ footer .con a img{
 .login_tips{
 	font-size: 14px;
 	line-height: 20px;
-	height: 90px;
+	height: 86px;
 	display: inline-block;
 	width: 100%;
 	margin: 16px 0 0 0;
@@ -226,17 +230,18 @@ footer .con a img{
 
 .login_form ul li input{
 	width: 100%;
-	height: 30px;
-	line-height: 30px;
+	height: 32px;
+	line-height: 32px;
 	padding: 3%;
 	display: inline-block;
 	color: #333;
 	border: 1px #c5c5c5 solid;
 	border-radius: 3px;
+	background: #fff;
 }
 
 .submit_btn{
-	width: 52%;
+	width: 50%;
 	display: inline-block;
 	margin: 10% 0 0 0;
 }
@@ -350,6 +355,7 @@ footer.personal_footer .con a img{
 .personal_form li.fstyle-1 input{
 	border: 1px #c5c5c5 solid;
 	padding: 0 3%;
+	background: #fff;
 }
 
 .personal_form li.fstyle-3 input{
@@ -360,6 +366,7 @@ footer.personal_footer .con a img{
 	width: 100%;
 	border: 1px #c5c5c5 solid;
 	padding: 0 3%;
+	background: #fff;
 }
 
 .personal_form li.fstyle-2 span{
