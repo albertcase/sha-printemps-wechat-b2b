@@ -369,6 +369,10 @@ footer.personal_footer .con a img{
 	background: #fff;
 }
 
+.personal_form li.fstyle-3 p{
+	padding: 0 0 10px 0;
+}
+
 .personal_form li.fstyle-2 span{
 	width: 40%;
 	float: left;
