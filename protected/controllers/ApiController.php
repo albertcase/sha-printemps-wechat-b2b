@@ -10,9 +10,18 @@ class ApiController extends Controller
 
 	public function actionBrand()
 	{
+		switch ($store) {
+			case '1':
+				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+				break;
+			
+			default:
+				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
+				break;
+		}
 		$alpha=array();
 		$other=array();
-		$sql = "select * from same_brand order by brandtitle";
+		$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
 		$rs = Yii::app()->db->createCommand($sql)->select()->queryAll();
 		for($i=0;$i<count($rs);$i++){
 			if(in_array($rs[$i]['brandtitle'], $this->_alpha))
