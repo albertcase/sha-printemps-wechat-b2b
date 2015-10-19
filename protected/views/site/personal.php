@@ -106,8 +106,6 @@
 			alert("请输入您的联系方式！");
 		}else if(_typeArr == ""){
 			alert("请选择您寻找的产品类型！");
-		}else if(_brandVal == ""){
-			alert("请选择您寻找的品牌！");
 		}else{
 			alert("提交成功！");
 		}
