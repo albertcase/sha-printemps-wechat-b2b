@@ -8359,3 +8359,36 @@ REQUEST_URI=/api/brand
 in /vagrant/protected/controllers/ApiController.php (25)
 in /vagrant/index.php (19)
 >>>>>>> 38c80ebbc9181b4b47d19db9f62283706db2336c
+2015/10/28 14:18:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "check" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('check')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('check')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/check')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/check
+HTTP_REFERER=http://192.168.8.103:9032/site/login
+---
+2015/10/28 14:37:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "submit" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('submit')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('submit')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/submit')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/submit
+HTTP_REFERER=http://192.168.8.103:9032/site/personal
+---
+2015/10/28 14:42:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "submit" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('submit')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('submit')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/submit')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/submit
+HTTP_REFERER=http://192.168.8.103:9032/site/personal
+---

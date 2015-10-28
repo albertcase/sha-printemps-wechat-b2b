@@ -38,6 +38,7 @@
 			<li class="fstyle-2">
 				<span>希望联系方式：</span> 
 				<select name="contact">
+					<option>请选择</option>
 					<option>电话</option>
 					<option>邮箱</option>
 				</select>
@@ -80,12 +81,41 @@
 
 <script type="text/javascript">
 	
+	function formInterface(_sex, _firstname, _secondname, _ddata, _dtime, _contacttype, _contact, _product, _brandname){
+		$.ajax({
+	        type: "POST",
+	        url: "/api/submit",
+	        data: {
+	            "sex": _sex,
+	            "firstname": _firstname,
+	            "secondname": _secondname,
+	            "ddata": _ddata,
+	            "dtime": _dtime,
+	            "contacttype": _contacttype,
+	            "contact": _contact,
+	            "product": _product,
+	            "brandname": _brandname
+	        },
+	        dataType:"json"
+	    }).done(function(data){
+
+	    	if(data.code == 1){
+	    		alert("提交成功");
+	    	}else{
+	    		alert("很抱歉，提交失败，请刷新之后重新提交");
+	    	}
+	    
+	    })
+	}
+
+
 	function orderForm(){
 		var _gender = $("select[name='gender']").val();
 		var _surname = $("input[name='surname']").val();
 		var _name = $("input[name='name']").val();
 		var _date = $("input[name='date']").val();
 		var _hour = $("input[name='time']").val();
+		var _contact = $("select[name='contact']").val();
 		var _contactVal = $("input[name='contactVal']").val();
 		var _typeArr = [];
 		var _brandVal = $("input[name='brandVal']").val();
@@ -96,18 +126,24 @@
 			}
 		})
 
+		_typeArr = _typeArr.join("|");
+
 		if(_gender == "请选择"){
 			alert("请选择称呼！");
 		}else if(_surname == ""){
 			alert("姓不能为空！");
 		}else if(_name == ""){
 			alert("名不能为空！");
+		}else if(_contact == "请选择"){
+			alert("请选择联系方式类型！");
 		}else if(_contactVal == ""){
 			alert("请输入您的联系方式！");
 		}else if(_typeArr == ""){
 			alert("请选择您寻找的产品类型！");
 		}else{
-			alert("提交成功！");
+
+			formInterface(_gender, _surname, _name, _date, _hour, _contact, _contactVal, _typeArr, _brandVal);
+			//alert("提交成功！");
 		}
 
 	}
