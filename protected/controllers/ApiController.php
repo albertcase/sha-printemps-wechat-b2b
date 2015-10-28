@@ -1,15 +1,38 @@
 <?php
 
-class SiteController extends Controller
+class ApiController extends Controller
 {
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
+	private $_alpha=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-	public function actionIndex()
+	public function actionBrand()
 	{
-		$this->render('index');
+		switch ($store) {
+			case '1':
+				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+				break;
+			
+			default:
+				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
+				break;
+		}
+		$alpha=array();
+		$other=array();
+		$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
+		$rs = Yii::app()->db->createCommand($sql)->select()->queryAll();
+		for($i=0;$i<count($rs);$i++){
+			if(in_array($rs[$i]['brandtitle'], $this->_alpha))
+				$alpha[$rs[$i]['brandtitle']][]=$rs[$i];
+			else
+				$other[]=$rs[$i];
+		}
+		if(count($other)>=1)
+			$alpha['others']=$other;
+		echo json_encode($alpha);
+		Yii::app()->end();
 	}
 
 	public function actionOutlet(){
@@ -18,10 +41,6 @@ class SiteController extends Controller
 
 	public function actionFlagship(){
 		$this->render('flagship');
-	}
-
-	public function actionBrand(){
-		$this->render('brand');
 	}
 
 	public function actionPersonal(){

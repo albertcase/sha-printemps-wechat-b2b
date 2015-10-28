@@ -56,6 +56,12 @@
 					<label><input type="checkbox" name="chosetype" value="內衣">內衣</label>
 				</span>
 			</li>
+			<li class="fstyle-3">
+				<p>你寻找的品牌：</p>
+				<span>
+					<input type="text" name="brandVal">
+				</span>
+			</li>
 
 		</ul>
 
@@ -82,6 +88,7 @@
 		var _hour = $("input[name='time']").val();
 		var _contactVal = $("input[name='contactVal']").val();
 		var _typeArr = [];
+		var _brandVal = $("input[name='brandVal']").val();
 
 		$("input[name='chosetype']").each(function(){
 			if($(this).is(':checked')){
