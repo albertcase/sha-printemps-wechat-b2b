@@ -8392,3 +8392,14 @@ Stack trace:
 REQUEST_URI=/api/submit
 HTTP_REFERER=http://192.168.8.103:9032/site/personal
 ---
+2015/10/28 15:04:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "check" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('check')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('check')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/check')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/check
+HTTP_REFERER=http://192.168.8.103:9032/site/login
+---
