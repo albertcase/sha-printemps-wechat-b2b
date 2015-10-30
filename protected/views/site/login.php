@@ -48,9 +48,9 @@
 		var name = $("input[name=name]").val();
 
 		if(codenum == ""){
-			alert("导游证编号不能为空！");
+			alert("请输入导游证编号！");
 		}else if(name == ""){
-			alert("姓名不能为空！");
+			alert("请输入姓名！");
 		}else{
 
 			$.ajax({
