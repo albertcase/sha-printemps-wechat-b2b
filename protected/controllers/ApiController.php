@@ -35,12 +35,34 @@ class ApiController extends Controller
 		Yii::app()->end();
 	}
 
-	public function actionOutlet(){
-		$this->render('outlet');
+	public function actionCheck(){
+		$tag = false;
+		$cardnum = isset($_POST['cardnum']) ? $_POST['cardnum'] : $tag = true;
+		$name = isset($_POST['name']) ? $_POST['name'] : $tag = true;
+		if ($tag) {
+			echo json_encode(array('code' => '2', 'msg' => '验证失败'));
+			Yii::app()->end();
+		}
+		echo json_encode(array('code' => '1', 'msg' => '验证通过'));
+		Yii::app()->end();
 	}
 
-	public function actionFlagship(){
-		$this->render('flagship');
+	public function actionSubmit(){
+		$tag = false;
+		$sex = isset($_POST['sex']) ? $_POST['sex'] : $tag = true;
+		$firstname = isset($_POST['firstname']) ? $_POST['firstname'] : $tag = true;
+		$secondname = isset($_POST['secondname']) ? $_POST['secondname'] : $tag = true;
+		$ddata = isset($_POST['ddata']) ? $_POST['ddata'] : $tag = true;
+		$dtime = isset($_POST['dtime']) ? $_POST['dtime'] : $tag = true;
+		$contacttype = isset($_POST['contacttype']) ? $_POST['contacttype'] : $tag = true;
+		$contact = isset($_POST['contact']) ? $_POST['contact'] : $tag = true;
+		$product = isset($_POST['product']) ? $_POST['product'] : $tag = true;
+		if ($tag) {
+			echo json_encode(array('code' => '2', 'msg' => '验证失败'));
+			Yii::app()->end();
+		}
+		echo json_encode(array('code' => '1', 'msg' => '验证通过'));
+		Yii::app()->end();
 	}
 
 	public function actionPersonal(){
