@@ -8201,13 +8201,46 @@ REQUEST_URI=/vstyle/imgs/logo.jpg
 HTTP_REFERER=http://192.168.8.102:9032/site/login
 >>>>>>> 4057569115500a882f5a94deb9bff4f9aeb6b7b9
 ---
+<<<<<<< HEAD
+2015/10/13 17:15:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+=======
 2015/10/16 11:37:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+>>>>>>> 38c80ebbc9181b4b47d19db9f62283706db2336c
 Stack trace:
 #0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
 #1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
 #2 /vagrant/index.php(19): CApplication->run()
 #3 {main}
 REQUEST_URI=/favicon.ico
+<<<<<<< HEAD
+HTTP_REFERER=http://192.168.8.104:9032/
+---
+2015/10/13 17:15:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "login"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('login')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/login
+---
+2015/10/19 11:10:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://127.0.0.1:9032/
+---
+2015/10/19 11:10:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "api/brand"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/brand')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/api/brand
+---
+=======
 HTTP_REFERER=http://127.0.0.1:9032/
 ---
 2015/10/16 16:03:13 [error] [php] Only variables should be passed by reference (/vagrant/protected/controllers/SiteController.php:69)
@@ -8325,3 +8358,102 @@ Stack trace:
 REQUEST_URI=/api/brand
 in /vagrant/protected/controllers/ApiController.php (25)
 in /vagrant/index.php (19)
+>>>>>>> 38c80ebbc9181b4b47d19db9f62283706db2336c
+2015/10/28 14:18:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "check" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('check')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('check')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/check')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/check
+HTTP_REFERER=http://192.168.8.103:9032/site/login
+---
+2015/10/28 14:37:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "submit" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('submit')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('submit')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/submit')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/submit
+HTTP_REFERER=http://192.168.8.103:9032/site/personal
+---
+2015/10/28 14:42:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "submit" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('submit')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('submit')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/submit')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/submit
+HTTP_REFERER=http://192.168.8.103:9032/site/personal
+---
+2015/10/28 15:04:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "check" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('check')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('check')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('api/check')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/api/check
+HTTP_REFERER=http://192.168.8.103:9032/site/login
+---
+2015/10/29 10:12:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.101:9032/site/login
+---
+2015/10/29 10:28:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.101:9032/
+---
+2015/10/29 10:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.101:9032/
+---
+2015/10/29 10:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.101:9032/
+---
+2015/10/29 10:29:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.101:9032/
+---
+2015/10/30 12:02:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.108:9032/site/personal
+---
