@@ -53,7 +53,9 @@
 		if(r!=null)return unescape(r[2]); return null;
 	}
 
-	var curBrandNum = GetQueryString("b");
+	var curBrandNum;
+
+	GetQueryString("b") == null ?  curBrandNum = 1 : curBrandNum = GetQueryString("b");
 
 	if(curBrandNum == 1){
 		$(".sortTheme .con h2").html("PRINTEMPS HAUSSMANN 奥斯曼旗舰店");
