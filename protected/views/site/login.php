@@ -40,17 +40,20 @@
 </div>
 
 <script type="text/javascript">
-
-
+	
+	function funTips(callBt){
+		$(".login_tips").addClass("error").html(callBt);
+		setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 3000)
+	}
 
 	function checkForm(){
 		var codenum = $("input[name=code]").val();
 		var name = $("input[name=name]").val();
 
 		if(codenum == ""){
-			alert("请输入导游证编号！");
+			funTips("请输入导游证编号！");
 		}else if(name == ""){
-			alert("请输入姓名！");
+			funTips("请输入姓名！");
 		}else{
 
 			$.ajax({
@@ -71,9 +74,8 @@
 		    		callbackTips = "很抱歉，登录失败，请重新登录";
 		    	}
 		    	
-		    	$(".login_tips").addClass("error").html(callbackTips);
 				$("input").val("");
-				setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 3000)
+				funTips(callbackTips);
 		    })
 			
 		}
