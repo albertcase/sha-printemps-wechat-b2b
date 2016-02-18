@@ -99,7 +99,7 @@
     				break;
     }
 
-
+    console.log(categorieVal)
     $(".sortTheme .con h2").html(categorieVal);
 
 
