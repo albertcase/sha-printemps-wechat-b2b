@@ -18,6 +18,10 @@ class ApiController extends Controller
 			case '2':
 				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
 				break;
+
+			default:
+				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+				break;
 		}
 		switch ($categorie) {
 			case '1':
