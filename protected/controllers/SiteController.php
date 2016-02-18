@@ -36,7 +36,7 @@ class SiteController extends Controller
 		$this->render('login');
 	}
 
-	public function actionStore($id)
+	public function actionStore($id, categorie)
 	{
 		$sql = "select * from same_store where id = ".intval($id);
 		$store = Yii::app()->db->createCommand($sql)->queryRow();
