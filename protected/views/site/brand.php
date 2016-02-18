@@ -2,7 +2,7 @@
 <div class="page sort">
 	<div class="sortTheme">
 		<div class="con">
-			<h2>珠宝与高级钟表</h2>
+			<h2></h2>
 			<p>
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/sortimg.jpg" width="100%" />	
 			</p>
@@ -75,7 +75,7 @@
            //console.log(data);
            var sortHtml = $.map(data, function(k, v){
            		var sortContentHtml = $.map(k ,function(ck, cv){
-           			return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ck.description+'</p></div></li>'
+           			return '<li><div class="con"><h4>'+ck.categorie+'</h4><p>'+ck.description+'</p></div></li>'
            		}).join("");
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");
