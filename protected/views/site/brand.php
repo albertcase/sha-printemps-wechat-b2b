@@ -55,8 +55,8 @@
 
 	var curBrandNum, categorieNum, categorieVal;
 
-	GetQueryString("b") == null ?  curBrandNum = "all" : curBrandNum = GetQueryString("b");
-	GetQueryString("categorie") == null ?  categorieNum = "all" : categorieNum = GetQueryString("categorie");
+	GetQueryString("b") == null ?  curBrandNum = "" : curBrandNum = GetQueryString("b");
+	GetQueryString("categorie") == null ?  categorieNum = "" : categorieNum = GetQueryString("categorie");
 
 	/*if(curBrandNum == 1){
 		$(".sortTheme .con h2").html("PRINTEMPS HAUSSMANN 奥斯曼旗舰店");
@@ -121,6 +121,7 @@
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");
 
+           sortHtml == "" ? sortHtml = "无当前分类内容!" : sortHtml = sortHtml
            $(".sortList").html(sortHtml);
            $(".sortCategory").eq(0).find("h3").addClass("hover");
 
