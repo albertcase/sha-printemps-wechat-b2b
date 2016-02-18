@@ -121,6 +121,7 @@
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");
 
+           sortHtml == ""?sortHtml = "无当前分类内容!"||sortHtml = sortHtml
            $(".sortList").html(sortHtml);
            $(".sortCategory").eq(0).find("h3").addClass("hover");
 
