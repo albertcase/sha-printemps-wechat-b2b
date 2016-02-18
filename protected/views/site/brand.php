@@ -66,35 +66,35 @@
 
 
     switch(categorieNum) {
-                case 1:
+                case '1':
     				categorieVal = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
     				break;
 
-    			case 2:
+    			case '2':
     			    categorieVal = 'BEAUTY 美容护肤';
     				break;
 
-    			case 3:
+    			case '3':
     				categorieVal = 'WOMEN 女士';
     				break;
 
-    			case 4:
+    			case '4':
     				categorieVal = 'MEN 男士';
     				break;
 
-    			case 5:
+    			case '5':
     				categorieVal = 'CHILDREN 儿童时尚';
     				break;
 
-    			case 6:
+    			case '6':
     				categorieVal = 'ACCESSORIES 时尚配饰';
     				break;
 
-    			case 7:
+    			case '7':
     				categorieVal = 'BEAUTY 美容护肤';
     				break;
 
-    			case 8:
+    			case '8':
     				categorieVal = 'WATCHES & JEWELLERY 配饰与奢华精品';
     				break;
     }
