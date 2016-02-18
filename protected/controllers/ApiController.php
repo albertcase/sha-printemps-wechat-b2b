@@ -8,61 +8,65 @@ class ApiController extends Controller
 	 */
 	private $_alpha=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-	public function actionBrand($store)
+	public function actionBrand($store, $categorie = '')
 	{
 		switch ($store) {
 			case '1':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
-				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
 				break;
 			
 			case '2':
 				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
-				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
 				break;
-
-			case '3':
+		}
+		switch ($categorie) {
+			case '1':
 				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
-			case '4':
+			case '2':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
 				$categorie = 'BEAUTY 美容护肤';
 				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
 				break;
 
-			case '5':
+			case '3':
 				$categorie = 'WOMEN 女士';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
-			case '6':
+			case '4':
 				$categorie = 'MEN 男士';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
-			case '7':
+			case '5':
 				$categorie = 'CHILDREN 儿童时尚';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
-			case '8':
+			case '6':
 				$categorie = 'ACCESSORIES 时尚配饰';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
-			case '9':
+			case '7':
 			    $storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
 				$categorie = 'BEAUTY 美容护肤';
 				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
 				break;
 
-			case '10':
+			case '8':
 				$categorie = 'WATCHES & JEWELLERY 配饰与奢华精品';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
+
+			default:
+				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
+				break;
 		}
+		
 		$alpha=array();
 		$other=array();	
 		$rs = Yii::app()->db->createCommand($sql)->select()->queryAll();
