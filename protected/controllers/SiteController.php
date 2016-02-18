@@ -36,11 +36,48 @@ class SiteController extends Controller
 		$this->render('login');
 	}
 
-	public function actionStore($id, categorie)
+	public function actionStore($id, $categorie ='')
 	{
 		$sql = "select * from same_store where id = ".intval($id);
 		$store = Yii::app()->db->createCommand($sql)->queryRow();
-		$this->render('store', array('store' => $store));
+		switch ($categorie) {
+			case '1':
+				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
+				break;
+
+			case '2':
+				$categorie = 'BEAUTY 美容护肤';
+				break;
+
+			case '3':
+				$categorie = 'WOMEN 女士';
+				break;
+
+			case '4':
+				$categorie = 'MEN 男士';
+				break;
+
+			case '5':
+				$categorie = 'CHILDREN 儿童时尚';
+				break;
+
+			case '6':
+				$categorie = 'ACCESSORIES 时尚配饰';
+				break;
+
+			case '7':
+				$categorie = 'BEAUTY 美容护肤';
+				break;
+
+			case '8':
+				$categorie = 'WATCHES & JEWELLERY 配饰与奢华精品';
+				break;
+
+			default:
+				$categorie = '';
+				break;
+		}
+		$this->render('store', array('store' => $store, 'categorie' => $categorie));
 	}
 
 	public function actionImport()
