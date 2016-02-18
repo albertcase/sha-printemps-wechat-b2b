@@ -75,7 +75,7 @@
            //console.log(data);
            var sortHtml = $.map(data, function(k, v){
            		var sortContentHtml = $.map(k ,function(ck, cv){
-           			return '<li><div class="con"><h4>'+ck.categorie+'</h4><p>'+ck.description+'</p></div></li>'
+           			return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ck.description+'</p></div></li>'
            		}).join("");
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");
