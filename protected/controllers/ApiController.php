@@ -23,13 +23,13 @@ class ApiController extends Controller
 
 			case '3':
 				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
-				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
 			case '4':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
 				$categorie = 'BEAUTY 美容护肤';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
 				break;
 
 			case '5':
