@@ -97,6 +97,13 @@
     			case '8':
     				categorieVal = 'WATCHES & JEWELLERY 配饰与奢华精品';
     				break;
+
+    			default :
+    			    if(curBrandNum != 2){
+    			        categorieVal = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+    			    }else{
+    			        categorieVal = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
+    			    }
     }
 
 
