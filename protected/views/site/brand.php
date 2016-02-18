@@ -53,15 +53,56 @@
 		if(r!=null)return unescape(r[2]); return null;
 	}
 
-	var curBrandNum;
+	var curBrandNum, categorieNum, categorieVal;
 
 	GetQueryString("b") == null ?  curBrandNum = 1 : curBrandNum = GetQueryString("b");
+	GetQueryString("categorie") == null ?  categorieNum = 1 : categorieNum = GetQueryString("categorie");
 
-	if(curBrandNum == 1){
+	/*if(curBrandNum == 1){
 		$(".sortTheme .con h2").html("PRINTEMPS HAUSSMANN 奥斯曼旗舰店");
 	}else if(curBrandNum == 2){
 		$(".sortTheme .con h2").html("PRINTEMPS DU LOUVRE 卢浮春天百货");
-	}
+	}*/
+
+
+    switch(categorieNum) {
+                case '1':
+    				categorieVal = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
+    				break;
+
+    			case '2':
+    			    categorieVal = 'BEAUTY 美容护肤';
+    				break;
+
+    			case '3':
+    				categorieVal = 'WOMEN 女士';
+    				break;
+
+    			case '4':
+    				categorieVal = 'MEN 男士';
+    				break;
+
+    			case '5':
+    				categorieVal = 'CHILDREN 儿童时尚';
+    				break;
+
+    			case '6':
+    				categorieVal = 'ACCESSORIES 时尚配饰';
+    				break;
+
+    			case '7':
+    				categorieVal = 'BEAUTY 美容护肤';
+    				break;
+
+    			case '8':
+    				categorieVal = 'WATCHES & JEWELLERY 配饰与奢华精品';
+    				break;
+    }
+
+
+    $(".sortTheme .con h2").html(categorieVal);
+
+
 
 
 
@@ -69,7 +110,7 @@
 	var sortArr = [], topv = {},curpos = "";
 	$.ajax({
         type: "GET",
-        url: "/api/brand?store=" + curBrandNum,
+        url: "/api/brand?store=" + curBrandNum + "&categorie=" + categorieNum,
         dataType:"json"
     }).done(function(data){
            //console.log(data);
