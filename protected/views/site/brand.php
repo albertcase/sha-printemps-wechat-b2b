@@ -56,7 +56,7 @@
 	var curBrandNum, categorieNum, categorieVal;
 
 	GetQueryString("b") == null ?  curBrandNum = 1 : curBrandNum = GetQueryString("b");
-	GetQueryString("type") == null ?  categorieNum = 1 : categorieNum = GetQueryString("type");
+	GetQueryString("categorie") == null ?  categorieNum = 1 : categorieNum = GetQueryString("categorie");
 
 	/*if(curBrandNum == 1){
 		$(".sortTheme .con h2").html("PRINTEMPS HAUSSMANN 奥斯曼旗舰店");
@@ -99,7 +99,6 @@
     				break;
     }
 
-    console.log(categorieVal)
     $(".sortTheme .con h2").html(categorieVal);
 
 
