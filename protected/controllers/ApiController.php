@@ -13,15 +13,58 @@ class ApiController extends Controller
 		switch ($store) {
 			case '1':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
 				break;
 			
-			default:
+			case '2':
 				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
+				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
+				break;
+
+			case '3':
+				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
+				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
+				break;
+
+			case '4':
+				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
+				$categorie = 'BEAUTY 美容护肤';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				break;
+
+			case '5':
+				$categorie = 'WOMEN 女士';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				break;
+
+			case '6':
+				$categorie = 'MEN 男士';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				break;
+
+			case '7':
+				$categorie = 'CHILDREN 儿童时尚';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				break;
+
+			case '8':
+				$categorie = 'ACCESSORIES 时尚配饰';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				break;
+
+			case '9':
+			    $storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
+				$categorie = 'BEAUTY 美容护肤';
+				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
+				break;
+
+			case '10':
+				$categorie = 'WATCHES & JEWELLERY 配饰与奢华精品';
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 		}
 		$alpha=array();
-		$other=array();
-		$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
+		$other=array();	
 		$rs = Yii::app()->db->createCommand($sql)->select()->queryAll();
 		for($i=0;$i<count($rs);$i++){
 			if(in_array($rs[$i]['brandtitle'], $this->_alpha))
