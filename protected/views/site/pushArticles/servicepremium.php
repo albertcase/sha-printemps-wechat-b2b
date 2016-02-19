@@ -1,10 +1,13 @@
 <div class="page store">
      <div class="container">
             <h2>尊贵服务</h2>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/Premium Services.jpeg" width="100%
+
 
              <div class="infocontext">
+             <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/Premium Services.jpeg" width="100%" />
                 <p>
+                <br />
+                <br />
                 <strong>VIP贵宾服务:</strong><br />
                 敬请前来享受独一无二的VIP贵宾服务，领略绝无仅有<br />
                 <br />
