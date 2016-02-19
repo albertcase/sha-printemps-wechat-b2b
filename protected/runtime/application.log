@@ -9080,3 +9080,29 @@ Stack trace:
 REQUEST_URI=/vstyle/imgs/pushArticles/servicepremium/PersonalShoppingservice.jpeg
 HTTP_REFERER=http://192.168.8.100:9032/site/servicepremium
 ---
+2016/02/19 16:37:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/otherservice/otherservices.jpg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/otherservices.jpg
+HTTP_REFERER=http://192.168.8.100:9032/site/otherservice
+---
+2016/02/19 16:37:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/otherservice/otherservices.jpg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/otherservices.jpg
+HTTP_REFERER=http://192.168.8.100:9032/site/otherservice
+---
+2016/02/19 16:38:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/otherservice/otherservices.jpg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/otherservices.jpg
+---
