@@ -4,7 +4,7 @@
 
 
          <div class="infocontext">
-         <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/otherservice/11_otherservices.jpeg" width="100%" />
+         <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/otherservice/otherservices.jpeg" width="100%" />
 
             <p>
             <br />
