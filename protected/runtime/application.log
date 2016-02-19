@@ -8864,3 +8864,192 @@ Stack trace:
 REQUEST_URI=/vstyle/css/style.css
 HTTP_REFERER=http://192.168.8.100:9032/site/store
 ---
+2016/02/19 14:55:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 14:56:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 14:57:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/store
+---
+2016/02/19 14:58:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 15:00:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 15:00:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 15:04:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 15:25:36 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/otherservice".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/ot...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(44): CController->render('pushArticles/ot...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionOtherservice()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('otherservice')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/otherservi...')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/otherservice
+---
+2016/02/19 15:25:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/otherservice/11_otherservices.jpeg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/11_otherservices.jpeg
+HTTP_REFERER=http://192.168.8.100:9032/site/otherservice
+---
+2016/02/19 15:25:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/otherservice/11_otherservices.jpeg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/11_otherservices.jpeg
+HTTP_REFERER=http://192.168.8.100:9032/site/otherservice
+---
+2016/02/19 15:25:56 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/otherservice".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/ot...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(44): CController->render('pushArticles/ot...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionOtherservice()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('otherservice')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/otherservi...')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/otherservice
+---
+2016/02/19 15:27:30 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/otherservice".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/ot...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(44): CController->render('pushArticles/ot...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionOtherservice()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('otherservice')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/otherservi...')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/otherservice
+---
+2016/02/19 15:27:44 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/otherservice".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/ot...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(44): CController->render('pushArticles/ot...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionOtherservice()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('otherservice')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/otherservi...')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/otherservice
+---
+2016/02/19 15:28:05 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/otherservice".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/ot...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(44): CController->render('pushArticles/ot...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionOtherservice()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('otherservice')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/otherservi...')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/otherservice
+---
+2016/02/19 15:42:05 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/restaurant".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/re...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(48): CController->render('pushArticles/re...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionRestaurant()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('restaurant')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/restaurant')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/restaurant
+---
+2016/02/19 15:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/taxrefund
+---
+2016/02/19 15:45:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/restaurant
+---

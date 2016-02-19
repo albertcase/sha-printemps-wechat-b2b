@@ -462,7 +462,7 @@ footer.personal_footer .con a img{
 	font-size:24px;
 	width: 100%;
 	text-align: left;
-	padding: 16px 0 22px 0;
+	padding: 16px 0 18px 0;
 }
 
 .storeInfo{
@@ -503,6 +503,35 @@ footer.personal_footer .con a img{
 	color: #444;
 }
 
+.infocontext{
+	width: 100%;
+	text-align: left;
+	display: inline-block;
+	padding:0 0 10px 0;
+	line-height: 24px;
+	color: #444;
+	font-size: 14px;
+	text-align: justify;
+}
 
+.infocontext h5{
+	font-size: 18px;
+	padding: 8px 0;
+	width: 100%;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.infocontext p{
+	padding:6px 0;
+	width: 100%;
+	display: inline-block;
+}
+
+.infocontext p strong{
+	font-weight: bold;
+	padding: 0 0 6px 0;
+	font-size: 16px;
+}
 
 
