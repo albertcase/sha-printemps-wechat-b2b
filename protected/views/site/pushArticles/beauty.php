@@ -1,10 +1,10 @@
 <div class="page store">
     <div class="container">
         <h2>美容与护理</h2>
-        <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/beauty/Beauty.jpeg" width="100%" />
 
         <div class="infocontext">
-
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/beauty/Beauty.jpeg" width="100%" />
+            <br />
             <p>
             <strong>美发沙龙:</strong><br />
             在美仑美奂的欧式穹顶下与巴黎美景之前，享受独一无二的
