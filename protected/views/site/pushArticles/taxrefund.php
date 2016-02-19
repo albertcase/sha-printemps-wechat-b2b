@@ -3,7 +3,7 @@
         <h2>简易退税</h2>
 
 	    <div class="infocontext">
-	        <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/taxRefund/tax refund.jpg" width="100%" />
+	        <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/taxRefund/taxrefund.jpg" width="100%" />
 	        <br />
 
 	        <h5>简易退税指南 退税高达12%(1)</h5>
