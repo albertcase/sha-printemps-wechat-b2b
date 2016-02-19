@@ -36,48 +36,31 @@ class SiteController extends Controller
 		$this->render('login');
 	}
 
-	public function actionStore($id, $categorie ='')
-	{
-		$sql = "select * from same_store where id = ".intval($id);
-		$store = Yii::app()->db->createCommand($sql)->queryRow();
-		switch ($categorie) {
-			case '1':
-				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
-				break;
+	public function actionBeauty(){
+    		$this->render('pushArticles/beauty');
+    }
 
-			case '2':
-				$categorie = 'BEAUTY 美容护肤';
-				break;
+    public function actionOtherservice(){
+        		$this->render('pushArticles/otherservice');
+    }
 
-			case '3':
-				$categorie = 'WOMEN 女士';
-				break;
+    public function actionRestaurant(){
+        		$this->render('pushArticles/restaurant');
+    }
 
-			case '4':
-				$categorie = 'MEN 男士';
-				break;
+    public function actionServicepremium(){
+        		$this->render('pushArticles/servicepremium');
+    }
 
-			case '5':
-				$categorie = 'CHILDREN 儿童时尚';
-				break;
+    public function actionTaxrefund(){
+        		$this->render('pushArticles/taxrefund');
+    }
 
-			case '6':
-				$categorie = 'ACCESSORIES 时尚配饰';
-				break;
+	public function actionStore(){
+		//$sql = "select * from same_store where id = ".intval($id);
+		//$store = Yii::app()->db->createCommand($sql)->queryRow();
 
-			case '7':
-				$categorie = 'BEAUTY 美容护肤';
-				break;
-
-			case '8':
-				$categorie = 'WATCHES & JEWELLERY 配饰与奢华精品';
-				break;
-
-			default:
-				$categorie = '';
-				break;
-		}
-		$this->render('store', array('store' => $store, 'categorie' => $categorie));
+		$this->render('store');
 	}
 
 	public function actionImport()

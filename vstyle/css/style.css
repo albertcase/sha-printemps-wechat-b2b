@@ -453,7 +453,50 @@ footer.personal_footer .con a img{
 
 
 
+/* store */
+.store h2{
+	font-size:24px;
+	width: 100%;
+	text-align: left;
+	padding: 16px 0;
+}
 
+.storeInfo{
+	padding: 20px 0 0 0;
+	display: inline-block;
+	font-size: 16px;
+	line-height:27px;
+	font-family: "Heiti TC", Arial;
+	color: #444;
+	width: 90%;
+	margin: 0 0 0 10%;
+	position: relative;
+}
+
+.store h3{
+	font-size: 18px;
+	font-weight: bold;
+	padding:0 0 6px 0;
+}
+
+.storeInfo:before{
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+	background: url("../imgs/");
+}
+
+.store .teltext{
+	padding:6px 0;
+	width: 100%;
+	display: inline-block;
+}
+
+.store .teltext a{
+	color: #444;
+}
 
 
 
