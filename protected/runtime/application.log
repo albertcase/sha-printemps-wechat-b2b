@@ -9053,3 +9053,30 @@ Stack trace:
 REQUEST_URI=/vstyle/css/style.css
 HTTP_REFERER=http://192.168.8.100:9032/site/restaurant
 ---
+2016/02/19 16:11:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/servicepremium/PremiumServices.jpeg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/servicepremium/PremiumServices.jpeg
+HTTP_REFERER=http://192.168.8.100:9032/site/servicepremium
+---
+2016/02/19 16:13:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/servicepremium/VIPService.jpeg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/servicepremium/VIPService.jpeg
+HTTP_REFERER=http://192.168.8.100:9032/site/servicepremium
+---
+2016/02/19 16:13:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/imgs/pushArticles/servicepremium/PersonalShoppingservice.jpeg"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/imgs/pus...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/imgs/pushArticles/servicepremium/PersonalShoppingservice.jpeg
+HTTP_REFERER=http://192.168.8.100:9032/site/servicepremium
+---
