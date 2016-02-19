@@ -454,18 +454,22 @@ footer.personal_footer .con a img{
 
 
 /* store */
+.store .container{
+	padding-bottom: 1.2em;
+}
+
 .store h2{
 	font-size:24px;
 	width: 100%;
 	text-align: left;
-	padding: 16px 0;
+	padding: 16px 0 22px 0;
 }
 
 .storeInfo{
 	padding: 20px 0 0 0;
 	display: inline-block;
-	font-size: 16px;
-	line-height:27px;
+	font-size: 14px;
+	line-height:22px;
 	font-family: "Heiti TC", Arial;
 	color: #444;
 	width: 90%;
@@ -474,18 +478,19 @@ footer.personal_footer .con a img{
 }
 
 .store h3{
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
-	padding:0 0 6px 0;
+	padding:0 0 3px 0;
 }
 
-.storeInfo:before{
-	width: 20%;
+.flagIcon{
+	width: 6%;
 	height: 100%;
 	position: absolute;
-	left:0;
+	left:-10%;
 	top:0;
-	background: url("../imgs/");
+	background: url("../imgs/flagIcon.png") no-repeat center 16%;
+	background-size:100% auto;
 }
 
 .store .teltext{
