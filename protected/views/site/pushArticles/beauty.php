@@ -6,7 +6,6 @@
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/beauty/Beauty.jpeg" width="100%" />
             <p>
             <br />
-            <br />
             <strong>美发沙龙:</strong><br />
             在美仑美奂的欧式穹顶下与巴黎美景之前，享受独一无二的
             美发体验。您也可以在美发沙龙的私人休息室享受美发师为

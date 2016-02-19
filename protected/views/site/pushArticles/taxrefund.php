@@ -5,7 +5,6 @@
 	    <div class="infocontext">
 	        <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/taxRefund/tax refund.jpg" width="100%" />
 	        <br />
-	        <br />
 
 	        <h5>简易退税指南 退税高达12%(1)</h5>
 
