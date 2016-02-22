@@ -56,11 +56,10 @@ class SiteController extends Controller
         		$this->render('pushArticles/taxrefund');
     }
 
-	public function actionStore(){
-		//$sql = "select * from same_store where id = ".intval($id);
-		//$store = Yii::app()->db->createCommand($sql)->queryRow();
-
-		$this->render('store');
+	public function actionStore($id){
+		$sql = "select * from same_store where id = ".intval($id);
+		$store = Yii::app()->db->createCommand($sql)->queryRow();
+		$this->render('store', array('store' => $store));
 	}
 
 	public function actionImport()
