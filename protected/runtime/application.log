@@ -9106,3 +9106,22 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/vstyle/imgs/pushArticles/otherservice/otherservices.jpg
 ---
+2016/02/22 11:08:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.104:9032/
+---
+2016/02/22 11:13:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "instoreservices" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('instoreservices')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('instoreservices')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/instoreser...')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/instoreservices
+---
