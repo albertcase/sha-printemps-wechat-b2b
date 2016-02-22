@@ -5,9 +5,9 @@
 	    <div class="infocontext">
 	      <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/instoreservices/instoreservices.jpg" width="100%" />
 	      <br />
-
+            <br />
             <p>
-                  全店免费无线网络
+                  <strong>全店免费无线网络</strong>
             </p>
 
             <p>
