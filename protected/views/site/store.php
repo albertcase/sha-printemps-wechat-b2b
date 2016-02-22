@@ -7,7 +7,7 @@
     	    <span class="flagIcon"></span>
     	    <h3><?php echo $store['name'];?></h3>
     	    <p>地址: <?php echo $store['address'];?></p>
-    	    <p class="teltext">电话: <?php echo $store['phone'];?></p>
+    	    <p class="teltext">电话: <?php echo $store['telphone'];?></p>
     	    <p>营业时间: <?php echo $store['open'];?></p>
     	</div>
 </div>
