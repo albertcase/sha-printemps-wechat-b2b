@@ -9125,3 +9125,43 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/site/instoreservices
 ---
+2016/02/22 11:16:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "instoreservices" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('instoreservices')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('instoreservices')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/instoreser...')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/instoreservices
+---
+2016/02/22 11:17:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "instoreservices" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('instoreservices')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('instoreservices')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/instoreser...')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/instoreservices
+---
+2016/02/22 11:17:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "instoreservices" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('instoreservices')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('instoreservices')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/instoreser...')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/instoreservices
+---
+2016/02/22 11:17:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "taxrefund2" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('taxrefund2')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('taxrefund2')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/taxrefund2')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/taxrefund2
+---
