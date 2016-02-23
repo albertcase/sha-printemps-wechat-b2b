@@ -3,7 +3,7 @@
 <div class="container">
         <h2>巴黎春天百货</h2>
         <?php
-        if (file_exists(Yii::app()->request->baseUrl.'/vstyle/imgs/store/'.$store['id'].'.jpg')) {
+        if (file_exists('./vstyle/imgs/store/'.$store['id'].'.jpg')) {
         ?>
     	<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/store/<?php echo $store['id'];?>.jpg" width="100%" />
     	<?php
