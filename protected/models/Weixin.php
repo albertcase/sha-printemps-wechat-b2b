@@ -204,14 +204,14 @@ class Weixin{
     private function systemLog($content,$openid,$msgtype,$event=null,$eventkey=null)
     {
     	try{
-	    	$sql = "INSERT INTO same_getlog SET content=:content,openid=:openid,msgtype=:msgtype,event=:event,eventkey=:eventkey,timeint=:timeint";
+	    	$sql = "INSERT INTO same_getlog SET content=:content,openid=:openid,msgtype=:msgtype,event=:event,eventkey=:eventkey";
 			$command=$this->_db->createCommand($sql);
 			$command->bindParam(":content",$content,PDO::PARAM_STR);
 			$command->bindParam(":openid",$openid,PDO::PARAM_STR);
 			$command->bindParam(":msgtype",$msgtype,PDO::PARAM_STR);
 			$command->bindParam(":event",$event,PDO::PARAM_STR);
 			$command->bindParam(":eventkey",$eventkey,PDO::PARAM_STR);
-			$command->bindParam(":timeint",time(),PDO::PARAM_STR);
+			//$command->bindParam(":timeint",time(),PDO::PARAM_STR);
 			$command->execute();
 		}catch(Exception $e){
 			print_r($e);
