@@ -2,7 +2,13 @@
 
 <div class="container">
         <h2>巴黎春天百货</h2>
+        <?php
+        if (is_dir(Yii::app()->request->baseUrl.'/vstyle/imgs/store/'.$store['id'].'.jpg')) {
+        ?>
     	<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/store/<?php echo $store['id'];?>.jpg" width="100%" />
+    	<?php
+    	}
+    	?>
     	<div class="storeInfo">
     	    <span class="flagIcon"></span>
     	    <h3><?php echo $store['name'];?></h3>
