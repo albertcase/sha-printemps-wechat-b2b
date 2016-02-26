@@ -9376,3 +9376,12 @@ Stack trace:
 REQUEST_URI=/vstyle/css/style.css
 HTTP_REFERER=http://192.168.8.100:9032/site/question
 ---
+2016/02/26 17:57:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
