@@ -36,6 +36,10 @@ class SiteController extends Controller
 		$this->render('login');
 	}
 
+	public function actionSitmap(){
+    		$this->render('sitmap');
+    }
+
 	public function actionBeauty(){
     		$this->render('pushArticles/beauty');
     }
