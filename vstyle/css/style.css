@@ -536,3 +536,58 @@ footer.personal_footer .con a img{
 }
 
 
+
+/* question */
+.qNode{
+	width: 100%;
+	display: inline-block;
+	padding: 10px 0 20px 0;
+	line-height: 22px;
+}
+
+.qNode dl{
+	width: 100%;
+	float: left;
+	display: inline-block;
+	padding: 4px 0;
+	font-size: 14px;
+	color: #444;
+	font-family: "Heiti TC";
+}
+
+.qNode dl.qtitle{
+	font-size: 16px;
+	color: #333;
+}
+
+.qNode dt{
+	width: 5%;
+	float: left;
+	display: inline-block;
+}
+
+.qNode dd{
+	width: 92%;
+	float: left;
+	display: inline-block;
+	margin: 0 0 0 3%;
+	font-size: 15px;
+	/*text-align: justify;*/
+}
+
+.qNode dl.qtitle dt,.qNode dl.qtitle dd,.qNode dt,.qNode dd em,.qNode dd a{
+	font-weight: bold;
+	color: #333;
+	font-size: 16px;
+}
+
+.qNode dd p{
+	padding: 6px 0;
+	width: 100%;
+	display: inline-block;
+}
+
+.qNode dd em{
+	padding: 0 0 6px 0;
+	display: inline-block;
+}

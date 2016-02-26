@@ -9165,3 +9165,214 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/site/taxrefund2
 ---
+2016/02/23 10:49:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.100:9032/
+---
+2016/02/26 16:29:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "beaty" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('beaty')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('beaty')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/beaty')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/beaty
+---
+2016/02/26 16:33:35 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/question".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/qu...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(68): CController->render('pushArticles/qu...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionQuestion()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('question')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/question')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/question
+---
+2016/02/26 16:44:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:44:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:45:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:48:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:49:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:49:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:50:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:51:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:51:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:52:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 16:53:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:09:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:10:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:13:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:37:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:38:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
+2016/02/26 17:39:21 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "pushArticles/question".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('pushArticles/qu...', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(68): CController->render('pushArticles/qu...')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionQuestion()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('question')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/question')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/question
+---
+2016/02/26 17:40:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/question
+---
