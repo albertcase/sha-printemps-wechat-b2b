@@ -2,9 +2,9 @@
 
 class Weixin{
 
-	private $_TOKEN = 'chloewechat';
-	private $_appid = 'wxd506f9846b906bbc';
-	private $_secret = '795ab96e661510dcf639f99534395225';
+	private $_TOKEN = 'printempsb2b';
+	private $_appid = 'wx5724db07982c3896';
+	private $_secret = 'd9e9ae55f59bb02fa1b71146520cda03';
 	private $_eventKey = array('A1','B1','C1','C2','B2','B4','A2');
 	private $_db = null;
 	private $_fromUsername = null;
@@ -139,11 +139,12 @@ class Weixin{
 					$baidu = json_decode($baidu, true);
 					$lat = $baidu['result'][0]['x'];
 					$lng = $baidu['result'][0]['y'];
-					$squares = $this->returnSquarePoint($lng,$lat,10000);
-
-
-
-					$info_sql = "select * from `same_store` where lat<>0 and lat>{$squares['right-bottom']['lat']} and lat<{$squares['left-top']['lat']} and lng<{$squares['left-top']['lng']} and lng>{$squares['right-bottom']['lng']} ";
+					$squares = $this->returnSquarePoint($lng,$lat,300000);
+					$latbig = $squares['right-bottom']['lat'] > $squares['left-top']['lat'] ? $squares['right-bottom']['lat'] : $squares['left-top']['lat'];
+					$latsmall = $squares['right-bottom']['lat'] > $squares['left-top']['lat'] ? $squares['left-top']['lat'] : $squares['right-bottom']['lat'];
+					$lngbig = $squares['left-top']['lng'] > $squares['right-bottom']['lng'] ? $squares['left-top']['lng'] : $squares['right-bottom']['lng'];
+					$lngsmall = $squares['left-top']['lng'] > $squares['right-bottom']['lng'] ? $squares['right-bottom']['lng'] : $squares['left-top']['lng'];
+					$info_sql = "select * from `same_store` where lat<>0 and (lat between {$latsmall} and {$latbig}) and (lng between {$lngsmall} and {$lngbig})";
 					$rs = Yii::app()->db->createCommand($info_sql)->queryAll();
 					if(!$rs){
 						return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '很抱歉，您的附近没有门店');
@@ -204,14 +205,14 @@ class Weixin{
     private function systemLog($content,$openid,$msgtype,$event=null,$eventkey=null)
     {
     	try{
-	    	$sql = "INSERT INTO same_getlog SET content=:content,openid=:openid,msgtype=:msgtype,event=:event,eventkey=:eventkey,timeint=:timeint";
+	    	$sql = "INSERT INTO same_getlog SET content=:content,openid=:openid,msgtype=:msgtype,event=:event,eventkey=:eventkey";
 			$command=$this->_db->createCommand($sql);
 			$command->bindParam(":content",$content,PDO::PARAM_STR);
 			$command->bindParam(":openid",$openid,PDO::PARAM_STR);
 			$command->bindParam(":msgtype",$msgtype,PDO::PARAM_STR);
 			$command->bindParam(":event",$event,PDO::PARAM_STR);
 			$command->bindParam(":eventkey",$eventkey,PDO::PARAM_STR);
-			$command->bindParam(":timeint",time(),PDO::PARAM_STR);
+			//$command->bindParam(":timeint",time(),PDO::PARAM_STR);
 			$command->execute();
 		}catch(Exception $e){
 			print_r($e);
