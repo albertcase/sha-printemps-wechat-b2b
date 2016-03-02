@@ -629,6 +629,14 @@ footer.personal_footer .con a img{
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
 
+	.login_form ul li{
+		padding: 6px 0;
+	}
+
+	.login_tips span{
+		padding: 9px 0;
+	}
+
 	.login_tips em{
 		width: 100%;
 		padding: 0 0 2% 0;
@@ -646,6 +654,14 @@ footer.personal_footer .con a img{
 
 /* 6 */
 @media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+
+	.login_form ul li{
+		padding: 9px 0;
+	}
+
+	.login_tips span{
+		padding: 9px 0;
+	}
 
 	.login_tips em{
 		width: 100%;
