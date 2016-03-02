@@ -9385,3 +9385,87 @@ Stack trace:
 REQUEST_URI=/vstyle/css/style.css
 HTTP_REFERER=http://192.168.8.100:9032/site/question
 ---
+2016/03/02 10:58:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+HTTP_REFERER=http://192.168.8.100:9032/
+---
+2016/03/02 10:59:55 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "login".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('login', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(36): CController->render('login')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('login')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/login
+---
+2016/03/02 11:04:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/login
+---
+2016/03/02 11:11:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/login
+---
+2016/03/02 11:15:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/login
+---
+2016/03/02 11:18:30 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "login".' in /vagrant/protected/framework/web/CController.php:878
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(782): CController->renderPartial('login', NULL, true)
+#1 /vagrant/protected/controllers/SiteController.php(36): CController->render('login')
+#2 /vagrant/protected/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /vagrant/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /vagrant/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /vagrant/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('login')
+#7 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#8 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/site/login
+---
+2016/03/02 11:24:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/login
+---
+2016/03/02 11:26:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "vstyle/css/style.css"。' in /vagrant/protected/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('vstyle/css/styl...')
+#1 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /vagrant/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/vstyle/css/style.css
+HTTP_REFERER=http://192.168.8.100:9032/site/login
+---

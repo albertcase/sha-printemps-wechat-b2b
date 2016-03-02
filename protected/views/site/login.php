@@ -43,7 +43,7 @@
 	
 	function funTips(callBt){
 		$(".login_tips").addClass("error").html(callBt);
-		setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 3000)
+		setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 6000)
 	}
 
 	function checkForm(){
@@ -71,7 +71,7 @@
 		    		$("#successTips").css({"display":"inline-block"});
 		    		callbackTips = "验证成功";
 		    	}else{
-		    		callbackTips = "很抱歉，登录失败，请重新登录";
+		    		callbackTips = "<em>很抱歉，登陆失败 <br /> 请重新输入</em><p>如需要联系法国春天百货国际部</p><p>请致电：</p><p><a href='tel:+33142825579'>+33 1 42 82 55 79</a> <br /><a href='tel:+33142825580'>+33 1 42 82 55 80</a></p>";
 		    	}
 		    	
 				$("input").val("");

@@ -195,7 +195,7 @@ footer .con a img{
 /* login */
 .loginContainer{
 	width: 80%;
-	height: 70%;
+	min-height: 70%;
 	background: rgba(255,255,255,0.75);
 	position: absolute;
 	left: 50%;
@@ -206,17 +206,19 @@ footer .con a img{
 .login_con{
 	width: 80%;
 	display: inline-block;
-	margin: 12% 0 0 0;
+	margin: 12% 0 6% 0;
 }
 
 .login_tips{
 	font-size: 14px;
 	line-height: 20px;
-	height: 86px;
+	min-height: 86px;
 	display: inline-block;
 	width: 100%;
 	margin: 16px 0 0 0;
 }
+
+
 
 .login_form,.login_form ul,.login_form ul li{
 	width: 100%;
@@ -591,3 +593,84 @@ footer.personal_footer .con a img{
 	padding: 0 0 6px 0;
 	display: inline-block;
 }
+
+
+
+
+.login_tips em{
+	width: 100%;
+	/*padding: 0 0 2% 0;*/
+	display: inline-block;
+}
+
+.login_tips p{
+	width: 100%;
+	display: inline-block;
+	text-align: left;
+	color: #111010;
+	font-size: 12px;
+	line-height:18px;
+}
+
+.login_tips p a{
+	color: #111010;
+}
+
+
+/* 6plus */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+
+	.login_tips em{
+		width: 100%;
+		padding: 0 0 2% 0;
+		display: inline-block;
+	}
+
+	.login_tips p{
+		padding: 1% 0;
+		width: 100%;
+		display: inline-block;
+		text-align: left;
+		color: #111010;
+	}
+}
+
+/* 6 */
+@media only screen and (min-device-width: 375px) and (max-device-width: 410px) and (orientation: portrait) {
+
+	.login_tips em{
+		width: 100%;
+		padding: 0 0 2% 0;
+		display: inline-block;
+	}
+
+	.login_tips p{
+		padding: 1% 0;
+		width: 100%;
+		display: inline-block;
+		text-align: left;
+		color: #111010;
+	}
+
+}
+
+
+/* 5s */
+
+@media handheld and (min-height:490px),screen and (max-height:510px) {
+	.login_tips{
+		margin: 6px 0 0 0;
+		height: auto;
+	}
+}
+
+/* 4s */
+
+@media handheld and (min-height:400px),screen and (max-height:420px) {
+	.login_tips{
+		margin: 4px 0 0 0;
+		height: auto;
+	}
+}
+
