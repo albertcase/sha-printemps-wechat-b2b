@@ -109,7 +109,7 @@
 
     $(".sortTheme .con h2").html(categorieVal);
 
-    if(categorieNum >= 1 && categorieNum >=8){
+    if(categorieNum >= 1 && categorieNum <=8){
     	$(".categorieImg").attr("src", "/vstyle/imgs/categorieImg/c"+categorieNum+".jpg");
     }
     
