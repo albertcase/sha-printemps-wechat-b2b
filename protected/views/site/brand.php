@@ -108,7 +108,7 @@
 
 
     $(".sortTheme .con h2").html(categorieVal);
-    $(".categorieImg").attr("src", baseUrl + "/vstyle/imgs/categorieImg/c"+categorieNum+".jpg");
+    $(".categorieImg").attr("src", "/vstyle/imgs/categorieImg/c"+categorieNum+".jpg");
 
 
 
