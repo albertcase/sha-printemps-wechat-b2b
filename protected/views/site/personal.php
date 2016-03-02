@@ -114,7 +114,7 @@
 		var _surname = $("input[name='surname']").val();
 		var _name = $("input[name='name']").val();
 		var _date = $("input[name='date']").val();
-		var _hour = $("input[name='time']").val();
+		var _hour = $("input[name='hour']").val();
 		var _contact = $("select[name='contact']").val();
 		var _contactVal = $("input[name='contactVal']").val();
 		var _typeArr = [];
@@ -127,7 +127,7 @@
 		})
 
 		_typeArr = _typeArr.join("|");
-
+		
 		if(_gender == "请选择"){
 			alert("请选择称呼！");
 		}else if(_surname == ""){
@@ -141,7 +141,7 @@
 		}else if(_typeArr == ""){
 			alert("请选择您寻找的产品类型！");
 		}else{
-
+			
 			formInterface(_gender, _surname, _name, _date, _hour, _contact, _contactVal, _typeArr, _brandVal);
 			//alert("提交成功！");
 		}
