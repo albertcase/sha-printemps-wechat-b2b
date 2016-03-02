@@ -100,7 +100,8 @@
 	    }).done(function(data){
 
 	    	if(data.code == 1){
-	    		alert("提交成功");
+	    		window.location.href = "/site/congratulation"; 
+	    		//alert("提交成功");
 	    	}else{
 	    		alert("很抱歉，提交失败，请刷新之后重新提交");
 	    	}
@@ -127,7 +128,7 @@
 		})
 
 		_typeArr = _typeArr.join("|");
-		
+
 		if(_gender == "请选择"){
 			alert("请选择称呼！");
 		}else if(_surname == ""){

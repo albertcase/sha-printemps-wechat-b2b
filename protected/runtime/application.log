@@ -9487,3 +9487,14 @@ Stack trace:
 REQUEST_URI=/vstyle/css/style.css
 HTTP_REFERER=http://192.168.8.100:9032/site/login
 ---
+2016/03/02 15:16:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "site" 动作.' in /vagrant/protected/framework/web/CController.php:483
+Stack trace:
+#0 /vagrant/protected/framework/web/CController.php(270): CController->missingAction('site')
+#1 /vagrant/protected/framework/web/CWebApplication.php(282): CController->run('site')
+#2 /vagrant/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/site/congr...')
+#3 /vagrant/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#4 /vagrant/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/site/site/congratulation
+HTTP_REFERER=http://192.168.8.100:9032/site/personal
+---
