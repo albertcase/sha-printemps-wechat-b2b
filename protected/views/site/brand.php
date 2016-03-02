@@ -4,7 +4,7 @@
 		<div class="con">
 			<h2></h2>
 			<p>
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/sortimg.jpg" width="100%" />	
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/sortimg.jpg" class="categorieImg" width="100%" />	
 			</p>
 		</div>
 	</div>
@@ -108,6 +108,7 @@
 
 
     $(".sortTheme .con h2").html(categorieVal);
+    $(".categorieImg").attr("src", baseUrl + "/vstyle/imgs/categorieImg/c"+categorieNum+".jpg");
 
 
 
