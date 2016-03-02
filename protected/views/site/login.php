@@ -6,17 +6,21 @@
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/logo.png" width="100%" />
 			<div class="loginframe" style="display:inline-block;">
 				<div class="login_tips">
-					欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！
+					欢迎使用<br />
+                    法国春天百货导游服务账号<br />
+                    <span>请通过您的春天商务编号与<br />
+                    您的姓氏登录，谢谢！</span>
+
 				</div>
 
 				<div class="login_form">
 					<ul>
 						<li>
-							<p>导游证编号：</p>
+							<p>春天商务编号： </p>
 							<input type="text" name="code">
 						</li>
 						<li>
-							<p>姓名：</p>
+							<p>姓氏：</p>
 							<input type="text" name="name">
 						</li>
 					</ul>
