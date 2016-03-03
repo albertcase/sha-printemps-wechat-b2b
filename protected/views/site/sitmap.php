@@ -29,9 +29,9 @@
 
 <script type="text/javascript">
 
-var telElement = document.getElementById("tel");
-var telU_Element = telElement.getElementsByTagName("u")[0];
-var tel = telU_Element.innerHTML.replace(/\s/ig,'');
-telElement.setAttribute("href","tel:" + tel);
+//var telElement = document.getElementById("tel");
+//var telU_Element = telElement.getElementsByTagName("u")[0];
+//var tel = telU_Element.innerHTML.replace(/\s/ig,'');
+//telElement.setAttribute("href","tel:" + tel);
 
 </script>
