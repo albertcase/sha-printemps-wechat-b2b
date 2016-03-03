@@ -28,12 +28,17 @@
 			</li>
 
 			<li class="fstyle-2">
-				<span>希望预约日期：</span> 
-				<input type="date" name="date" value="2011-01-04">
+				<span>希望预约日期：</span>
+                <select name="date" id="date">
+                    <option>请选择</option>
+                </select>
 			</li>
 			<li class="fstyle-2">
-				<span>希望预约时间：</span> 
-				<input type="time" name="hour" value="10:00">
+				<span>希望预约时间：</span>
+				<select name="hour" id="hour">
+                    <option>请选择</option>
+                </select>
+
 			</li>
 			<li class="fstyle-2">
 				<span>希望联系方式：</span> 
@@ -80,7 +85,26 @@
 </footer>
 
 <script type="text/javascript">
-	
+	function isPhoneNum(value){
+      return /^0?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
+    };
+
+    function isEmailNum(value){
+        return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value);
+    }
+
+    function isPEFun(nType,noNum){
+        if(nType == "电话"){
+            if(isPhoneNum(noNum)){
+                return true;
+            }
+        }else{
+            if(isEmailNum(noNum)){
+                return true;
+            }
+        }
+    }
+
 	function formInterface(_sex, _firstname, _secondname, _ddata, _dtime, _contacttype, _contact, _product, _brandname){
 		$.ajax({
 	        type: "POST",
@@ -100,7 +124,7 @@
 	    }).done(function(data){
 
 	    	if(data.code == 1){
-	    		window.location.href = "/site/congratulation"; 
+	    		window.location.href = "/site/congratulation";
 	    		//alert("提交成功");
 	    	}else{
 	    		alert("很抱歉，提交失败，请刷新之后重新提交");
@@ -114,8 +138,8 @@
 		var _gender = $("select[name='gender']").val();
 		var _surname = $("input[name='surname']").val();
 		var _name = $("input[name='name']").val();
-		var _date = $("input[name='date']").val();
-		var _hour = $("input[name='hour']").val();
+		var _date = $("select[name='date']").val();
+		var _hour = $("select[name='hour']").val();
 		var _contact = $("select[name='contact']").val();
 		var _contactVal = $("input[name='contactVal']").val();
 		var _typeArr = [];
@@ -135,10 +159,14 @@
 			alert("姓不能为空！");
 		}else if(_name == ""){
 			alert("名不能为空！");
-		}else if(_contact == "请选择"){
+		}else if(_date == "" || _date == "请选择"){
+         	alert("请选择希望预约日期！");
+        }else if(_hour == "" || _hour == "请选择"){
+            alert("请选择希望预约时间！");
+        }else if(_contact == "请选择"){
 			alert("请选择联系方式类型！");
-		}else if(_contactVal == ""){
-			alert("请输入您的联系方式！");
+		}else if(!isPEFun(_contact, _contactVal)){
+			alert("您的联系方式填写有误！");
 		}else if(_typeArr == ""){
 			alert("请选择您寻找的产品类型！");
 		}else{
@@ -148,6 +176,112 @@
 		}
 
 	}
+
+
+
+
+function timeSetBox(pn){
+
+      //获取时间段
+      this.minPeriodTime = "10"; //早上10点
+      this.maxPeriodTime = "20"; //晚上20点
+      this.PeriodArr = [];
+      this.PeriodNode = pn;
+      this.timeSpacing = "15";
+
+      this.setDate = function(){
+        this.status = 6;
+      }
+
+      this.setPeriod = function(){
+        for(var i=this.minPeriodTime; i<this.maxPeriodTime; i++){
+        	for(var v=0; v<60/this.timeSpacing; v++){
+                var nv;
+                v*15==0?nv="00":nv = v*15;
+                this.PeriodArr.push("<option>"+i+":"+nv+"</option>");
+        	}
+        }
+      }
+
+      this.setPeriod();
+      this.PeriodArr.push("<option>20:00</option>");
+      this.PeriodNode.append(this.PeriodArr);
+
+
+      //获取日期段
+
+
+}
+
+function ObjectFactory(){
+
+      var obj = {},
+
+      Constructor = Array.prototype.shift.call( arguments );
+
+      obj.__proto__ =  typeof Constructor .prototype === 'number'  ? Object.prototype
+
+      :  Constructor .prototype;
+
+      var ret = Constructor.apply( obj, arguments );
+
+      return typeof ret === 'object' ? ret : obj;
+
+}
+
+ObjectFactory( timeSetBox, $("#hour"));
+//a.doing();
+//console.log(a);
+
+
+
+
+
+
+
+
+var reg = new RegExp("-","g");
+
+function GetDateStr(AddDayCount) {
+    var dd = new Date();
+    dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+    var y = dd.getFullYear();
+    var m = dd.getMonth()+1;//获取当前月份的日期
+    var d = dd.getDate();
+    return y+"/"+m+"/"+d;
+}
+
+function getDays(strDateStart,strDateEnd){
+   var strSeparator = "/"; //日期分隔符
+   var oDate1;
+   var oDate2;
+   var iDays;
+   oDate1= strDateStart.split(strSeparator);
+   oDate2= strDateEnd.split(strSeparator);
+   var strDateS = new Date(oDate1[0], oDate1[1]-1, oDate1[2]);
+   var strDateE = new Date(oDate2[0], oDate2[1]-1, oDate2[2]);
+   iDays = parseInt(Math.abs(strDateS - strDateE ) / 1000 / 60 / 60 /24)//把相差的毫秒数转换为天数
+   return iDays ;
+}
+
+var laveDays = 150;//getDays(GetDateStr(1),"2016/4/21");
+
+for(var i=0; i<=laveDays; i++){
+    var date1 = new Date(GetDateStr(0).replace(reg,"/"));
+    var date2 = new Date(date1);
+
+    date2.setDate(date1.getDate()+i);
+    var times = date2.getFullYear()+"/"+(date2.getMonth()+1)+"/"+date2.getDate();
+    $("#date").append("<option>"+times+"</option>");
+    //console.log(times);
+}
+
+
+
+
+
+
+
 
 </script>
 
