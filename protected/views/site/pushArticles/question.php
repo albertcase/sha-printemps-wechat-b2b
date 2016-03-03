@@ -31,8 +31,8 @@
             <dl>
                 <dt>A:</dt>
                 <dd>
-                    法国春天百货奥斯曼旗舰店为您提供3000多个国际品牌，其中包括春天百货独家品牌以及汊流买手店Maria Luisa。请<a href="http://printempsb2b.samesamechina.com/site/brand?b=1">点击此处</a>查询完整的品牌目录。<br />
-                    法国春天百货卢浮宫分店为您提供一系列的奢侈品配饰、高级腕表及美妆精选品牌。请<a href="http://printempsb2b.samesamechina.com/site/brand?b=2">点击此处</a>查询完整的品牌目录。
+                    法国春天百货奥斯曼旗舰店为您提供3000多个国际品牌，其中包括春天百货独家品牌以及汊流买手店Maria Luisa。请<a href="http://printempsb2b.samesamechina.com/site/brand?b=1" target="_blank">点击此处</a>查询完整的品牌目录。<br />
+                    法国春天百货卢浮宫分店为您提供一系列的奢侈品配饰、高级腕表及美妆精选品牌。请<a href="http://printempsb2b.samesamechina.com/site/brand?b=2" target="_blank">点击此处</a>查询完整的品牌目录。
                 </dd>
             </dl>
         </div>
@@ -52,13 +52,13 @@
                     地铁: 3号线，9号线 Havre Caumartin站
                                 RER A Auber站 <br />
                     公交线路: 21,  22,  27, 66, 53, 95, 27 <br />
-                    请<a href="http://printempsb2b.samesamechina.com/site/sitmap">点击此处</a>地理定位。<br />
+                    请<a href="http://printempsb2b.samesamechina.com/site/sitmap" target="_blank">点击此处</a>地理定位。<br />
                     <em>法国春天百货卢浮宫分店</em> <br />
                     地址: 99 rue de Rivoli
                     75001 Paris - France <br />
                     地铁: 1号线，7号线 Palais Royal Musée du Louvre
                     公交线路: 21，95，<br />
-                    请<a href="http://printempsb2b.samesamechina.com/site/sitmap">点击此处</a>地理定位。
+                    请<a href="http://printempsb2b.samesamechina.com/site/sitmap" target="_blank">点击此处</a>地理定位。
 
                 </dd>
             </dl>
@@ -126,7 +126,7 @@
             <dl>
                 <dt>A:</dt>
                 <dd>
-                    请您<a href="http://printempsb2b.samesamechina.com/site/sitmap">点击此处</a>查找法国春天百货在法国所有门店的地理位置。
+                    请您<a href="http://printempsb2b.samesamechina.com/site/sitmap" target="_blank">点击此处</a>查找法国春天百货在法国所有门店的地理位置。
                 </dd>
             </dl>
         </div>
