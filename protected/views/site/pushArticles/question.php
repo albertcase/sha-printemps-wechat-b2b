@@ -46,7 +46,7 @@
             <dl>
                 <dt>A:</dt>
                 <dd>
-                    法国春天百货奥斯曼旗舰店有6个餐厅及甜品店，为您提供格式<br />
+                    法国春天百货奥斯曼旗舰店有6个餐厅及甜品店，为您提供<br />
                     地址: 64, Boulevard Haussmann
                     75009 Paris – France <br />
                     地铁: 3号线，9号线 Havre Caumartin站
