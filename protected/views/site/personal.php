@@ -14,8 +14,8 @@
 				<span>称呼：</span> 
 				<select name="gender">
 					<option>请选择</option>
-					<option>先生</option>
-					<option>女士</option>
+					<option value="mr">先生</option>
+					<option value="miss">女士</option>
 				</select>
 			</li>
 			<li class="fstyle-1">
@@ -54,12 +54,12 @@
 			<li class="fstyle-4">
 				<p>你寻找的产品类型：</p>
 				<span>
-					<label><input type="checkbox" name="chosetype" value="奢侈品与配饰">奢侈品与配饰</label>
-					<label><input type="checkbox" name="chosetype" value="女士时尚">女士时尚</label>
-					<label><input type="checkbox" name="chosetype" value="男士时尚">男士时尚 </label>
-					<label><input type="checkbox" name="chosetype" value="美妆与护肤">美妆与护肤</label>
-					<label><input type="checkbox" name="chosetype" value="儿童">儿童</label>
-					<label><input type="checkbox" name="chosetype" value="內衣">內衣</label>
+					<label><input type="checkbox" name="chosetype" value="luxury jewelry & accessories">奢侈品与配饰</label>
+					<label><input type="checkbox" name="chosetype" value="female fashion">女士时尚</label>
+					<label><input type="checkbox" name="chosetype" value="male fashion">男士时尚 </label>
+					<label><input type="checkbox" name="chosetype" value="beauty & skincare">美妆与护肤</label>
+					<label><input type="checkbox" name="chosetype" value="kid">儿童</label>
+					<label><input type="checkbox" name="chosetype" value="underwear">內衣</label>
 				</span>
 			</li>
 			<li class="fstyle-3">
