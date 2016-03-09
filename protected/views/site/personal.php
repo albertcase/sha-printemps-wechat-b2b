@@ -44,8 +44,8 @@
 				<span>希望联系方式：</span> 
 				<select name="contact">
 					<option>请选择</option>
-					<option>电话</option>
-					<option>邮箱</option>
+					<option value="phone call">电话</option>
+					<option value="email">邮箱</option>
 				</select>
 			</li>
 			<li class="fstyle-3">
