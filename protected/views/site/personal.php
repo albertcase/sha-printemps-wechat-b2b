@@ -77,7 +77,7 @@
 </article>
 <footer class="personal_footer">
 	<div class="con">
-		<a href="javascript:orderForm();">
+		<a href="javascript:;" class="confirmSubmit">
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/submit_btn.png" width="100%" />
 		</a>
 	</div>
@@ -85,6 +85,12 @@
 </footer>
 
 <script type="text/javascript">
+    $(".confirmSubmit").click(function(){
+        if(!$(this).hasClass("disabled")){
+            $(this).addClass("disabled");
+            orderForm();
+        }
+    })
 	function isPhoneNum(value){
       return /^0|^((\+?86 )|(\(\+86 \)))?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
     };
@@ -133,9 +139,10 @@
 	    	}else{
 	    		alert("很抱歉，提交失败，请刷新之后重新提交");
 	    	}
-	    
+	        $(".confirmSubmit").removeClass("disabled");
 	    })
 	}
+
 
 
 	function orderForm(){
@@ -159,20 +166,28 @@
 
 		if(_gender == "请选择"){
 			alert("请选择称呼！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else if(_surname == ""){
 			alert("姓不能为空！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else if(_name == ""){
 			alert("名不能为空！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else if(_date == "" || _date == "请选择"){
          	alert("请选择希望预约日期！");
+         	$(".confirmSubmit").removeClass("disabled");
         }else if(_hour == "" || _hour == "请选择"){
             alert("请选择希望预约时间！");
+            $(".confirmSubmit").removeClass("disabled");
         }else if(_contact == "请选择"){
 			alert("请选择联系方式类型！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else if(!isPEFun(_contact, _contactVal)){
 			alert("您的联系方式填写有误！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else if(_typeArr == ""){
 			alert("请选择您寻找的产品类型！");
+			$(".confirmSubmit").removeClass("disabled");
 		}else{
 			
 			formInterface(_gender, _surname, _name, _date, _hour, _contact, _contactVal, _typeArr, _brandVal);
