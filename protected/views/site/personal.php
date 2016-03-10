@@ -86,7 +86,11 @@
 
 <script type="text/javascript">
 	function isPhoneNum(value){
-      return /^0?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
+      return /^0|^((\+?86 )|(\(\+86 \)))?(13[0-9]|15[012356789]|18[012356789]|14[57])[0-9]{8}$/.test(value);
+    };
+
+    function isTellNum(value){
+      return /([0-9]{3,4}-)?[0-9]{7,8}/.test(value);
     };
 
     function isEmailNum(value){
@@ -95,7 +99,7 @@
 
     function isPEFun(nType,noNum){
         if(nType == "telphone"){
-            if(isPhoneNum(noNum)){
+            if(isPhoneNum(noNum) || isTellNum(noNum)){
                 return true;
             }
         }else{
