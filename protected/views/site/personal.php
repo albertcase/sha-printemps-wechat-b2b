@@ -94,7 +94,7 @@
     }
 
     function isPEFun(nType,noNum){
-        if(nType == "电话"){
+        if(nType == "telphone"){
             if(isPhoneNum(noNum)){
                 return true;
             }
