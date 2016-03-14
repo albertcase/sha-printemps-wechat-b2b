@@ -9,13 +9,13 @@ class Weixin{
 	private $_db = null;
 	private $_fromUsername = null;
 	private $_toUsername = null;
+	private $_memcache;
 
 	public function __construct()
 	{
 		if( $this->_db===null)
 			$this->_db = Yii::app()->db;
-
-
+		$this->_memcache = new memcaches();
 	}
 
 	public function valid($echoStr)
@@ -108,9 +108,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
-											// $_SESSION['ser_customer'] = trim($rs[0]['content']);
-											// return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '已经切换至客服'."\n".$rs[0]['content']);
+											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											// return $this->useCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
+											return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
 										}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -189,6 +189,20 @@ class Weixin{
         	exit;
         }
     }
+
+		private function useCustomer($fromUsername, $toUsername ,$kfaccount){
+			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+			return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+		}
+
+		private function sendMsgtoCustomer($fromUsername, $toUsername){
+			if($this->_memcache->getData('oncustomer:'.$fromUsername))
+				return $this->sendService($fromUsername, $toUsername);
+		}
+
+		private function closeCustomer($fromUsername, $toUsername){
+			$this->_memcache->delData('oncustomer:'.$fromUsername);
+		}
 
     private function sceneLog($openid,$type,$ticket)
     {
@@ -355,6 +369,22 @@ class Weixin{
      			</TransInfo>
  					</xml>";
 			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
+	}
+
+	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
+		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+			$textTpl = '<xml>
+				 <ToUserName><![CDATA[%s]]></ToUserName>
+				 <FromUserName><![CDATA[%s]]></FromUserName>
+				 <CreateTime>%s</CreateTime>
+				 <MsgType><![CDATA[event]]></MsgType>
+				 <Event><![CDATA[kf_switch_session]]></Event>
+				 <FromKfAccount><![CDATA[%s]]></FromKfAccount>
+				 <ToKfAccount><![CDATA[%s]]></ToKfAccount>
+				 </xml>';
+			return sprintf($textTpl, $fromUsername, $toUsername, time(), $oldkfaccount, $newkfaccount);
+		}
+		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
 	}
 
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
