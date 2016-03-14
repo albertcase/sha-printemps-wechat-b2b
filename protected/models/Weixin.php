@@ -69,7 +69,9 @@ class Weixin{
 	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
-	                	}else{
+	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
+											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+										}else{
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
