@@ -73,9 +73,8 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-											if(isset($_SESSION['ser_customer'])){
+											if(isset($_SESSION['ser_customer']))
 												return $this->transferService($fromUsername, $toUsername ,$_SESSION['ser_customer']);
-											}
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
