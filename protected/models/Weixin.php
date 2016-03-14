@@ -70,7 +70,8 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-	                		return $this->sendService($fromUsername, $toUsername);
+	                		// return $this->sendService($fromUsername, $toUsername);
+											return $this->transferService($fromUsername, $toUsername ,'printemps1@Printemps_Intl');//切换服务
 	                	}
                 	}
                 	if($rs[0]['msgtype']=='text'){
