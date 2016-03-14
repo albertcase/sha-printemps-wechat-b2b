@@ -51,9 +51,6 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-											if(isset($_SESSION['ser_customer'])){
-												return $this->transferService($fromUsername, $toUsername ,$_SESSION['ser_customer']);
-											}
                 			return $this->sendService($fromUsername, $toUsername);
                 		}
                 	}
@@ -73,8 +70,6 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-											if(isset($_SESSION['ser_customer']))
-												return $this->transferService($fromUsername, $toUsername ,$_SESSION['ser_customer']);
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
@@ -113,9 +108,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
-											$_SESSION['ser_customer'] = trim($rs[0]['content']);
-											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '已经切换至客服'."\n".$rs[0]['content']);
+											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											// $_SESSION['ser_customer'] = trim($rs[0]['content']);
+											// return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '已经切换至客服'."\n".$rs[0]['content']);
 										}
 					}else if($event=='subscribe'){
 						if($eventKey){
