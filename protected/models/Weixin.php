@@ -51,7 +51,8 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-                			return $this->sendService($fromUsername, $toUsername);
+                			// return $this->sendService($fromUsername, $toUsername);
+											return $this->transferService($fromUsername, $toUsername ,'printemps1@Printemps_Intl');//切换服务
                 		}
                 	}
                 	if(in_array($rs[0]['content'], $this->_eventKey)){
