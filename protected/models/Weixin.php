@@ -51,6 +51,9 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
+											if(isset($_SESSION['ser_customer'])){
+												return $this->transferService($fromUsername, $toUsername ,$_SESSION['ser_customer']);
+											}
                 			return $this->sendService($fromUsername, $toUsername);
                 		}
                 	}
@@ -69,7 +72,9 @@ class Weixin{
 	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
-	                	}else{
+	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
+											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+										}else{
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
@@ -108,7 +113,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											$_SESSION['ser_customer'] = trim($rs[0]['content']);
+											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '已经切换至客服'."\n".$rs[0]['content']);
 										}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -352,7 +359,7 @@ class Weixin{
 						<KfAccount><![CDATA[%s]]></KfAccount>
      			</TransInfo>
  					</xml>";
-			return sprintf($textTpl, $toUsername, $fromUsername, time(), $kfaccount);
+			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
 	}
 
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
