@@ -109,8 +109,7 @@ class Weixin{
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
 					$mi = mt_rand(0, (count($rs)-1));
-// 					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));
-					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[$mi]['content']);
+					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -189,6 +188,13 @@ class Weixin{
         	exit;
         }
     }
+    
+    	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
+		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+			$this->closeCustomer($fromUsername);
+		}
+		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
 		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
@@ -378,13 +384,6 @@ class Weixin{
      			</TransInfo>
  					</xml>";
 			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
-	}
-
-	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
-		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$this->closeCustomer($fromUsername);
-		}
-		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
 	}
 
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
