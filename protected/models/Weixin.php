@@ -111,7 +111,8 @@ class Weixin{
 					// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
 					// return $this->useCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
 // 					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
-					$this->closeCustomer($fromUsername, $toUsername);
+// 					$this->closeCustomer($fromUsername, $toUsername);
+$this->buildCustomer($fromUsername, trim($rs[0]['content']));
 					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
 					}
 					}else if($event=='subscribe'){
@@ -202,7 +203,7 @@ class Weixin{
 			return $this->sendService($fromUsername, $toUsername);
 	}
 
-	private function closeCustomer($fromUsername, $toUsername){
+	private function closeCustomer($fromUsername){
 		$kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername);
 		$this->_memcache->delData('oncustomer:'.$fromUsername);
 		$access_token = $this->getAccessToken();
@@ -210,9 +211,21 @@ class Weixin{
 		$param = array(
 		    'kf_account' => $kfaccount,
 		    'openid' => $fromUsername,
-		    'text' => '这是一段附加信息'
+		    'text' => '客户已经结束会话'
 		);
 		$out = $this->post_data($url, $param);
+	}
+	
+	private function buildCustomer($fromUsername, $kfaccount){
+	  $this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+	  $access_token = $this->getAccessToken();
+	  $url = 'https://api.weixin.qq.com/customservice/kfsession/create?access_token='.$access_token;
+	  $param = array(
+		    'kf_account' => $kfaccount,
+		    'openid' => $fromUsername,
+		    'text' => '客户接入'
+	  );
+	  $out = $this->post_data($url, $param);
 	}
 
     private function sceneLog($openid,$type,$ticket)
