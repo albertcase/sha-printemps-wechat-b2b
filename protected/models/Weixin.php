@@ -14,22 +14,22 @@ class Weixin{
 	{
 		if( $this->_db===null)
 			$this->_db = Yii::app()->db;
-		
-		
+
+
 	}
 
 	public function valid($echoStr)
     {
        if($this->checkSignature()){
         	return $echoStr;
-        	
+
         }
     }
 
     public function responseMsg($postStr)
     {
 		if (!empty($postStr)){
-                
+
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $this->_fromUsername=$fromUsername = $postObj->FromUserName;
                 $this->_toUsername=$toUsername = $postObj->ToUserName;
@@ -43,7 +43,7 @@ class Weixin{
                 	$command = $this->_db->createCommand($sql);
                 	$command->bindParam(':keyword',$keyword,PDO::PARAM_STR);
                 	$rs = $command->select()->queryAll();
-                	if(!$rs){		    	
+                	if(!$rs){
 			        	$sql="SELECT * FROM `same_wmenu_event` WHERE instr( :keyword, keyword ) >0 and mohu=1";
                 		$command = $this->_db->createCommand($sql);
                 		$command->bindParam(':keyword',$keyword,PDO::PARAM_STR);
@@ -66,10 +66,12 @@ class Weixin{
 	                			if($rs[$i]['msgtype']!='news'){
 	                				continue;
 	                			}
-	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>$rs[$i]['url']); 
+	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
-	                	}else{
+	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
+											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+										}else{
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
@@ -83,18 +85,18 @@ class Weixin{
                 			if($rs[$i]['msgtype']!='news'){
                 				continue;
                 			}
-                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>$rs[$i]['url']); 
+                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>$rs[$i]['url']);
                 		}
                 		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
                 	}
-                	
+
 				}else if($msgType=='event'){
 					$event = strtolower($postObj->Event);
 					$eventKey = $postObj->EventKey;
 					if($event=='click'){
 						$sql = "SELECT B.* FROM `same_wmenu` A left join same_wmenu_event B ON A.id=B.mid WHERE A.`eventkey`='{$eventKey}' ORDER BY id";
 						$rs = $this->_db->createCommand($sql)->select()->queryAll();
-						$this->systemLog($postStr,$fromUsername,$msgType,$event,$eventKey);				 	
+						$this->systemLog($postStr,$fromUsername,$msgType,$event,$eventKey);
 	                	if($rs[0]['msgtype']=='text'){
 	                		return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
 	                	}else if($rs[0]['msgtype']=='news'){
@@ -104,7 +106,7 @@ class Weixin{
 	                			if($rs[$i]['msgtype']!='news'){
 	                				continue;
 	                			}
-	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>$rs[$i]['url']); 
+	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}
@@ -154,7 +156,7 @@ class Weixin{
             		for($i=0;$i<count($rs);$i++){
             			$meter = $this->getDistance($lat,$lng,$rs[$i]['lat'],$rs[$i]['lng']);
             			$meters = "(距离约" . $meter ."米)";
-            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']); 
+            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']);
             		}
 					ksort($datas);
 					$i=0;
@@ -178,14 +180,14 @@ class Weixin{
 				}
 
 
-				
+
 
         }else {
         	return "";
         	exit;
         }
     }
-    
+
     private function sceneLog($openid,$type,$ticket)
     {
     	try{
@@ -250,10 +252,10 @@ class Weixin{
 		}catch(Exception $e){
 			print_r($e);
 		}
-		
+
 		for($i=0;$i<count($data);$i++){
 			$xmlxmlTpl1 = '<item>
-					<Title><![CDATA[%s]]></Title> 
+					<Title><![CDATA[%s]]></Title>
 					<Description><![CDATA[%s]]></Description>
 					<PicUrl><![CDATA[%s]]></PicUrl>
 					<Url><![CDATA[%s]]></Url>
@@ -262,22 +264,22 @@ class Weixin{
 		}
 
 		$xml .= '</Articles></xml>';
-					
-		return $xml;	
+
+		return $xml;
     }
-		
+
 	private function checkSignature()
 	{
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];	
-        		
+        $nonce = $_GET["nonce"];
+
 		$token = $this->_TOKEN;;
 		$tmpArr = array($token, $timestamp, $nonce);
 		sort($tmpArr, SORT_STRING);
 		$tmpStr = implode( $tmpArr );
 		$tmpStr = sha1( $tmpStr );
-		
+
 		if( $tmpStr == $signature ){
 			return true;
 		}else{
@@ -296,7 +298,7 @@ class Weixin{
 		throw new Exception($rs['errcode']);
 
 		return;
-		
+
 	}
 
 	public function createMenu($data)
@@ -310,7 +312,7 @@ class Weixin{
 		// 		array('name'=>'营长公告','sub_button'=>array(array('type'=>'click','name'=>'最新活动','key'=>'C1'),array('type'=>'click','name'=>'获奖名单','key'=>'C2'),))),
 		// 	);
 
-		
+
 		$this->dataPost($this->decodeUnicode(json_encode($data)),$url);
 		return true;
 	}
@@ -319,7 +321,7 @@ class Weixin{
 	{
 		$access_token = $this->getAccessToken();
 		$url = 'https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token='.$access_token;
-		$post_data ='{"action_name": "QR_LIMIT_SCENE", "action_info": {"scene": {"scene_id": '.$sceneid.'}}}';	
+		$post_data ='{"action_name": "QR_LIMIT_SCENE", "action_info": {"scene": {"scene_id": '.$sceneid.'}}}';
 		$ch=curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -340,6 +342,19 @@ class Weixin{
 	    return sprintf($textTpl, $fromUsername, $toUsername, time());
 	}
 
+	public function transferService($fromUsername, $toUsername ,$kfaccount){
+		$textTpl = "<xml>
+     			<ToUserName><![CDATA[%s]]></ToUserName>
+     			<FromUserName><![CDATA[%s]]></FromUserName>
+     			<CreateTime>%s</CreateTime>
+     			<MsgType><![CDATA[transfer_customer_service]]></MsgType>
+     			<TransInfo>
+						<KfAccount><![CDATA[%s]]></KfAccount>
+     			</TransInfo>
+ 					</xml>";
+			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
+	}
+
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
 	{
 		//查询是否有欢迎语句
@@ -357,11 +372,11 @@ class Weixin{
 	    return sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 	}
 
-	private function dataPost($post_string, $url) 
+	private function dataPost($post_string, $url)
 	{
 		$context = array (
-				'http' => array ('method' => "POST", 
-				'header' => "Content-type: application/x-www-form-urlencoded\r\n User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) \r\n Accept: */*", 
+				'http' => array ('method' => "POST",
+				'header' => "Content-type: application/x-www-form-urlencoded\r\n User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) \r\n Accept: */*",
 				'content' => $post_string ));
 
 		$stream_context = stream_context_create ($context);
@@ -373,7 +388,7 @@ class Weixin{
 		return true;;
 	}
 
-	private function decodeUnicode($str) { 
+	private function decodeUnicode($str) {
 
 		return preg_replace_callback('/\\\\u([0-9a-f]{4})/i', create_function( '$matches', 'return mb_convert_encoding(pack("H*", $matches[1]), "UTF-8", "UCS-2BE");' ), $str);
 	}
@@ -389,7 +404,7 @@ class Weixin{
 		$callback=Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/weixin/callback';
 		$rs = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->_appid.'&redirect_uri='.$callback.'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 		return $rs;
-		
+
 	}
 
 	public function getOauth2()
@@ -397,7 +412,7 @@ class Weixin{
 		$callback=Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/weixin/callback2';
 		$rs = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->_appid.'&redirect_uri='.$callback.'&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect';
 		return $rs;
-		
+
 	}
 
 	public function getOauthAccessToken($code){
@@ -427,8 +442,8 @@ class Weixin{
         );
    }
    //计算两个坐标的直线距离
-    
-   public function getDistance($lat1, $lng1, $lat2, $lng2){      
+
+   public function getDistance($lat1, $lng1, $lat2, $lng2){
           $earthRadius = 6378138; //近似地球半径米
           // 转换为弧度
           $lat1 = ($lat1 * pi()) / 180;
@@ -438,7 +453,7 @@ class Weixin{
           // 使用半正矢公式  用尺规来计算
         $calcLongitude = $lng2 - $lng1;
           $calcLatitude = $lat2 - $lat1;
-          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  
+          $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);
        $stepTwo = 2 * asin(min(1, sqrt($stepOne)));
           $calculatedDistance = $earthRadius * $stepTwo;
           return round($calculatedDistance);
