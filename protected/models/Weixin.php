@@ -110,10 +110,9 @@ class Weixin{
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
 					// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
 					// return $this->useCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
-// 					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
+					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
 // 					$this->closeCustomer($fromUsername, $toUsername);
-$this->buildCustomer($fromUsername, trim($rs[0]['content']));
-					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
+// 					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -214,18 +213,6 @@ $this->buildCustomer($fromUsername, trim($rs[0]['content']));
 		    'text' => '客户已经结束会话'
 		);
 		$out = $this->post_data($url, $param);
-	}
-	
-	private function buildCustomer($fromUsername, $kfaccount){
-	  $this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
-	  $access_token = $this->getAccessToken();
-	  $url = 'https://api.weixin.qq.com/customservice/kfsession/create?access_token='.$access_token;
-	  $param = array(
-		    'kf_account' => $kfaccount,
-		    'openid' => $fromUsername,
-		    'text' => '客户接入'
-	  );
-	  $out = $this->post_data($url, $param);
 	}
 
     private function sceneLog($openid,$type,$ticket)
@@ -397,16 +384,7 @@ $this->buildCustomer($fromUsername, trim($rs[0]['content']));
 
 	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
 		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$textTpl = "<xml>
-				 <ToUserName><![CDATA[%s]]></ToUserName>
-				 <FromUserName><![CDATA[%s]]></FromUserName>
-				 <CreateTime>%s</CreateTime>
-				 <MsgType><![CDATA[event]]></MsgType>
-				 <Event><![CDATA[kf_switch_session]]></Event>
-				 <FromKfAccount><![CDATA[%s]]></FromKfAccount>
-				 <ToKfAccount><![CDATA[%s]]></ToKfAccount>
-				 </xml>";
-			return sprintf($textTpl, $fromUsername, $toUsername, time(), $oldkfaccount, $newkfaccount);
+			$this->closeCustomer($fromUsername);
 		}
 		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
 	}
