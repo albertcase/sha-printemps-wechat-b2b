@@ -374,7 +374,7 @@ class Weixin{
 
 	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
 		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$textTpl = '<xml>
+			$textTpl = "<xml>
 				 <ToUserName><![CDATA[%s]]></ToUserName>
 				 <FromUserName><![CDATA[%s]]></FromUserName>
 				 <CreateTime>%s</CreateTime>
@@ -382,7 +382,7 @@ class Weixin{
 				 <Event><![CDATA[kf_switch_session]]></Event>
 				 <FromKfAccount><![CDATA[%s]]></FromKfAccount>
 				 <ToKfAccount><![CDATA[%s]]></ToKfAccount>
-				 </xml>';
+				 </xml>";
 			return sprintf($textTpl, $fromUsername, $toUsername, time(), $oldkfaccount, $newkfaccount);
 		}
 		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
