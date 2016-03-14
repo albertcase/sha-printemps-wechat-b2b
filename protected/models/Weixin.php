@@ -108,8 +108,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-					$mi = mt_rand(0, count($rs));
-					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));
+					$mi = mt_rand(0, (count($rs)-1));
+// 					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));
+					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[$mi]['content']);
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
