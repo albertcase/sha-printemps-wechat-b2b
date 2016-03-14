@@ -51,8 +51,7 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-                			// return $this->sendService($fromUsername, $toUsername);
-											return $this->transferService($fromUsername, $toUsername ,'printemps2@Printemps_Intl');//切换服务
+                			return $this->sendService($fromUsername, $toUsername);
                 		}
                 	}
                 	if(in_array($rs[0]['content'], $this->_eventKey)){
@@ -71,8 +70,7 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-	                		// return $this->sendService($fromUsername, $toUsername);
-											return $this->transferService($fromUsername, $toUsername ,'printemps2@Printemps_Intl');//切换服务
+	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
                 	if($rs[0]['msgtype']=='text'){
