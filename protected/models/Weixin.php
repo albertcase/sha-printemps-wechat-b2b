@@ -108,11 +108,11 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
-											// return $this->useCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
-											// return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
-											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
-										}
+					// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+					// return $this->useCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
+					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[0]['content']));
+// 					return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
+					}
 					}else if($event=='subscribe'){
 						if($eventKey){
 							$ticket=$postObj->Ticket;
