@@ -706,3 +706,26 @@ footer.personal_footer .con a img{
 	}
 }
 
+
+
+
+
+.alertNode{
+	width: 100%;
+	padding: 16px 0;
+	background: rgba(255,255,255,0.9);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	font-size: 14px;
+	color: #ea4b65;
+	text-align: center;
+	/*letter-spacing: 0.1em;*/
+}
+
+
+
+
+
+

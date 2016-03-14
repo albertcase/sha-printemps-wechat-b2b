@@ -85,6 +85,7 @@
 </footer>
 
 <script type="text/javascript">
+
     $(".confirmSubmit").click(function(){
         if(!$(this).hasClass("disabled")){
             $(this).addClass("disabled");
@@ -137,7 +138,8 @@
 	    		window.location.href = "/site/congratulation";
 	    		//alert("提交成功");
 	    	}else{
-	    		alert("很抱歉，提交失败，请刷新之后重新提交");
+	    	    formErrorTips("很抱歉，提交失败，请刷新之后重新提交！");
+	    		//alert("很抱歉，提交失败，请刷新之后重新提交");
 	    	}
 	        $(".confirmSubmit").removeClass("disabled");
 	    })
@@ -165,28 +167,35 @@
 		_typeArr = _typeArr.join("|");
 
 		if(_gender == "请选择"){
-			alert("请选择称呼！");
+		    formErrorTips("请选择称呼！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else if(_surname == ""){
-			alert("姓不能为空！");
+			//alert("姓不能为空！");
+			formErrorTips("姓不能为空！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else if(_name == ""){
-			alert("名不能为空！");
+			//alert("名不能为空！");
+			formErrorTips("名不能为空！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else if(_date == "" || _date == "请选择"){
-         	alert("请选择希望预约日期！");
+         	//alert("请选择希望预约日期！");
+         	formErrorTips("请选择希望预约日期！");
          	$(".confirmSubmit").removeClass("disabled");
         }else if(_hour == "" || _hour == "请选择"){
-            alert("请选择希望预约时间！");
+            //alert("请选择希望预约时间！");
+            formErrorTips("请选择希望预约时间！");
             $(".confirmSubmit").removeClass("disabled");
         }else if(_contact == "请选择"){
-			alert("请选择联系方式类型！");
+			//alert("请选择联系方式类型！");
+			formErrorTips("请选择联系方式类型！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else if(!isPEFun(_contact, _contactVal)){
-			alert("您的联系方式填写有误！");
+			//alert("您的联系方式填写有误！");
+			formErrorTips("您的联系方式填写有误！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else if(_typeArr == ""){
-			alert("请选择您寻找的产品类型！");
+			//alert("请选择您寻找的产品类型！");
+			formErrorTips("请选择您寻找的产品类型！");
 			$(".confirmSubmit").removeClass("disabled");
 		}else{
 			
@@ -295,7 +304,24 @@ for(var i=0; i<=laveDays; i++){
     //console.log(times);
 }
 
+var alertInt;
+function formErrorTips(alertNodeContext){
+    clearTimeout(alertInt);
+    if($(".alertNode").length > 0){
+        $(".alertNode").html(alertNodeContext);
+    }else{
+        var alertNode = document.createElement("div");
+            alertNode.setAttribute("class","alertNode");
+            alertNode.innerHTML = alertNodeContext;
+            document.body.appendChild(alertNode);
 
+    }
+    alertInt = setTimeout(function(){
+        $(".alertNode").remove();
+    },3000);
+
+
+}
 
 
 
