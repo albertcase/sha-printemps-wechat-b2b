@@ -108,7 +108,8 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", $rs[0]['content']);
 										}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -352,7 +353,7 @@ class Weixin{
 						<KfAccount><![CDATA[%s]]></KfAccount>
      			</TransInfo>
  					</xml>";
-			return sprintf($textTpl, $toUsername, $fromUsername, time(), $kfaccount);
+			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
 	}
 
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
