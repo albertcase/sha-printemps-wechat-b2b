@@ -352,7 +352,7 @@ class Weixin{
 						<KfAccount><![CDATA[%s]]></KfAccount>
      			</TransInfo>
  					</xml>";
-			return sprintf($textTpl, $fromUsername, $toUsername, time(), $kfaccount);
+			return sprintf($textTpl, $toUsername, $fromUsername, time(), $kfaccount);
 	}
 
 	public function sendMsgForSubscribe($fromUsername, $toUsername, $time, $msgType)
