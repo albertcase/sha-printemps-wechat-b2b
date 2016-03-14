@@ -13,7 +13,7 @@ class Weixin{
 
 	public function __construct()
 	{
-		$this->_memcache = new memcaches();
+// 		$this->_memcache = new memcaches();
 		if( $this->_db===null)
 			$this->_db = Yii::app()->db;
 	}
@@ -191,19 +191,19 @@ class Weixin{
         }
     }
 
-		private function useCustomer($fromUsername, $toUsername ,$kfaccount){
-			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
-			return $this->transferService($fromUsername, $toUsername ,$kfaccount);
-		}
+	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
+		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+	}
 
-		private function sendMsgtoCustomer($fromUsername, $toUsername){
-			if($this->_memcache->getData('oncustomer:'.$fromUsername))
-				return $this->sendService($fromUsername, $toUsername);
-		}
+	private function sendMsgtoCustomer($fromUsername, $toUsername){
+		if($this->_memcache->getData('oncustomer:'.$fromUsername))
+			return $this->sendService($fromUsername, $toUsername);
+	}
 
-		private function closeCustomer($fromUsername, $toUsername){
-			$this->_memcache->delData('oncustomer:'.$fromUsername);
-		}
+	private function closeCustomer($fromUsername, $toUsername){
+		$this->_memcache->delData('oncustomer:'.$fromUsername);
+	}
 
     private function sceneLog($openid,$type,$ticket)
     {
