@@ -12,7 +12,7 @@ class memcaches
 
 	public function __construct()
 	{
-	    $this->memcache =  new \Memcached();
+	    $this->memcache =  new Memcached();
 	    $this->memcache->addServer($this->server, $this->port);
 	}
 

@@ -13,9 +13,9 @@ class Weixin{
 
 	public function __construct()
 	{
+		$this->_memcache = new memcaches();
 		if( $this->_db===null)
 			$this->_db = Yii::app()->db;
-		// $this->_memcache = new memcaches();
 	}
 
 	public function valid($echoStr)
