@@ -108,7 +108,8 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
+											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", 'testestestetsets');
 										}
 					}else if($event=='subscribe'){
 						if($eventKey){
