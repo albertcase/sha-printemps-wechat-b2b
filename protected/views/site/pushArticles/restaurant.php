@@ -55,6 +55,14 @@
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/restaurant/pouchkine.jpg" width="100%" />
 <br /><br />
 
+            <p>
+            <strong>Lina's餐厅:</strong><br />
+            Lina's餐厅为您提供一系列每日以新鲜食材悉心烹饪的美食，从美味法式三明治到时令沙拉再到美味的果汁，种类繁多，搭配新颖。这里是放松休息片刻享受美食的不二之选。
+            春天美容-家居馆，3层
+            </p>
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/restaurant/linas.jpg" width="100%" />
+<br /><br />
+
         </div>
     </div>
 </div>		
