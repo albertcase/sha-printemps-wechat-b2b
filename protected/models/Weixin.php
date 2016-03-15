@@ -9,13 +9,13 @@ class Weixin{
 	private $_db = null;
 	private $_fromUsername = null;
 	private $_toUsername = null;
+	private $_memcache;
 
 	public function __construct()
 	{
+		$this->_memcache = new memcaches();
 		if( $this->_db===null)
 			$this->_db = Yii::app()->db;
-
-
 	}
 
 	public function valid($echoStr)
@@ -51,9 +51,6 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-											if(isset($_SESSION['ser_customer'])){
-												return $this->transferService($fromUsername, $toUsername ,$_SESSION['ser_customer']);
-											}
                 			return $this->sendService($fromUsername, $toUsername);
                 		}
                 	}
@@ -72,9 +69,7 @@ class Weixin{
 	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
-	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
-										}else{
+	                	}else{
 	                		return $this->sendService($fromUsername, $toUsername);
 	                	}
                 	}
@@ -113,10 +108,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
-											// return $this->transferService($fromUsername, $toUsername ,trim($rs[0]['content']));//切换服务
-											$_SESSION['ser_customer'] = trim($rs[0]['content']);
-											return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '已经切换至客服'."\n".$rs[0]['content']);
-										}
+					$mi = mt_rand(0, (count($rs)-1));
+					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
+					}
 					}else if($event=='subscribe'){
 						if($eventKey){
 							$ticket=$postObj->Ticket;
@@ -194,6 +188,36 @@ class Weixin{
         	exit;
         }
     }
+    
+    	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
+		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+			$this->closeCustomer($fromUsername);
+		}
+		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+	}
+
+	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
+		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+	}
+
+	private function sendMsgtoCustomer($fromUsername, $toUsername){
+		if($this->_memcache->getData('oncustomer:'.$fromUsername))
+			return $this->sendService($fromUsername, $toUsername);
+	}
+
+	private function closeCustomer($fromUsername){
+		$kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername);
+		$this->_memcache->delData('oncustomer:'.$fromUsername);
+		$access_token = $this->getAccessToken();
+		$url = 'https://api.weixin.qq.com/customservice/kfsession/close?access_token='.$access_token;
+		$param = array(
+		    'kf_account' => $kfaccount,
+		    'openid' => $fromUsername,
+		    'text' => '客户已经结束会话'
+		);
+		$out = $this->post_data($url, $param);
+	}
 
     private function sceneLog($openid,$type,$ticket)
     {
@@ -465,4 +489,72 @@ class Weixin{
           $calculatedDistance = $earthRadius * $stepTwo;
           return round($calculatedDistance);
    }
+   
+   
+   //post function
+   
+   function post_data($url, $param, $is_file = false, $return_array = true){
+	if (! $is_file && is_array ( $param )) {
+		$param = $this->JSON ( $param );
+	}
+	if ($is_file) {
+		$header [] = "content-type: multipart/form-data; charset=UTF-8";
+	} else {
+		$header [] = "content-type: application/json; charset=UTF-8";
+	}
+	$ch = curl_init ();
+	curl_setopt ( $ch, CURLOPT_URL, $url );
+	curl_setopt ( $ch, CURLOPT_CUSTOMREQUEST, "POST" );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)' );
+	curl_setopt ( $ch, CURLOPT_FOLLOWLOCATION, 1 );
+	curl_setopt ( $ch, CURLOPT_AUTOREFERER, 1 );
+	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $param );
+	curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+	$res = curl_exec ( $ch );
+	
+// 	$flat = curl_errno ( $ch );
+// 	if ($flat) {
+// 		$data = curl_error ( $ch );
+// 		addWeixinLog ( $flat, 'post_data flat' );
+// 		addWeixinLog ( $data, 'post_data msg' );
+// 	}
+	
+	curl_close ( $ch );
+	
+	if($return_array)
+	  $res = json_decode ( $res, true );
+	return $res;
+      }
+      
+   function arrayRecursive(&$array, $function, $apply_to_keys_also = false) {
+	static $recursive_counter = 0;
+	if (++ $recursive_counter > 1000) {
+		die ( 'possible deep recursion attack' );
+	}
+	foreach ( $array as $key => $value ) {
+		if (is_array ( $value )) {
+			$this->arrayRecursive ( $array [$key], $function, $apply_to_keys_also );
+		} else {
+			$array [$key] = $function ( $value );
+		}
+		
+		if ($apply_to_keys_also && is_string ( $key )) {
+			$new_key = $function ( $key );
+			if ($new_key != $key) {
+				$array [$new_key] = $array [$key];
+				unset ( $array [$key] );
+			}
+		}
+	}
+	$recursive_counter --;
+      }
+    
+   function JSON($array) {
+	$this->arrayRecursive ( $array, 'urlencode', true );
+	$json = json_encode ( $array );
+	return urldecode ( $json );
+    }
 }
