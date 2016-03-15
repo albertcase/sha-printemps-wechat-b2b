@@ -7,14 +7,8 @@
         ?>
     	    <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/store/<?php echo $store['id'];?>.jpg" width="100%" />
     	<?php
-    	}else{
-    	?>
-    	    <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/store/place.jpg" width="100%" />
-    	<?php
     	}
     	?>
-
-
     	<div class="storeInfo">
     	    <span class="flagIcon"></span>
     	    <h3><?php echo $store['name'];?></h3>
