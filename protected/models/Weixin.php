@@ -197,7 +197,7 @@ class Weixin{
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
-		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 	}
 
