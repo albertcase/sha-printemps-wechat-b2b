@@ -51,7 +51,7 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-                			return $this->sendService($fromUsername, $toUsername);
+                			return $this->sendMsgtoCustomer($fromUsername, $toUsername);
                 		}
                 	}
                 	if(in_array($rs[0]['content'], $this->_eventKey)){
@@ -70,7 +70,7 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-	                		return $this->sendService($fromUsername, $toUsername);
+	                		return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 	                	}
                 	}
                 	if($rs[0]['msgtype']=='text'){
@@ -189,11 +189,13 @@ class Weixin{
         }
     }
 
-    	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
+  private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
 		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
 			$this->closeCustomer($fromUsername);
 		}
-		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+		if($this->checkopenid($fromUsername))
+			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+		return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '对不起！你还不是导购无法使用该功能');
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
@@ -202,8 +204,10 @@ class Weixin{
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
-		if($this->_memcache->getData('oncustomer:'.$fromUsername))
+		if($kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 			return $this->sendService($fromUsername, $toUsername);
+		}
 	}
 
 	private function closeCustomer($fromUsername){
@@ -490,10 +494,17 @@ class Weixin{
           return round($calculatedDistance);
    }
 
-
+	 //sub function
+	 public function checkopenid($openid){
+		 $sql = "select id from same_login where openid = ".$openid;
+		 $store = Yii::app()->db->createCommand($sql)->queryAll();
+		 if(is_array($store) && count($store) > 0 )
+		 	return true;
+		return false;
+	 }
    //post function
 
-   function post_data($url, $param, $is_file = false, $return_array = true){
+   public function post_data($url, $param, $is_file = false, $return_array = true){
 	if (! $is_file && is_array ( $param )) {
 		$param = $this->JSON ( $param );
 	}
@@ -529,7 +540,7 @@ class Weixin{
 	return $res;
       }
 
-   function arrayRecursive(&$array, $function, $apply_to_keys_also = false) {
+ public function arrayRecursive(&$array, $function, $apply_to_keys_also = false) {
 	static $recursive_counter = 0;
 	if (++ $recursive_counter > 1000) {
 		die ( 'possible deep recursion attack' );
@@ -552,7 +563,7 @@ class Weixin{
 	$recursive_counter --;
       }
 
-   function JSON($array) {
+  public function JSON($array) {
 	$this->arrayRecursive ( $array, 'urlencode', true );
 	$json = json_encode ( $array );
 	return urldecode ( $json );
