@@ -225,6 +225,36 @@ class ApiController extends Controller
 		Yii::app()->end();
 	}
 
+	public function actionName()
+	{
+		//导入
+		$csv = 'upload/mingdan.csv';
+		$handle = fopen($csv,"r");
+		$total=0;
+		$ok=0;
+		while(!feof($handle)){
+			$line = fgets($handle,4096);
+			$lineAry = explode("|", $line);
+			if(count($lineAry)!=4){
+				continue;
+			}
+			$total++;
+			if($total==1){
+				continue;
+			}
+			$sql = "INSERT INTO same_login SET cardno=:cardno, firstname=:firstname, secondname=:secondname, bak=:bak";
+			$command = Yii::app()->db->createCommand($sql);
+			$command->bindParam(':cardno',$lineAry[0],PDO::PARAM_STR);
+			$command->bindParam(':firstname',$lineAry[1],PDO::PARAM_STR);
+			$command->bindParam(':secondname',$lineAry[2],PDO::PARAM_STR);
+			$command->bindParam(':bak',$lineAry[3],PDO::PARAM_STR);
+			$command->execute();
+			$ok++;
+		}
+		fclose($handle);
+		Yii::app()->end();
+	}
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
