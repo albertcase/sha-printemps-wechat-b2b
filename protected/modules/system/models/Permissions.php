@@ -31,13 +31,11 @@ class Permissions
 		}catch(Exception $e){
 			$result['code'] = 0;
 			$result['msg']  = '系统服务错误';
-			$json = new Services_JSON();
-			return $json->encode($result);
+			return json_encode($result);
 		}
 		$result['code'] = 1;
 		$result['msg']  = '操作成功';
-		$json = new Services_JSON();
-			return $json->encode($result);
+		return json_encode($result);
 	}
 
 	public function update($data)
@@ -57,13 +55,11 @@ class Permissions
 		}catch(Exception $e){
 			$result['code'] = 0;
 			$result['msg']  = '系统服务错误';
-			$json = new Services_JSON();
-			return $json->encode($result);
+			return json_encode($result);
 		}
 		$result['code'] = 1;
 		$result['msg']  = '操作成功';
-		$json = new Services_JSON();
-			return $json->encode($result);
+		return json_encode($result);
 	}
 
 	public function pedit($id)
@@ -78,18 +74,15 @@ class Permissions
 			}catch(Exception $e){
 				$result['code'] = 0;
 				$result['msg']  = '系统服务错误';
-				$json = new Services_JSON();
-			return $json->encode($result);
+				return json_encode($result);
 			}
 			$result['code'] = 1;
 			$result['msg']  = $rs;
-			$json = new Services_JSON();
-			return $json->encode($result);
+			return json_encode($result);
 		}
 		$result['code'] = 2;
 		$result['msg']  = '参数错误';
-		$json = new Services_JSON();
-			return $json->encode($result);
+		return json_encode($result);
 	}
 
 	public function plist($data)
@@ -104,8 +97,7 @@ class Permissions
 		$sql = "SELECT id, rname, uname FROM same_sys_permissions limit $offset,$rows";
 		$pAll = $this->_db->createCommand($sql)->select()->queryAll();
 		$pAll = array("total"=>$pCount,"rows"=>$pAll);
-		$json = new Services_JSON();
-			return $json->encode($pAll);
+		return json_encode($result);
 	}
 
 	
@@ -113,8 +105,7 @@ class Permissions
 	{
 		$sql = "SELECT id, rname AS pname FROM same_sys_permissions ";
 		$pAll = $this->_db->createCommand($sql)->select()->queryAll();		
-		$json = new Services_JSON();
-			return $json->encode($pAll);
+		return json_encode($result);
 	}
 
 	
