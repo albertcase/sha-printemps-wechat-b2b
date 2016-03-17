@@ -1,15 +1,13 @@
 <?php
-
+Yii::import('ext.json.JSON',true);
 class SysuserController extends SystemController
 {
 
 	public function actionIndex()
 	{
-		$department = new Department() ;
-		$departmentJson = $department->listForCombotree();
 		$permissions = new Permissions();
 		$permissionsJson = $permissions->listForcombobox();
-		$this->render('index',array('department'=>$departmentJson,'permissions'=>$permissionsJson));
+		$this->render('index',array('permissions'=>$permissionsJson));
 	}
 
 	public function actionList()
@@ -20,7 +18,8 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
+		$json = new Services_JSON();
+			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 
@@ -32,7 +31,8 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
+		$json = new Services_JSON();
+			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 
@@ -44,7 +44,8 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
+		$json = new Services_JSON();
+			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 }
