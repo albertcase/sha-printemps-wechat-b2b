@@ -234,7 +234,7 @@ class ApiController extends Controller
 		$ok=0;
 		while(!feof($handle)){
 			$line = fgets($handle,4096);
-			$lineAry = explode("|", $line);
+			$lineAry = explode(",", $line);
 			if(count($lineAry)!=4){
 				continue;
 			}
