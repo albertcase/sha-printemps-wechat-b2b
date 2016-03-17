@@ -1,5 +1,4 @@
 <?php 
-Yii::import('ext.json.JSON',true);
 /**
  * 
  * 管理系统权限处理Model
