@@ -16,7 +16,7 @@ class Menu
 	
 	public function menuList()
 	{
-		$sql = "SELECT id, pid, name AS text, url, sort FROM same_sys_menu/* WHERE id IN (".Yii::app()->user->sysPermissions.")*/ ORDER BY sort ASC";
+		$sql = "SELECT id, pid, name AS text, url, sort FROM same_sys_menu WHERE id IN (".Yii::app()->user->sysPermissions.") ORDER BY sort ASC";
 		$menuAll = $this->_db->createCommand($sql)->select()->queryAll();
 		$menu = $this->getTreeData(0,$menuAll);		
 		return json_encode($menu);
