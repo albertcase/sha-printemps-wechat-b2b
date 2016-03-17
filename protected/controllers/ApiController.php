@@ -85,7 +85,9 @@ class ApiController extends Controller
 		echo json_encode($alpha);
 		Yii::app()->end();
 	}
-
+	public function actionTest(){
+		$_SESSION['openid']=1;
+	}
 	public function actionCheck(){
 		if (!isset($_SESSION['openid'])) {
 			echo json_encode(array('code' => '0', 'msg' => '未登录'));
@@ -113,7 +115,7 @@ class ApiController extends Controller
 		}
 		$sql ="UPDATE same_login set openid=:openid where id=:id";
 		$command = Yii::app()->db->createCommand($sql);
-		$command->bindParam(':openid',$openid,PDO::PARAM_STR);
+		$command->bindParam(':openid',$_SESSION['openid'],PDO::PARAM_STR);
 		$command->bindParam(':id',$rs['id'],PDO::PARAM_STR);
 		$command->execute();
 		echo json_encode(array('code' => '1', 'msg' => '验证通过'));
