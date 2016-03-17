@@ -104,8 +104,8 @@ class Permissions
 	{
 		$sql = "SELECT id, rname AS pname FROM same_sys_permissions ";
 		$pAll = $this->_db->createCommand($sql)->select()->queryAll();	
-		$result = array("total"=>$pCount,"rows"=>$pAll);	
-		return json_encode($result);
+		
+		return json_encode($pAll);
 	}
 
 	
