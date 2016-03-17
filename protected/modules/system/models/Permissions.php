@@ -95,7 +95,7 @@ class Permissions
 
 		$sql = "SELECT id, rname, uname FROM same_sys_permissions limit $offset,$rows";
 		$pAll = $this->_db->createCommand($sql)->select()->queryAll();
-		$pAll = array("total"=>$pCount,"rows"=>$pAll);
+		$result = array("total"=>$pCount,"rows"=>$pAll);
 		return json_encode($result);
 	}
 
@@ -103,7 +103,8 @@ class Permissions
 	public function listForcombobox()
 	{
 		$sql = "SELECT id, rname AS pname FROM same_sys_permissions ";
-		$pAll = $this->_db->createCommand($sql)->select()->queryAll();		
+		$pAll = $this->_db->createCommand($sql)->select()->queryAll();	
+		$result = array("total"=>$pCount,"rows"=>$pAll);	
 		return json_encode($result);
 	}
 
