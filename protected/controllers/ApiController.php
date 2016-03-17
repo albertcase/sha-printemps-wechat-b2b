@@ -259,6 +259,8 @@ class ApiController extends Controller
 		while(!feof($handle)){
 			$line = fgets($handle,4096);
 			$line = str_replace(' ','',$line);
+			$line = str_replace('\r','',$line);
+			$line = str_replace('\r\n','',$line);
 			$lineAry = explode(",", $line);
 			if(count($lineAry)!=4){
 				continue;
