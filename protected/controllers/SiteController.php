@@ -33,6 +33,10 @@ class SiteController extends Controller
 	}
 
 	public function actionLogin(){
+		if (!isset($_SESSION['openid'])) {
+			Header("Location:/weixin/oauth2?callback=/site/login");
+			Yii::app()->end();
+		}
 		$this->render('login');
 	}
 

@@ -87,13 +87,35 @@ class ApiController extends Controller
 	}
 
 	public function actionCheck(){
+		if (!isset($_SESSION['openid'])) {
+			echo json_encode(array('code' => '0', 'msg' => '未登录'));
+			Yii::app()->end();
+		}
 		$tag = false;
 		$cardnum = isset($_POST['cardnum']) ? $_POST['cardnum'] : $tag = true;
 		$name = isset($_POST['name']) ? $_POST['name'] : $tag = true;
 		if ($tag) {
-			echo json_encode(array('code' => '2', 'msg' => '验证失败'));
+			echo json_encode(array('code' => '2', 'msg' => '参数错误'));
 			Yii::app()->end();
 		}
+		$sql = 'SELECT * FROM same_login WHERE cardno=:cardno and firstname=:firstname';
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindParam(':cardno',$cardnum,PDO::PARAM_STR);
+		$command->bindParam(':firstname',$name,PDO::PARAM_STR);
+		$rs = $command->queryRow();
+		if (!$rs) {
+			echo json_encode(array('code' => '3', 'msg' => '验证失败'));
+			Yii::app()->end();
+		}
+		if ($rs['openid']!='') {
+			echo json_encode(array('code' => '4', 'msg' => '该导游号已经绑定过了'));
+			Yii::app()->end();
+		}
+		$sql ="UPDATE same_login set openid=:openid where id=:id";
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindParam(':openid',$openid,PDO::PARAM_STR);
+		$command->bindParam(':id',$rs['id'],PDO::PARAM_STR);
+		$command->execute();
 		echo json_encode(array('code' => '1', 'msg' => '验证通过'));
 		Yii::app()->end();
 	}
