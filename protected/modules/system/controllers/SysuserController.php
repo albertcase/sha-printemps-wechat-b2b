@@ -1,5 +1,4 @@
 <?php
-Yii::import('ext.json.JSON',true);
 class SysuserController extends SystemController
 {
 
@@ -18,8 +17,7 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		$json = new Services_JSON();
-			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
+		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 
@@ -31,8 +29,7 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		$json = new Services_JSON();
-			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
+		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 
@@ -44,8 +41,7 @@ class SysuserController extends SystemController
 			echo $sysuserJson;
 			Yii::app()->end();
 		}
-		$json = new Services_JSON();
-			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
+		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 }

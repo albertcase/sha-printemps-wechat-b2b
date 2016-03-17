@@ -48,8 +48,7 @@ class PermissionsController extends SystemController
 			echo $permissions->add($_POST);
 			Yii::app()->end();
 		}
-		$json = new Services_JSON();
-			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
+		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 
@@ -60,8 +59,7 @@ class PermissionsController extends SystemController
 			echo $permissions->update($_POST);
 			Yii::app()->end();
 		}
-		$json = new Services_JSON();
-			echo $json->encode(array('code'=>'3','msg'=>'参数错误'));
+		echo json_encode(array('code'=>'3','msg'=>'参数错误'));
 		Yii::app()->end();
 	}
 }
