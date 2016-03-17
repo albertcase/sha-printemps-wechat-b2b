@@ -14,7 +14,7 @@ class ApiController extends Controller
 			case '1':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
 				break;
-			
+
 			case '2':
 				$storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
 				break;
@@ -46,7 +46,7 @@ class ApiController extends Controller
 				break;
 
 			case '5':
-				$categorie = 'CHILDREN 儿童时尚';
+				$categorie = 'CHILDREN & HOME 儿童家居';
 				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
 				break;
 
@@ -70,9 +70,9 @@ class ApiController extends Controller
 				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
 				break;
 		}
-		
+
 		$alpha=array();
-		$other=array();	
+		$other=array();
 		$rs = Yii::app()->db->createCommand($sql)->select()->queryAll();
 		for($i=0;$i<count($rs);$i++){
 			if(in_array($rs[$i]['brandtitle'], $this->_alpha))
@@ -108,11 +108,38 @@ class ApiController extends Controller
 		$contacttype = isset($_POST['contacttype']) ? $_POST['contacttype'] : $tag = true;
 		$contact = isset($_POST['contact']) ? $_POST['contact'] : $tag = true;
 		$product = isset($_POST['product']) ? $_POST['product'] : $tag = true;
+		$brandname = isset($_POST['brandname']) ? $_POST['brandname'] : $tag = true;
 		if ($tag) {
 			echo json_encode(array('code' => '2', 'msg' => '验证失败'));
 			Yii::app()->end();
 		}
-		echo json_encode(array('code' => '1', 'msg' => '验证通过'));
+		$sql = "insert into same_order set sex=:sex,firstname=:firstname,secondname=:secondname,ddata=:ddata,dtime=:dtime,contacttype=:contacttype,contact=:contact,product=:product,brandname=:brandname";
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindParam(':sex',$sex,PDO::PARAM_STR);
+		$command->bindParam(':firstname',$firstname,PDO::PARAM_STR);
+		$command->bindParam(':secondname',$secondname,PDO::PARAM_STR);
+		$command->bindParam(':ddata',$ddata,PDO::PARAM_STR);
+		$command->bindParam(':dtime',$dtime,PDO::PARAM_STR);
+		$command->bindParam(':contacttype',$contacttype,PDO::PARAM_STR);
+		$command->bindParam(':contact',$contact,PDO::PARAM_STR);
+		$command->bindParam(':product',$product,PDO::PARAM_STR);
+		$command->bindParam(':brandname',$brandname,PDO::PARAM_STR);
+		$command->execute();
+		$a = new swiftmail(); //send enmail
+		$data = array(
+			'sex' => $sex,
+			'firstname' => $firstname,
+			'secondname' => $secondname,
+			'ddata' => $ddata,
+			'dtime' => $dtime,
+			'contacttype' => $contacttype,
+			'contact' => $contact,
+			'product' => $product,
+			'brandname' => $brandname,
+		);
+		$a->pushmail($data);
+		$a->send();//send enmail end
+		echo json_encode(array('code' => '1', 'msg' => '提交成功'));
 		Yii::app()->end();
 	}
 
