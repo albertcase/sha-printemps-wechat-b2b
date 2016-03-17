@@ -195,7 +195,7 @@ class Weixin{
 		}
 		if($this->checkopenid($fromUsername))
 			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
-		return $this->sendMsgForText($fromUsername, $toUsername, $time, "text", '对不起！你还不是导购无法使用该功能');
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能");
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
@@ -496,7 +496,7 @@ class Weixin{
 
 	 //sub function
 	 public function checkopenid($openid){
-		 $sql = "select id from same_login where openid = '".$openid."'";
+		 $sql = "select id from same_login where openid = '".trim($openid)."'";
 		 $result = Yii::app()->db->createCommand($sql)->queryAll();
 		 if(is_array($result) && count($result) > 0 )
 		 	return true;
