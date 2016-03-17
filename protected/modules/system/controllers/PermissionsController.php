@@ -1,5 +1,4 @@
 <?php
-Yii::import('ext.json.JSON',true);
 class PermissionsController extends SystemController
 {
 
