@@ -30,38 +30,6 @@
 							validType:'email'
 						}
 					}">Email</th>
-			<th data-options='field:"cname",width:300,
-					formatter:function(value,row){
-						return row.cname;
-					},
-					editor:{
-						type:"combobox",
-						options:{
-							valueField:"cname",
-							textField:"cname",
-							data:<?php echo $cityList;?>,
-							required:true,
-							multiple:true,
-							onSelect:function(rec){								
-								var str=$(this).combobox("getText")
-								var strAry=str.split(",");
-								if(strAry[0]==""){
-									str=str.substr(1);
-									$(this).combobox("setText",str)
-								}														
-							},
-							onUnselect:function(rec){
-								var str=$(this).combobox("getText")
-								var strAry=str.split(",");
-								if(strAry[0]==""){
-									str=str.substr(1);
-									$(this).combobox("setText",str)
-								}
-							}
-
-						}
-
-					}'>所属城市</th>
 			<th data-options='field:"pname",width:200,
 					formatter:function(value,row){
 						return row.pname;
