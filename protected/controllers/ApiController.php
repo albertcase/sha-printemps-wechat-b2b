@@ -261,7 +261,6 @@ class ApiController extends Controller
 			$line = str_replace(' ','',$line);
 			$line = str_replace('\r','',$line);
 			$line = str_replace('\r\n','',$line);
-			$line = preg_replace("/[//x00-//x08//x0b-//x0c//x0e-//x1f]/",'',$line);  
 			$lineAry = explode(",", $line);
 			if(count($lineAry)!=4){
 				continue;
