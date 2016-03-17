@@ -261,7 +261,7 @@ class ApiController extends Controller
 			$line = str_replace(' ','',$line);
 			$line = str_replace('\r','',$line);
 			$line = str_replace('\r\n','',$line);
-			$regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
+			$regex = "/\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
     	    $line = preg_replace($regex,"",$line);
 			$lineAry = explode(",", $line);
 			if(count($lineAry)!=4){
