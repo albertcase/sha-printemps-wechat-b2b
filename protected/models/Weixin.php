@@ -496,9 +496,9 @@ class Weixin{
 
 	 //sub function
 	 public function checkopenid($openid){
-		 $sql = "select id from same_login where openid = ".$openid;
-		 $store = Yii::app()->db->createCommand($sql)->queryAll();
-		 if(is_array($store) && count($store) > 0 )
+		 $sql = "select id from same_login where openid = '".$openid."'";
+		 $result = Yii::app()->db->createCommand($sql)->queryAll();
+		 if(is_array($result) && count($result) > 0 )
 		 	return true;
 		return false;
 	 }
