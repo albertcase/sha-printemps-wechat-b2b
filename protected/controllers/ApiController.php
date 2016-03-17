@@ -252,6 +252,7 @@ class ApiController extends Controller
 			$ok++;
 		}
 		fclose($handle);
+		echo 1;
 		Yii::app()->end();
 	}
 
