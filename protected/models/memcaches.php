@@ -64,5 +64,9 @@ class memcaches
 		return $this->memcache->increment($key, $sum);
 	}
 
+	public function delaykey(){
+		
+	}
+
 
 }

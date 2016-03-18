@@ -51,7 +51,7 @@ class Weixin{
                 		if($rsLike){
                 			$rs=$rsLike;
                 		}else{
-                			return $this->sendService($fromUsername, $toUsername);
+                			return $this->sendMsgtoCustomer($fromUsername, $toUsername);
                 		}
                 	}
                 	if(in_array($rs[0]['content'], $this->_eventKey)){
@@ -70,7 +70,7 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
-	                		return $this->sendService($fromUsername, $toUsername);
+	                		return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 	                	}
                 	}
                 	if($rs[0]['msgtype']=='text'){
@@ -107,7 +107,7 @@ class Weixin{
 	                			$data[] = array('title'=>$rs[$i]['title'],'description'=>$rs[$i]['description'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>$rs[$i]['url']);
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
-	                	}else if($rs[0]['msgtype'] == 'transfer_customer_service'){
+	                	}else if($rs[0]['msgtype'] == 'transfer_customer'){//tranfer customer
 					$mi = mt_rand(0, (count($rs)-1));
 					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
 					}
@@ -188,22 +188,26 @@ class Weixin{
         	exit;
         }
     }
-    
-    	private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
+
+  private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
 		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
 			$this->closeCustomer($fromUsername);
 		}
-		return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+		if($this->checkopenid($fromUsername))
+			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能");
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
-		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '900');
+		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
-		if($this->_memcache->getData('oncustomer:'.$fromUsername))
+		if($kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 			return $this->sendService($fromUsername, $toUsername);
+		}
 	}
 
 	private function closeCustomer($fromUsername){
@@ -489,11 +493,18 @@ class Weixin{
           $calculatedDistance = $earthRadius * $stepTwo;
           return round($calculatedDistance);
    }
-   
-   
+
+	 //sub function
+	 public function checkopenid($openid){
+		 $sql = "select id from same_login where openid = '".trim($openid)."'";
+		 $result = Yii::app()->db->createCommand($sql)->queryAll();
+		 if(is_array($result) && count($result) > 0 )
+		 	return true;
+		return false;
+	 }
    //post function
-   
-   function post_data($url, $param, $is_file = false, $return_array = true){
+
+   public function post_data($url, $param, $is_file = false, $return_array = true){
 	if (! $is_file && is_array ( $param )) {
 		$param = $this->JSON ( $param );
 	}
@@ -514,22 +525,22 @@ class Weixin{
 	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $param );
 	curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
 	$res = curl_exec ( $ch );
-	
+
 // 	$flat = curl_errno ( $ch );
 // 	if ($flat) {
 // 		$data = curl_error ( $ch );
 // 		addWeixinLog ( $flat, 'post_data flat' );
 // 		addWeixinLog ( $data, 'post_data msg' );
 // 	}
-	
+
 	curl_close ( $ch );
-	
+
 	if($return_array)
 	  $res = json_decode ( $res, true );
 	return $res;
       }
-      
-   function arrayRecursive(&$array, $function, $apply_to_keys_also = false) {
+
+ public function arrayRecursive(&$array, $function, $apply_to_keys_also = false) {
 	static $recursive_counter = 0;
 	if (++ $recursive_counter > 1000) {
 		die ( 'possible deep recursion attack' );
@@ -540,7 +551,7 @@ class Weixin{
 		} else {
 			$array [$key] = $function ( $value );
 		}
-		
+
 		if ($apply_to_keys_also && is_string ( $key )) {
 			$new_key = $function ( $key );
 			if ($new_key != $key) {
@@ -551,8 +562,8 @@ class Weixin{
 	}
 	$recursive_counter --;
       }
-    
-   function JSON($array) {
+
+  public function JSON($array) {
 	$this->arrayRecursive ( $array, 'urlencode', true );
 	$json = json_encode ( $array );
 	return urldecode ( $json );

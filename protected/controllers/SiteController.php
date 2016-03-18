@@ -33,6 +33,10 @@ class SiteController extends Controller
 	}
 
 	public function actionLogin(){
+		if (!isset($_SESSION['openid'])) {
+			Header("Location:/weixin/oauth2?callback=/site/login");
+			Yii::app()->end();
+		}
 		$this->render('login');
 	}
 
@@ -143,6 +147,14 @@ class SiteController extends Controller
 			$ok++;
 		}
 		fclose($handle);
+		Yii::app()->end();
+	}
+
+	public function actionMyjob(){
+		$sql = "select id from same_login where openid = 'o8bJzs5153Fcpbs4U9C0GPzZKO7Y'";
+		$result = Yii::app()->db->createCommand($sql)->queryAll();
+		print_r($result);
+		echo 'success';
 		Yii::app()->end();
 	}
 
