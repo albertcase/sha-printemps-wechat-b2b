@@ -150,6 +150,14 @@ class SiteController extends Controller
 		Yii::app()->end();
 	}
 
+	public function actionMyjob(){
+		$sql = "select id from same_login where openid = 'o8bJzs5153Fcpbs4U9C0GPzZKO7Y'";
+		$result = Yii::app()->db->createCommand($sql)->queryAll();
+		print_r($result);
+		echo 'success';
+		Yii::app()->end();
+	}
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
