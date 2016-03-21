@@ -10299,3 +10299,392 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/site/store?id=1
 ---
+2016/03/21 16:19:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:19:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:19:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:19:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:20:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:20:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:20:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:20:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:21:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:21:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:21:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:21:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:21:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" order by openid DESC  limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" order by openid DESC  limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, 'openid DESC')
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login', 'openid DESC')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:21:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:21:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid ! REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:22:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:22:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:22:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:22:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:24:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:24:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1139 Got error 'empty (sub)expression' from regexp. The SQL statement executed was: select * from same_login where openid REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:25:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:25:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:25:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:25:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:26:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20.
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (93)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (66)
+2016/03/21 16:26:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '! REGEXP "" limit 20' at line 1. The SQL statement executed was: select * from same_login where openid! REGEXP "" limit 20' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(93): database->Sqlselectall('select * from s...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(66): database->RegsearchData(Array, Array, 'same_login', '20', 0, false)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(32): database->Reggetpage('1', '20', Array, Array, 'same_login')
+#5 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getpage()
+#6 [internal function]: SiteController->actionAdminapi('getpage')
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#14 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/site/adminapi/action/getpage
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
+2016/03/21 16:51:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'openidd' in 'where clause'. The SQL statement executed was: select count(id) from same_login where openidd REGEXP "^.".
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (153)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/database.php (107)
+in /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php (68)
+2016/03/21 16:51:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'openidd' in 'where clause'. The SQL statement executed was: select count(id) from same_login where openidd REGEXP "^."' in /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /vagrant/sha-printemps-wechat-b2b/protected/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(153): CDbCommand->queryAll()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/models/database.php(107): database->Sqlselectall('select count(id...')
+#3 /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php(68): database->Reggetcount('same_login', Array)
+#4 /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php(192): guestadmin->getcount()
+#5 [internal function]: SiteController->actionAdminapi('getcount')
+#6 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#10 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): CController->run('adminapi')
+#12 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController('site/adminapi/a...')
+#13 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /vagrant/sha-printemps-wechat-b2b/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/site/adminapi/action/getcount
+HTTP_REFERER=http://printempsb.dirc.com:8112/site/list/
+---
