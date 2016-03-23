@@ -142,7 +142,7 @@ class Weixin{
 					$baidu = json_decode($baidu, true);
 					$lat = $baidu['result'][0]['x'];
 					$lng = $baidu['result'][0]['y'];
-					$squares = $this->returnSquarePoint($lng,$lat,300000);
+					$squares = $this->returnSquarePoint($lng,$lat,100000);
 					$latbig = $squares['right-bottom']['lat'] > $squares['left-top']['lat'] ? $squares['right-bottom']['lat'] : $squares['left-top']['lat'];
 					$latsmall = $squares['right-bottom']['lat'] > $squares['left-top']['lat'] ? $squares['left-top']['lat'] : $squares['right-bottom']['lat'];
 					$lngbig = $squares['left-top']['lng'] > $squares['right-bottom']['lng'] ? $squares['left-top']['lng'] : $squares['right-bottom']['lng'];
@@ -157,7 +157,7 @@ class Weixin{
             		for($i=0;$i<count($rs);$i++){
             			$meter = $this->getDistance($lat,$lng,$rs[$i]['lat'],$rs[$i]['lng']);
             			$meters = "(距离约" . $meter ."米)";
-            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/'.$rs[$i]['picUrl'],'url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']);
+            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/vstyle/imgs/store/'.$rs[$i]['id'].'.jpg','url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']); 
             		}
 					ksort($datas);
 					$i=0;
