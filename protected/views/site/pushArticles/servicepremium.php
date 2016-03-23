@@ -4,7 +4,7 @@
 
 
              <div class="infocontext">
-             <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/premiumservices.jpg" width="100%" />
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/premiumservices.jpg" width="100%" />
                 <p>
                 <br />
                 <strong>VIP贵宾服务:</strong><br />
@@ -19,7 +19,7 @@
                 或电邮至 <a href="mailto:guestrelations@printemps.com">guestrelations@printemps.com</a>
                 </p>
 
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/vipservice.jpg" width="100%" />
+                <!-- <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/vipservice.jpg" width="100%" /> -->
 
 
                 <p>
