@@ -1,6 +1,6 @@
 <div class="page store">
     <div class="container">
-        <h2>法国春天简介</h2>
+        <h2>法国春天百货简介</h2>
 
         <div class="infocontext">
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/about.jpg" width="100%" />

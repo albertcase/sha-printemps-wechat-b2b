@@ -49,7 +49,7 @@
 				</select>
 			</li>
 			<li class="fstyle-3">
-				<input type="text" name="contactVal">
+				<input type="text" placeholder="请选择联系方式类型" name="contactVal">
 			</li>
 			<li class="fstyle-4">
 				<p>你寻找的产品类型：</p>
@@ -60,6 +60,7 @@
 					<label><input type="checkbox" name="chosetype" value="beauty & skincare">美妆与护肤</label>
 					<label><input type="checkbox" name="chosetype" value="kid">儿童</label>
 					<label><input type="checkbox" name="chosetype" value="underwear">內衣</label>
+					<label><input type="checkbox" name="chosetype" value="children & home">家居</label>
 				</span>
 			</li>
 			<li class="fstyle-3">
@@ -324,7 +325,18 @@ function formErrorTips(alertNodeContext){
 }
 
 
+$("select[name='contact']").change(function(){
 
+    var _contacttype = $("select[name='contact']").val();
+    console.log(_contacttype);
+    if(_contacttype == "telphone"){
+        $("input[name='contactVal']").attr("placeholder","请输入您的电话号码")
+    }else if(_contacttype == "email"){
+        $("input[name='contactVal']").attr("placeholder","请输入您的电子邮件地址")
+    }else{
+        $("input[name='contactVal']").attr("placeholder","请选择联系方式类型")
+    }
+})
 
 
 

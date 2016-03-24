@@ -87,7 +87,7 @@
     				break;
 
     			case '6':
-    				categorieVal = 'ACCESSORIES 时尚配饰';
+    				categorieVal = 'ACCESSORIES 时尚与奢华配饰';
     				break;
 
     			case '7':
@@ -95,7 +95,7 @@
     				break;
 
     			case '8':
-    				categorieVal = 'WATCHES & JEWELLERY 配饰与奢华精品';
+    				categorieVal = 'WATCHES & JEWELLERY 高级珠宝与腕表';
     				break;
 
     			default :
@@ -138,9 +138,9 @@
            var sortHtml = $.map(data, function(k, v){
            		var sortContentHtml = $.map(k ,function(ck, cv){
            			if (ck.building!='')
-           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ ck.building + '，' + arabic_Chinese_change_fun(Number(ck.floor)+1) +'层</p></div></li>'
+           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ ck.building + '，' + (Number(ck.floor)+1) +'层</p></div></li>'
            			else
-           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ arabic_Chinese_change_fun(Number(ck.floor)+1) +'层</p></div></li>'	
+           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ (Number(ck.floor)+1) +'层</p></div></li>'
            		}).join("");
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");

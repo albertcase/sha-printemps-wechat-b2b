@@ -555,3 +555,23 @@
 
     </div>
 </div>		
+
+<script type="text/javascript">
+    $(".qtitle").on("click", function(){
+        $(".qNode dl").not('.qtitle').slideUp();
+        $(this).siblings("dl").slideToggle();
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
