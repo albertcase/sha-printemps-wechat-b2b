@@ -555,7 +555,7 @@ footer.personal_footer .con a img{
 	font-size: 14px;
 	color: #444;
 	font-family: "Heiti TC";
-	display: none;
+	/*display: none;*/
 }
 
 .qNode dl.qtitle{
