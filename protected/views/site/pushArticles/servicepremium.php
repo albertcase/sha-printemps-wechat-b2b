@@ -20,8 +20,11 @@
                 </p>
 
                 <!-- <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/vipservice.jpg" width="100%" /> -->
-
-
+                <br />
+                <br />
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/personalshoppingservice.jpg" width="100%" />
+                <br />
+                <br />
                 <p>
                 <strong>私人导购服务:</strong><br />
                 私人导购服务团队将在私密的沙龙迎接您的到来，为您提供贴心的专享服务。我们的时尚、美容与形象顾问专家将通过以下贴心关顾和订制服务让您体验独一无二的购物体验：个性化私人试衣间、限量版商品和出自独立设计师之手的奢华精品。
@@ -31,7 +34,7 @@
                 春天女士时尚馆，4层
                 </p>
 
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/pushArticles/servicepremium/personalshoppingservice.jpg" width="100%" />
+
              </div>
         </div>
 </div>		
