@@ -195,7 +195,7 @@ class Weixin{
 		}
 		if($this->checkopenid($fromUsername))
 			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
-		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能<br>请点击以下链接认证http://printempsb2b.samesamechina.com/site/login");
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能\n请点击以下链接认证http://printempsb2b.samesamechina.com/site/login");
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
