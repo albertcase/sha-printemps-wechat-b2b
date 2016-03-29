@@ -550,16 +550,18 @@ footer.personal_footer .con a img{
 .qNode dl{
 	width: 100%;
 	float: left;
-	display: inline-block;
+	/*display: inline-block;*/
 	padding: 4px 0;
 	font-size: 14px;
 	color: #444;
 	font-family: "Heiti TC";
+	/*display: none;*/
 }
 
 .qNode dl.qtitle{
 	font-size: 16px;
 	color: #333;
+	display: inline-block;
 }
 
 .qNode dt{
@@ -574,6 +576,8 @@ footer.personal_footer .con a img{
 	display: inline-block;
 	margin: 0 0 0 3%;
 	font-size: 15px;
+	word-wrap: break-word;
+	word-break: normal;
 	/*text-align: justify;*/
 }
 

@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'',	
+	'name'=>'',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -21,7 +21,7 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'aaaaaa',
@@ -49,15 +49,15 @@ return array(
                         'host'=>'127.0.0.1',
                         'username'=>'',
                         'password'=>'',
-                        'port'=>'25',                       
+                        'port'=>'25',
                 ),
-                'viewPath' => 'application.views.mail',             
+                'viewPath' => 'application.views.mail',
         ),
 		'dbTom' => array(
 				'class' => 'ext.db.dbTom',
 		),
 		// uncomment the following to enable URLs in path-format
-		
+
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -72,7 +72,7 @@ return array(
 		),
 		*/
 		// uncomment the following to use a MySQL database
-		
+
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=printemps_b2b',
 			'emulatePrepare' => true,
@@ -80,7 +80,7 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
-		
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',
