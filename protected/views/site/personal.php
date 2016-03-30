@@ -265,6 +265,14 @@ ObjectFactory( timeSetBox, $("#hour"));
 
 
 
+function arabic_Chinese_change_fun(v){
+    var resultArr = [];
+    v = String(v);
+    for (var i=0; i < v.length; i++){
+        resultArr.push( '零一二三四五六七八九'.charAt(v.charAt(i)));
+    }
+    return resultArr.join("");
+}
 
 
 
@@ -295,13 +303,20 @@ function getDays(strDateStart,strDateEnd){
 
 var laveDays = 150;//getDays(GetDateStr(1),"2016/4/21");
 
-for(var i=0; i<=laveDays; i++){
+for(var i=1; i<=laveDays; i++){
     var date1 = new Date(GetDateStr(0).replace(reg,"/"));
     var date2 = new Date(date1);
 
     date2.setDate(date1.getDate()+i);
     var times = date2.getFullYear()+"/"+(date2.getMonth()+1)+"/"+date2.getDate();
-    $("#date").append("<option>"+times+"</option>");
+
+    var baseData = new Date(times); 
+    var curWeek = baseData.getDay();  //判断当前时星期几
+    //console.log(arabic_Chinese_change_fun(curWeek));
+    if(curWeek != 0){
+    	$("#date").append("<option>"+ times +"  星期"+ arabic_Chinese_change_fun(curWeek) +"</option>");
+    }
+    
     //console.log(times);
 }
 
