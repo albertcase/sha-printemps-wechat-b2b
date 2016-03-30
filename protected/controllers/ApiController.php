@@ -262,19 +262,19 @@ class ApiController extends Controller
 			$line = str_replace('\r','',$line);
 			$line = str_replace('\r\n','',$line);
 			$lineAry = explode(",", $line);
-			if(count($lineAry)!=4){
+			if(count($lineAry)!=2){
 				continue;
 			}
 			$total++;
 			if($total==1){
 				continue;
 			}
-			$sql = "INSERT INTO same_login SET cardno=:cardno, firstname=:firstname, secondname=:secondname, bak=:bak";
+			$sql = "INSERT INTO same_login SET cardno=:cardno, firstname=:firstname";
 			$command = Yii::app()->db->createCommand($sql);
 			$command->bindParam(':cardno',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[0]),PDO::PARAM_STR);
 			$command->bindParam(':firstname',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[1]),PDO::PARAM_STR);
-			$command->bindParam(':secondname',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[2]),PDO::PARAM_STR);
-			$command->bindParam(':bak',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[3]),PDO::PARAM_STR);
+			// $command->bindParam(':secondname',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[2]),PDO::PARAM_STR);
+			// $command->bindParam(':bak',preg_replace("/[^a-zA-Z0-9_.-]+/","", $lineAry[3]),PDO::PARAM_STR);
 			$command->execute();
 			$ok++;
 		}
