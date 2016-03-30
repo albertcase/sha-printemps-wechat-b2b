@@ -157,7 +157,7 @@ class Weixin{
             		for($i=0;$i<count($rs);$i++){
             			$meter = $this->getDistance($lat,$lng,$rs[$i]['lat'],$rs[$i]['lng']);
             			$meters = "(距离约" . $meter ."米)";
-            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/vstyle/imgs/store/'.$rs[$i]['id'].'.jpg','url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']); 
+            			$datas[$meter] = array('title'=>$rs[$i]['name'].$meters,'description'=>$rs[$i]['name'],'picUrl'=>Yii::app()->request->hostInfo.'/'.Yii::app()->request->baseUrl.'/vstyle/imgs/store/'.$rs[$i]['id'].'.jpg','url'=>Yii::app()->request->hostInfo.'/site/store?id='.$rs[$i]['id']);
             		}
 					ksort($datas);
 					$i=0;
@@ -195,7 +195,7 @@ class Weixin{
 		}
 		if($this->checkopenid($fromUsername))
 			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
-		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能");
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能,请点击以下链接登陆\nhttp://printempsb2b.samesamechina.com/site/login");
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
