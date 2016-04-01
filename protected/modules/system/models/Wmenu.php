@@ -179,7 +179,7 @@ class Wmenu{
 		$sqlCount = "SELECT count(id) AS num FROM same_wmenu_event WHERE $where";
 		$count = $this->_db->createCommand($sqlCount)->select()->queryScalar();
 
-		$sql = "SELECT A.*,B.name AS mname FROM same_wmenu_event A left join same_wmenu B ON B.id=A.mid WHERE $where ORDER BY A.id DESC  limit $offset,$rows";
+		$sql = "SELECT A.*,concat(B.name,'-',B.id) AS mname FROM same_wmenu_event A left join same_wmenu B ON B.id=A.mid WHERE $where ORDER BY A.id DESC  limit $offset,$rows";
 		$command = $this->_db->createCommand($sql);		
 		$menuAll = $command->select()->queryAll();
 		$menuAll = array("total"=>$count,"rows"=>$menuAll);
@@ -190,7 +190,7 @@ class Wmenu{
 
 	public function getPmenuForChild()
 	{
-		$sql="SELECT id,name FROM same_wmenu where id not in(select distinct(pid) from same_wmenu)";
+		$sql="SELECT id,concat(name,'-',id) as name FROM same_wmenu where id not in(select distinct(pid) from same_wmenu)";
 		$rs=$this->_db->createCommand($sql)->select()->queryAll();
 		$ary = array(array('id'=>0,'name'=>'无'));
 		for($i=0;$i<count($rs);$i++){
