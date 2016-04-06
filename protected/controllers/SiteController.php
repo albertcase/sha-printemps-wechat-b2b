@@ -196,6 +196,11 @@ public function actionAdminapi($action){
 	Yii::app()->end();
 }
 
+public function actionAapi(){
+	$token = new Weixin()
+	print_r($token->getKflist());
+}
+
 public function actionLogout(){
 	$session = new Session();
 	$session->clean();
