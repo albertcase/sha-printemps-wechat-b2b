@@ -198,7 +198,7 @@ public function actionAdminapi($action){
 
 
 public function actionAapi(){
-	$token = new Weixin()
+	$token = new Weixin();
 	// print_r($token->getKflist());
 	echo json_encode('4444');/*not login*/
 	Yii::app()->end();
