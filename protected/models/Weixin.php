@@ -52,9 +52,7 @@ class Weixin{
                 			$rs=$rsLike;
                 		}else{
                 			return $this->sendMsgtoCustomer($fromUsername, $toUsername);
-                		}else{
-											return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
-										}
+                		}
                 	}
                 	if(in_array($rs[0]['content'], $this->_eventKey)){
                 		$sql = "SELECT B.* FROM `same_wmenu` A left join same_wmenu_event B ON A.id=B.mid WHERE A.`eventkey`='".$rs[0]['content']."' ORDER BY id DESC";
@@ -73,9 +71,7 @@ class Weixin{
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else{
 	                		return $this->sendMsgtoCustomer($fromUsername, $toUsername);
-	                	}else{
-											return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
-										}
+	                	}
                 	}
                 	if($rs[0]['msgtype']=='text'){
                 		$rs[0]['content'] = str_replace("{openid}", $fromUsername, $rs[0]['content']);
@@ -212,6 +208,7 @@ class Weixin{
 			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 			return $this->sendService($fromUsername, $toUsername);
 		}
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
 	}
 
 	private function closeCustomer($fromUsername){
