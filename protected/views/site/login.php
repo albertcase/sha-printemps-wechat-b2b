@@ -44,7 +44,15 @@
 </div>
 
 <script type="text/javascript">
-	
+	var band = '<?php echo $band?>';
+	if (band != 0) {
+		var callbackTips;
+		$(".loginframe").hide();
+		$("#successTips").css({"display":"inline-block"});
+		callbackTips = "验证成功";
+		$("input").val("");
+		funTips(callbackTips);
+	}
 	function funTips(callBt){
 		$(".login_tips").addClass("error").html(callBt);
 		setTimeout('$(".login_tips").removeClass("error").html("欢迎使用<br />法国春天百货导游服务账号<br />请你通过导游证编号与姓名登录<br />谢谢！");', 6000)

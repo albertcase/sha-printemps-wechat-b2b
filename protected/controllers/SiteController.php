@@ -37,7 +37,13 @@ class SiteController extends Controller
 			Header("Location:/weixin/oauth2?callback=/site/login");
 			Yii::app()->end();
 		}
-		$this->render('login');
+		$sql = 'SELECT id FROM same_login WHERE openid=:openid';
+		$command->bindParam(':openid',$_SESSION['openid'],PDO::PARAM_STR);
+		$rs = $command->queryScalar();
+		if (!$rs) {
+			$rs = 0;
+		}
+		$this->render('login', array('band' => $rs));
 	}
 
 	public function actionSitmap(){
