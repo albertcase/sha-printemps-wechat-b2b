@@ -208,6 +208,7 @@ class Weixin{
 			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
 			return $this->sendService($fromUsername, $toUsername);
 		}
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
 	}
 
 	private function closeCustomer($fromUsername){
@@ -324,17 +325,41 @@ class Weixin{
 
 	public function getAccessToken()
 	{
-		$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$this->_appid.'&secret='.$this->_secret);
-		$rs = json_decode($rs,true);
-		if(isset($rs['access_token'])){
-			return $rs['access_token'];
+		$time=file_get_contents("upload/time.txt");
+		$access_token=file_get_contents("upload/access_token.txt");
+		if (!$time || (time() - $time >= 3600)){
+			$rs = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$this->_appid.'&secret='.$this->_secret);
+			$rs = json_decode($rs,true);
+			if(isset($rs['access_token'])){
+				$time = time();
+				$access_token = $rs['access_token'];
+				$ticketfile = file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=".$access_token."&type=jsapi");
+				$ticketfile = json_decode($ticketfile, true);
+				$ticket = $ticketfile['ticket'];
+				$fp = fopen("upload/time.txt", "w");
+				fwrite($fp,$time);
+				fclose($fp);
+				$fp = fopen("upload/access_token.txt", "w");
+				fwrite($fp,$access_token);
+				fclose($fp);
+				$fp = fopen("upload/ticket.txt", "w");
+				fwrite($fp,$ticket);
+				fclose($fp);
+				return $rs['access_token'];
+			}else{
+				throw new Exception($rs['errcode']);
+			}
 		}
-
-		throw new Exception($rs['errcode']);
-
-		return;
-
+		return $access_token;
 	}
+
+	public function getKflist(){
+		$access_token = $this->getAccessToken();
+		$url = 'https://api.weixin.qq.com/cgi-bin/customservice/getkflist?access_token='.$access_token;
+		return json_decode(file_get_contents($url), true);
+	}
+
+
 
 	public function createMenu($data)
 	{
