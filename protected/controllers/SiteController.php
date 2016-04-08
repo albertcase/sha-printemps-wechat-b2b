@@ -38,6 +38,7 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 		$sql = 'SELECT id FROM same_login WHERE openid=:openid';
+		$command = Yii::app()->db->createCommand($sql);
 		$command->bindParam(':openid',$_SESSION['openid'],PDO::PARAM_STR);
 		$rs = $command->queryScalar();
 		if (!$rs) {
