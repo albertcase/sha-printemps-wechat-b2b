@@ -20,7 +20,7 @@
 	<div class="con">
 		<a href="javascript:;" id="tel">
 			<img src="/vstyle/imgs/tel.png" />
-			<u>+33 142825000</u>
+			<u>+33142825000</u>
 		</a>
 		<em>联系方式</em>
 	</div>
