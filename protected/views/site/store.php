@@ -13,9 +13,15 @@
     	    <span class="flagIcon"></span>
     	    <h3><?php echo $store['name'];?></h3>
     	    <p>地址: <?php echo $store['address'];?></p>
-    	    <p class="teltext">电话: <?php echo $store['telphone'];?></p>
+    	    <p class="teltext">电话: <span id="telSpace"><?php echo $store['telphone'];?></span></p>
     	    <p>营业时间: <?php echo $store['open'];?></p>
     	</div>
 </div>
 
 </div>		
+
+<script type="text/javascript">
+    var telElement = document.getElementById("telSpace");
+    var tel = telElement.innerHTML.replace(/\s/ig,'');
+    telElement.innerHTML = tel;
+</script>

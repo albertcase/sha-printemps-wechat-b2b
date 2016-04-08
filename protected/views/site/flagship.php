@@ -23,7 +23,7 @@
 			</li>
 			<li>
 				<span>电话 : </span>
-				<p>+33 142825000</p>
+				<p>+33142825000</p>
 			</li>
 		</ul>
 	</div>
@@ -37,7 +37,7 @@
 	<div class="con">
 		<a href="javascript:;" id="tel"> 
 			<img src="/vstyle/imgs/tel.png" />
-			<u>+33 142825000</u> 
+			<u>+33142825000</u>
 		</a>
 		<em>联系方式</em>
 	</div>

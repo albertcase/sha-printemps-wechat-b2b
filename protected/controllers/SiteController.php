@@ -202,6 +202,14 @@ public function actionAdminapi($action){
 	Yii::app()->end();
 }
 
+
+public function actionAapi(){
+	$token = new Weixin();
+	print_r($token->getKflist());
+	echo json_encode('4444');/*not login*/
+	Yii::app()->end();
+}
+
 public function actionLogout(){
 	$session = new Session();
 	$session->clean();
