@@ -42,7 +42,7 @@ var adminlist = {
   count:0,
   buildfirstname:function(){
     var a='<dl>';
-    a += '<dt><i class="fa fa-minus-square faleft" opt="firstname"></i>First Name：</dt>';
+    a += '<dt><i class="fa fa-minus-square faleft" opt="firstname"></i>Family Name：</dt>';
     a += '<dd><input type="text" id="orderfirstname"></input></dd>';
     a += '</dl>';
     return a;
