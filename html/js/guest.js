@@ -70,7 +70,7 @@ var adminlist = {
   },
   buildopenidd:function(){
     var a='<dl>';
-    a += '<dt><i class="fa fa-minus-square faleft" opt="openidd"></i>Logined：</dt>';
+    a += '<dt><i class="fa fa-minus-square faleft" opt="openidd"></i>Login：</dt>';
     a += '<dd>';
     a += '<select id="orderopenidd">';
     a += '<option value="1">Yes</option>';
