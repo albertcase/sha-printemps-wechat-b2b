@@ -48,7 +48,7 @@
               <!-- <th>First Name</th> -->
               <th>Family Name</th>
               <th>Tour Guide No.</th>
-              <th>Region</th>
+              <!-- <th>Region</th> -->
               <th>Login</th>
               <th>Login Date</th>
             </tr>
