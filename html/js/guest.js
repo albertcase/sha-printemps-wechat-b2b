@@ -93,7 +93,7 @@ var adminlist = {
     for(var i=0 ;i<al ;i++){
         a += '<tr sid="'+data[i]["id"]+'">';
         a += '<th>'+i+'</th>';
-        a += '<th>'+data[i]["firstname"]+'</th>';
+        // a += '<th>'+data[i]["firstname"]+'</th>';
         a += '<th>'+data[i]["secondname"]+'</th>';
         a += '<th>'+data[i]["cardno"]+'</th>';
         a += '<th>'+data[i]["bak"]+'</th>';
@@ -311,7 +311,7 @@ var adminlist = {
         }
         if(data != '11'){
           adminlist.count = Math.ceil(parseInt(data['count'])/parseInt($("#everypage").val()));
-          $("#sumtotal").text("TOTLE:"+parseInt(data['count']));
+          $("#sumtotal").text("TOTAL:"+parseInt(data['count']));
           html.closepop2();
           self.ajaxsend(self.submitsearch() ,1 ,$("#everypage").val());
           return true;

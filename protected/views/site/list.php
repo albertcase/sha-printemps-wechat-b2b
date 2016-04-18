@@ -16,7 +16,7 @@
         <div>
           SEARCH CRITERIA
           <select id="allorders">
-            <option value="firstname">First Name</option>
+            <!-- <option value="firstname">First Name</option> -->
             <option value="secondname">Family Name</option>
             <option value="cardno">Tour Guide No.</option>
             <option value="bak">Region</option>
@@ -45,12 +45,12 @@
           <thead>
             <tr>
               <th>No.</th>
-              <th>First Name</th>
+              <!-- <th>First Name</th> -->
               <th>Family Name</th>
               <th>Tour Guide No.</th>
               <th>Region</th>
-              <th>Logined</th>
-              <th>LoginDate</th>
+              <th>Login</th>
+              <th>Login Date</th>
             </tr>
           </thead>
           <tbody>
