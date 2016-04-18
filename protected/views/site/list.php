@@ -17,9 +17,9 @@
           SEARCH CRITERIA
           <select id="allorders">
             <!-- <option value="firstname">First Name</option> -->
-            <option value="secondname">Family Name</option>
+            <option value="firstname">Family Name</option>
             <option value="cardno">Tour Guide No.</option>
-            <option value="bak">Region</option>
+            <!-- <option value="bak">Region</option> -->
             <option value="openidd">Logined</option>
           </select>
           <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

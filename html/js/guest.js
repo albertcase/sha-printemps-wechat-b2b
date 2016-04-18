@@ -93,10 +93,10 @@ var adminlist = {
     for(var i=0 ;i<al ;i++){
         a += '<tr sid="'+data[i]["id"]+'">';
         a += '<th>'+i+'</th>';
-        // a += '<th>'+data[i]["firstname"]+'</th>';
-        a += '<th>'+data[i]["secondname"]+'</th>';
+        a += '<th>'+data[i]["firstname"]+'</th>';
+        // a += '<th>'+data[i]["secondname"]+'</th>';
         a += '<th>'+data[i]["cardno"]+'</th>';
-        a += '<th>'+data[i]["bak"]+'</th>';
+        // a += '<th>'+data[i]["bak"]+'</th>';
         if(data[i]["openid"]){
             a += '<th>Yes</th>';
           }else{
