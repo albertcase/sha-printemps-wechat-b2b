@@ -16,10 +16,10 @@ class forwordGrata{
       $this->_memcache->addData($this->prostr.$this->count ,'1');
       $this->_memcache->addData($this->prostr.$this->now ,'1');
     }
-    $this->closeforwardJob($data);
+    $this->closeforwardJob();
   }
 
-  public function closeforwardJob($data){
+  public function closeforwardJob(){
     if($time = $this->_memcache->getData($this->prostr.$this->changT)){
       if((time() - $time) > $this->outtime){
         exec("nohup ".dirname(__FILE__)."/closeforwardJob.sh >>./closeforwardJob.log 2>&1 &");
