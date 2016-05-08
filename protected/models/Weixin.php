@@ -111,7 +111,7 @@ class Weixin{
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer'){//tranfer customer
 								// $mi = mt_rand(0, (count($rs)-1));
 								// return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
-								return $this->transferCustomer($fromUsername, $toUsername ,$eventKey); //send to grata
+								return $this->transferCustomer($fromUsername, $toUsername ,trim($eventKey)); //send to grata
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
