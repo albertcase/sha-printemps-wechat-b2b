@@ -10,6 +10,7 @@ class Weixin{
 	private $_fromUsername = null;
 	private $_toUsername = null;
 	private $_memcache;
+	private $_postStr;
 
 	public function __construct()
 	{
@@ -29,7 +30,7 @@ class Weixin{
     public function responseMsg($postStr)
     {
 		if (!empty($postStr)){
-
+								$this->_postStr = $postStr;
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $this->_fromUsername=$fromUsername = $postObj->FromUserName;
                 $this->_toUsername=$toUsername = $postObj->ToUserName;
@@ -108,8 +109,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer'){//tranfer customer
-					$mi = mt_rand(0, (count($rs)-1));
-					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
+								// $mi = mt_rand(0, (count($rs)-1));
+								// return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
+								return $this->transferCustomer($fromUsername, $toUsername ,$eventKey); //send to grata
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -190,9 +192,9 @@ class Weixin{
     }
 
   private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
-		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$this->closeCustomer($fromUsername);
-		}
+		// if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+		// 	$this->closeCustomer($fromUsername);
+		// }
 		if($this->checkopenid($fromUsername))
 			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能,请点击以下链接登陆\nhttp://printempsb2b.samesamechina.com/site/login");
@@ -200,15 +202,31 @@ class Weixin{
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
 		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
-		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+		if($kfaccount == 'A3'){
+			$feedback = '卢浮春天百货客服为您服务';
+		}else{
+			$feedback = '奥斯曼旗舰店客服为您服务';
+		}
+		$this->sendtoGrata();
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $feedback);
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
 		if($kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
 			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
-			return $this->sendService($fromUsername, $toUsername);
+			// return $this->sendService($fromUsername, $toUsername);
+			$this->sendtoGrata();
+			return "";
 		}
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
+	}
+
+	public function sendtoGrata(){
+		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
+		$forwordGrata = new forwordGrata();
+		$forwordGrata->addforwardJob($this->_postStr);
+		$forwordGrata->runforwardJob();
 	}
 
 	private function closeCustomer($fromUsername){

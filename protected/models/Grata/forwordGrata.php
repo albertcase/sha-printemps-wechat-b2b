@@ -16,6 +16,7 @@ class forwordGrata{
       $this->_memcache->addData($this->prostr.$this->count ,'1');
       $this->_memcache->addData($this->prostr.$this->now ,'1');
     }
+    $this->closeforwardJob($data);
   }
 
   public function closeforwardJob($data){
@@ -28,7 +29,12 @@ class forwordGrata{
   }
 
   public function runforwardJob(){
-    exec("nohup ".dirname(__FILE__)."/closeforwardJob.sh >>./closeforwardJob.log 2>&1 &");
+    exec("nohup ".dirname(__FILE__)."/runforwardJob.sh >>./runforwardJob.log 2>&1 &");
+  }
+
+  public function addforwardJob($data){
+    $key = $this->_memcache->incremkey($this->prostr.$this->count);
+    $this->_memcache->addData($this->prostr.$this->list.$key, $data, '800');
   }
 
   public function ststus(){
@@ -51,14 +57,9 @@ class forwordGrata{
     $this->_memcache->delData($this->prostr.$this->changT);
   }
 
-  public function addforwardJob($data){
-    $key = $this->_memcache->incremkey($this->prostr.$this->count);
-    $this->_memcache->addData($this->prostr.$this->list.$key, $data);
-  }
-
   public function send_xml($xmlData){
     $url = 'https://api.guestops.com/connect-api/wechat/229310580131';
-    $header[] = "Content-type: text/xml";        //定义content-type为xml,注意是数组
+    $header[] = "Content-type: text/xml"; //定义content-type为xml,注意是数组
     $ch = curl_init ($url);
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -70,6 +71,7 @@ class forwordGrata{
         print curl_error($ch);
     }
     curl_close($ch);
+    $this->_memcache->addData('aaaa', $xmlData);
   }
 }
 ?>
