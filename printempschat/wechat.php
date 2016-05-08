@@ -56,18 +56,17 @@ class wechat{
     if($AccessToken = $this->getAccessToken()){
       $out =  array(
         'code' => '10',
-        'access_token' => $this->aes128_cbc_encrypt($this->key, $AccessToken, $this->iv),
+        'access_token' => base64_encode(this->aes128_cbc_encrypt($this->key, $AccessToken, $this->iv)),
       );
     }else{
       $out = array('code' => '9');
     }
-    print_r($out);
     return json_encode($out);
   }
 
   public function deacccesstoken(){
     $token = $this->backaccesstoken();
     $token = json_decode($token, true);
-    return $this->aes128_cbc_decrypt($this->key, $token['access_token'], $this->iv);
+    return $this->aes128_cbc_decrypt($this->key, base64_decode($token['access_token']), $this->iv);
   }
 }
