@@ -73,5 +73,12 @@ class forwordGrata{
     curl_close($ch);
     $this->_memcache->addData('aaaa', $xmlData);
   }
+
+  public function gomsg(){
+    while($this->ststus())
+    {
+      $this->pushMsg();
+    }
+  }
 }
 ?>
