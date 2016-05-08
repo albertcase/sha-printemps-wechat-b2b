@@ -64,6 +64,6 @@ class wechat{
 
   public function deacccesstoken(){
     $token = $this->backaccesstoken();
-    return aes128_cbc_decrypt($this->key, $token['access_token'], $this->iv);
+    return $this->aes128_cbc_decrypt($this->key, $token['access_token'], $this->iv);
   }
 }
