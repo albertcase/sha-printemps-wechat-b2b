@@ -226,8 +226,8 @@ class Weixin{
 		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
 		$forwordGrata = new forwordGrata();
 		$forwordGrata->addforwardJob($this->_postStr);
-		// $forwordGrata->runforwardJob();
-		$forwordGrata->gomsg();
+		$forwordGrata->runforwardJob();
+		// $forwordGrata->gomsg();
 	}
 
 	private function closeCustomer($fromUsername){

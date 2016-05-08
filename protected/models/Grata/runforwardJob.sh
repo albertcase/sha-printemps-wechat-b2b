@@ -5,4 +5,4 @@ then
 	echo 'this service already runing';
 	exit;
 fi
-php ~+/protected/models/Customs/forwardJobrun.php &
+php ~+/protected/models/Grata/forwardJobrun.php &
