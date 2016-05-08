@@ -61,6 +61,7 @@ class wechat{
     }else{
       $out = array('code' => '9');
     }
+    print_r($out);
     return json_encode($out);
   }
 
