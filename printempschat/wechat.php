@@ -56,7 +56,7 @@ class wechat{
     if($AccessToken = $this->getAccessToken()){
       $out =  array(
         'code' => '10',
-        'access_token' => base64_encode(this->aes128_cbc_encrypt($this->key, $AccessToken, $this->iv)),
+        'access_token' => base64_encode($this->aes128_cbc_encrypt($this->key, $AccessToken, $this->iv)),
       );
     }else{
       $out = array('code' => '9');
