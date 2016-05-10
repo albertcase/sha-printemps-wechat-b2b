@@ -42,7 +42,7 @@ var adminlist = {
   count:0,
   buildfirstname:function(){
     var a='<dl>';
-    a += '<dt><i class="fa fa-minus-square faleft" opt="firstname"></i>First Name：</dt>';
+    a += '<dt><i class="fa fa-minus-square faleft" opt="firstname"></i>Family Name：</dt>';
     a += '<dd><input type="text" id="orderfirstname"></input></dd>';
     a += '</dl>';
     return a;
@@ -70,7 +70,7 @@ var adminlist = {
   },
   buildopenidd:function(){
     var a='<dl>';
-    a += '<dt><i class="fa fa-minus-square faleft" opt="openidd"></i>Logined：</dt>';
+    a += '<dt><i class="fa fa-minus-square faleft" opt="openidd"></i>Login：</dt>';
     a += '<dd>';
     a += '<select id="orderopenidd">';
     a += '<option value="1">Yes</option>';
@@ -94,9 +94,9 @@ var adminlist = {
         a += '<tr sid="'+data[i]["id"]+'">';
         a += '<th>'+i+'</th>';
         a += '<th>'+data[i]["firstname"]+'</th>';
-        a += '<th>'+data[i]["secondname"]+'</th>';
+        // a += '<th>'+data[i]["secondname"]+'</th>';
         a += '<th>'+data[i]["cardno"]+'</th>';
-        a += '<th>'+data[i]["bak"]+'</th>';
+        // a += '<th>'+data[i]["bak"]+'</th>';
         if(data[i]["openid"]){
             a += '<th>Yes</th>';
           }else{
@@ -311,7 +311,7 @@ var adminlist = {
         }
         if(data != '11'){
           adminlist.count = Math.ceil(parseInt(data['count'])/parseInt($("#everypage").val()));
-          $("#sumtotal").text("TOTLE:"+parseInt(data['count']));
+          $("#sumtotal").text("TOTAL:"+parseInt(data['count']));
           html.closepop2();
           self.ajaxsend(self.submitsearch() ,1 ,$("#everypage").val());
           return true;
