@@ -261,6 +261,11 @@ footer .con a img{
 }
 
 /* outlet */
+.aboutcon img{
+	margin: 6px 0;
+	display: inline-block;
+}
+
 .infoAbout{
 	width: 100%;
 	padding: 10px 0 15px 0;
