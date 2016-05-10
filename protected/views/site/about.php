@@ -9,8 +9,11 @@
             </p>
             <div class="aboutcon">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/about-1.jpg" width="100%" />
+                <p>19世纪的春天百货, Bonnier 雕刻, 1890年</p>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/about-2.jpg" width="100%" />
+                <p>春天百货奥斯曼店男装馆</p>
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/about-3.jpg" width="100%" />
+                <p>今日的春天百货奥斯曼店</p>
             </div>
         </div>
     </div>
