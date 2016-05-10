@@ -261,10 +261,7 @@ footer .con a img{
 }
 
 /* outlet */
-.aboutcon img{
-	margin: 6px 0;
-	display: inline-block;
-}
+
 
 .infoAbout{
 	width: 100%;
@@ -632,6 +629,20 @@ footer.personal_footer .con a img{
 	padding: 3px 0;
 	line-height:16px;
 }
+
+
+/* about */
+
+.aboutcon p{
+	width: 100%;
+	text-align: center;
+}
+
+.aboutcon img{
+	margin: 6px 0;
+	display: inline-block;
+}
+
 
 
 /* 6plus */
