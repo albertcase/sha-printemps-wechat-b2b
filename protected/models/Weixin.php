@@ -237,8 +237,8 @@ class Weixin{
 		$forwordGrata = new forwordGrata();
 		$time = time();
 		$postStr = "<xml>
- <ToUserName><![CDATA[{$this->_fromUsername}]]></ToUserName>
- <FromUserName><![CDATA[{$this->_toUsername}]]></FromUserName>
+ <ToUserName><![CDATA[{$this->_toUsername}]]></ToUserName>
+ <FromUserName><![CDATA[{$this->_fromUsername}]]></FromUserName>
  <CreateTime>{$time}</CreateTime>
  <MsgType><![CDATA[text]]></MsgType>
  <Content><![CDATA[{$code}]]></Content>
