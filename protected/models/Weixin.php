@@ -205,10 +205,12 @@ class Weixin{
 		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 		if($kfaccount == 'A3'){
 			$feedback = '卢浮春天百货客服为您服务';
+			$code = '#1';
 		}else{
 			$feedback = '奥斯曼旗舰店客服为您服务';
+			$code = '#2';
 		}
-		$this->sendtoGrata();
+		$this->Gratacustom($code);
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $feedback);
 	}
 
@@ -221,7 +223,7 @@ class Weixin{
 		}
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
 	}
-
+//send to Grata
 	public function sendtoGrata(){
 		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
 		$forwordGrata = new forwordGrata();
@@ -230,6 +232,22 @@ class Weixin{
 		// $forwordGrata->gomsg();
 	}
 
+	public function Gratacustom($code){
+		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
+		$forwordGrata = new forwordGrata();
+		$time = time();
+		$postStr = "<xml>
+ <ToUserName><![CDATA[{$this->_fromUsername}]]></ToUserName>
+ <FromUserName><![CDATA[{$this->_toUsername}]]></FromUserName>
+ <CreateTime>{$time}</CreateTime>
+ <MsgType><![CDATA[text]]></MsgType>
+ <Content><![CDATA[{$code}]]></Content>
+ <MsgId>1234567890123456</MsgId>
+ </xml>";
+		$forwordGrata->addforwardJob($postStr);
+		$forwordGrata->runforwardJob();
+	}
+// send to Grata end
 	private function closeCustomer($fromUsername){
 		$kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername);
 		$this->_memcache->delData('oncustomer:'.$fromUsername);
