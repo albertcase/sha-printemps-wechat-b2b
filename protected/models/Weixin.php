@@ -205,13 +205,23 @@ class Weixin{
 		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 		if($kfaccount == 'A3'){
 			$feedback = '卢浮春天百货客服为您服务,有什么可以帮你的吗？';
-			$code = '#1';
+			$code = 'v6DPQ';
 		}else{
 			$feedback = '奥斯曼旗舰店客服为您服务，有什么可以帮你的吗？';
-			$code = '#2';
+			$code = 'YOHog';
 		}
-		$this->Gratacustom($code);
+		// $this->Gratacustom($code);
+		$this->utocustom($fromUsername,$code);
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $feedback);
+	}
+
+	public function utocustom($fromUsername,$id){
+		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e';
+		$param = array(
+			'open_id' => trim($fromUsername),
+			'user_group' => $id,
+		);
+		$this->post_data($url, $param);
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
