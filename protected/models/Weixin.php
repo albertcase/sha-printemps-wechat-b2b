@@ -216,12 +216,8 @@ class Weixin{
 	}
 
 	public function utocustom($fromUsername,$id){
-		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e';
-		$param = array(
-			'open_id' => trim($fromUsername),
-			'user_group' => $id,
-		);
-		$this->post_data($url, $param);
+		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
+		$this->get_data($url);
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
@@ -636,8 +632,14 @@ class Weixin{
       }
 
   public function JSON($array) {
-	$this->arrayRecursive ( $array, 'urlencode', true );
-	$json = json_encode ( $array );
-	return urldecode ( $json );
-    }
+		$this->arrayRecursive ( $array, 'urlencode', true );
+		$json = json_encode ( $array );
+		return urldecode ( $json );
+  }
+
+	public function get_data($url, $return_array = true){
+		if($return_array)
+			return json_decode( file_get_contents($url), true );
+		return file_get_contents($url);
+	}
 }
