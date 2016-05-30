@@ -126,7 +126,8 @@ class Weixin{
 						$this->systemLog($postStr,$fromUsername,$msgType,$event,$eventKey);
 						return;
 					}else if($event=='location'){
-						$this->systemLog($postStr,$fromUsername,$msgType,$event);
+						return $this->sendMsgtoCustomer($fromUsername, $toUsername);
+						// $this->systemLog($postStr,$fromUsername,$msgType,$event);
 						return;
 					}else if($event=='scan'){
 						$ticket=$postObj->Ticket;
