@@ -10,36 +10,6 @@
 	</div>
 	<div class="sortList">
 		
-		
-		<!-- <div class="sortCategory">
-			<h3>D</h3>
-			<ul>
-				<li>
-					<div class="con">
-						<h4>DAVID YURMAN</h4>
-						<p>春天百货女士时尚馆，一层</p>
-					</div>
-				</li>
-				<li>
-					<div class="con">
-						<h4>DE BEERSAGNELLE</h4>
-						<p>春天百货女士时尚馆，一层</p>
-					</div>
-				</li>
-				<li>
-					<div class="con">
-						<h4>DINH VAN</h4>
-						<p>春天百货女士时尚馆，一层</p>
-					</div>
-				</li>
-				<li>
-					<div class="con">
-						<h4>DIOR JOAILLERIE</h4>
-						<p>春天百货女士时尚馆，一层</p>
-					</div>
-				</li>
-			</ul>
-		</div> -->
 
 	</div>
 </div>
@@ -156,7 +126,7 @@
 
            //sortHtml == "" ? sortHtml = "无当前分类内容!" : sortHtml = sortHtml
            $(".sortList").html(sortHtml);
-           $(".sortCategory").eq(0).find("h3").addClass("hover");
+           //$(".sortCategory").eq(0).find("h3").addClass("hover");
 
 
            $(".sortCategory").each(function(){
