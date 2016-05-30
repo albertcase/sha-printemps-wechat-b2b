@@ -115,13 +115,21 @@
     
 
 
+//    function arabic_Chinese_change_fun(v){
+//        var resultArr = [];
+//        v = String(v);
+//        for (var i=0; i < v.length; i++){
+//            resultArr.push( '零一二三四五六七八九'.charAt(v.charAt(i)));
+//        }
+//        return resultArr.join("");
+//    }
+
     function arabic_Chinese_change_fun(v){
-        var resultArr = [];
-        v = String(v);
-        for (var i=0; i < v.length; i++){
-            resultArr.push( '零一二三四五六七八九'.charAt(v.charAt(i)));
+        if(v === 0){
+            return "RDC"
+        }else{
+            return v + "er étage";
         }
-        return resultArr.join("");
     }
 
     //console.log(arabic_Chinese_change_fun("12345678090"));
@@ -138,9 +146,9 @@
            var sortHtml = $.map(data, function(k, v){
            		var sortContentHtml = $.map(k ,function(ck, cv){
            			if (ck.building!='')
-           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ ck.building + '，' + (Number(ck.floor)+1) +'层</p></div></li>'
+           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ ck.building + '，' + arabic_Chinese_change_fun(Number(ck.floor)) +'层</p></div></li>'
            			else
-           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ (Number(ck.floor)+1) +'层</p></div></li>'
+           				return '<li><div class="con"><h4>'+ck.brand+'</h4><p>'+ arabic_Chinese_change_fun(Number(ck.floor)) +'层</p></div></li>'
            		}).join("");
            		return '<div class="sortCategory"><h3>'+v+'</h3><ul class="sort-'+v+'">'+sortContentHtml+'</ul></div>';
            }).join("");

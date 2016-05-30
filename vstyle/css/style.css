@@ -53,7 +53,7 @@ body{
 }
 
 .sortCategory:nth-child(1) ul{
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
 .sortCategory li{
