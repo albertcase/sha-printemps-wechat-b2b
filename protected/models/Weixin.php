@@ -126,9 +126,9 @@ class Weixin{
 						$this->systemLog($postStr,$fromUsername,$msgType,$event,$eventKey);
 						return;
 					}else if($event=='location'){
-						return $this->sendMsgtoCustomer($fromUsername, $toUsername);
+						$this->sendtoGrata();
 						// $this->systemLog($postStr,$fromUsername,$msgType,$event);
-						return;
+						// return;
 					}else if($event=='scan'){
 						$ticket=$postObj->Ticket;
 						$this->sceneLog($fromUsername,2,$ticket);
