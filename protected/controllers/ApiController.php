@@ -26,48 +26,48 @@ class ApiController extends Controller
 		switch ($categorie) {
 			case '1':
 				$categorie = 'ACCESSORIES & JEWELLERY 时尚配饰与奢华精品';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			case '2':
 				$storename = 'PRINTEMPS HAUSSMANN 奥斯曼旗舰店';
 				$categorie = 'BEAUTY 美容护肤';
-				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle,brand";
 				break;
 
 			case '3':
 				$categorie = 'WOMEN 女士';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			case '4':
 				$categorie = 'MEN 男士';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			case '5':
 				$categorie = 'CHILDREN & HOME 儿童家居';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			case '6':
 				$categorie = 'ACCESSORIES 时尚配饰';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			case '7':
 			    $storename = 'PRINTEMPS DU LOUVRE 卢浮春天百货';
 				$categorie = 'BEAUTY 美容护肤';
-				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' and store='".$storename."'  order by brandtitle,brand";
 				break;
 
 			case '8':
 				$categorie = 'WATCHES & JEWELLERY 配饰与奢华精品';
-				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle";
+				$sql = "select * from same_brand where categorie='".$categorie."' order by brandtitle,brand";
 				break;
 
 			default:
-				$sql = "select * from same_brand where store='".$storename."' order by brandtitle";
+				$sql = "select * from same_brand where store='".$storename."' order by brandtitle,brand";
 				break;
 		}
 
