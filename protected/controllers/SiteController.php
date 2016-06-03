@@ -87,6 +87,10 @@ class SiteController extends Controller
                 $this->render('pushArticles/question');
     }
 
+    public function actionCba(){
+                $this->render('pushArticles/cba');
+    }
+
 
 	public function actionStore($id){
 		$sql = "select * from same_store where id = ".intval($id);

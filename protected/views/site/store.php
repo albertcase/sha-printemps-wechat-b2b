@@ -1,7 +1,7 @@
 <div class="page store">
 
 <div class="container">
-        <h2>巴黎春天百货</h2>
+        <h2>法国春天百货</h2>
         <?php
         if (file_exists('vstyle/imgs/store/'.$store['id'].'.jpg')) {
         ?>

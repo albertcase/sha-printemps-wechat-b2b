@@ -10,6 +10,7 @@ class Weixin{
 	private $_fromUsername = null;
 	private $_toUsername = null;
 	private $_memcache;
+	private $_postStr;
 
 	public function __construct()
 	{
@@ -29,7 +30,7 @@ class Weixin{
     public function responseMsg($postStr)
     {
 		if (!empty($postStr)){
-
+								$this->_postStr = $postStr;
               	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
                 $this->_fromUsername=$fromUsername = $postObj->FromUserName;
                 $this->_toUsername=$toUsername = $postObj->ToUserName;
@@ -108,8 +109,9 @@ class Weixin{
 	                		}
 	                		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 	                	}else if($rs[0]['msgtype'] == 'transfer_customer'){//tranfer customer
-					$mi = mt_rand(0, (count($rs)-1));
-					return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
+								// $mi = mt_rand(0, (count($rs)-1));
+								// return $this->transferCustomer($fromUsername, $toUsername ,trim($rs[$mi]['content']));//tranfer customer
+								return $this->transferCustomer($fromUsername, $toUsername ,trim($eventKey)); //send to grata
 					}
 					}else if($event=='subscribe'){
 						if($eventKey){
@@ -124,8 +126,9 @@ class Weixin{
 						$this->systemLog($postStr,$fromUsername,$msgType,$event,$eventKey);
 						return;
 					}else if($event=='location'){
-						$this->systemLog($postStr,$fromUsername,$msgType,$event);
-						return;
+						$this->sendtoGrata();
+						// $this->systemLog($postStr,$fromUsername,$msgType,$event);
+						// return;
 					}else if($event=='scan'){
 						$ticket=$postObj->Ticket;
 						$this->sceneLog($fromUsername,2,$ticket);
@@ -190,27 +193,68 @@ class Weixin{
     }
 
   private function transferCustomer($fromUsername, $toUsername ,$newkfaccount){
-		if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$this->closeCustomer($fromUsername);
-		}
+		// if($oldkfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
+		// 	$this->closeCustomer($fromUsername);
+		// }
 		if($this->checkopenid($fromUsername))
 			return $this->useCustomer($fromUsername, $toUsername ,$newkfaccount);
-		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "对不起!你还不是导购无法使用该功能,请点击以下链接登陆\nhttp://printempsb2b.samesamechina.com/site/login");
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "很抱歉，您尚未登录，暂时无法使用在线客服功能。请点击<a href='http://printempsb2b.samesamechina.com/site/login'>点击此处</a>登录");
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
 		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
-		return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
+		if($kfaccount == 'A3'){
+			$feedback = '卢浮春天百货客服为您服务,有什么可以帮你的吗？';
+			$code = 'v6DPQ';
+		}else{
+			$feedback = '奥斯曼旗舰店客服为您服务，有什么可以帮你的吗？';
+			$code = 'YOHog';
+		}
+		// $this->Gratacustom($code);
+		$this->utocustom($fromUsername,$code);
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $feedback);
+	}
+
+	public function utocustom($fromUsername,$id){
+		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
+		$this->get_data($url);
 	}
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
 		if($kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
 			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
-			return $this->sendService($fromUsername, $toUsername);
+			// return $this->sendService($fromUsername, $toUsername);
+			$this->sendtoGrata();
+			return "";
 		}
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
 	}
+//send to Grata
+	public function sendtoGrata(){
+		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
+		$forwordGrata = new forwordGrata();
+		$forwordGrata->addforwardJob($this->_postStr);
+		$forwordGrata->runforwardJob();
+		// $forwordGrata->gomsg();
+	}
 
+	public function Gratacustom($code){
+		require_once dirname(__FILE__).'/Grata/forwordGrata.php';
+		$forwordGrata = new forwordGrata();
+		$time = time();
+		$postStr = "<xml>
+ <ToUserName><![CDATA[{$this->_toUsername}]]></ToUserName>
+ <FromUserName><![CDATA[{$this->_fromUsername}]]></FromUserName>
+ <CreateTime>{$time}</CreateTime>
+ <MsgType><![CDATA[text]]></MsgType>
+ <Content><![CDATA[{$code}]]></Content>
+ <MsgId>1234567890123456</MsgId>
+ </xml>";
+		$forwordGrata->addforwardJob($postStr);
+		$forwordGrata->runforwardJob();
+	}
+// send to Grata end
 	private function closeCustomer($fromUsername){
 		$kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername);
 		$this->_memcache->delData('oncustomer:'.$fromUsername);
@@ -589,8 +633,14 @@ class Weixin{
       }
 
   public function JSON($array) {
-	$this->arrayRecursive ( $array, 'urlencode', true );
-	$json = json_encode ( $array );
-	return urldecode ( $json );
-    }
+		$this->arrayRecursive ( $array, 'urlencode', true );
+		$json = json_encode ( $array );
+		return urldecode ( $json );
+  }
+
+	public function get_data($url, $return_array = true){
+		if($return_array)
+			return json_decode( file_get_contents($url), true );
+		return file_get_contents($url);
+	}
 }

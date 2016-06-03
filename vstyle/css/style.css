@@ -53,7 +53,7 @@ body{
 }
 
 .sortCategory:nth-child(1) ul{
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
 .sortCategory li{
@@ -261,6 +261,8 @@ footer .con a img{
 }
 
 /* outlet */
+
+
 .infoAbout{
 	width: 100%;
 	padding: 10px 0 15px 0;
@@ -627,6 +629,20 @@ footer.personal_footer .con a img{
 	padding: 3px 0;
 	line-height:16px;
 }
+
+
+/* about */
+
+.aboutcon p{
+	width: 100%;
+	text-align: center;
+}
+
+.aboutcon img{
+	margin: 6px 0;
+	display: inline-block;
+}
+
 
 
 /* 6plus */
