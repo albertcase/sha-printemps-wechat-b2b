@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/html/js/guest.js"></script>
 </head>
 <body>
-    <div class="">
+    <div class="mainclass">
       <div class="checkoption">
         <div>
           SEARCH CRITERIA
@@ -66,6 +66,7 @@
         </div>
       </div>
     </div>
+</div>
     <div class="tembox"></div>
     <div class="popupbox2"></div>
 </body>
