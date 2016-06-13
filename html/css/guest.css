@@ -18,9 +18,7 @@
 
 #allorders,#everypage{
   background-color: #ce0058;
-  color: #eee;
-  border: solid 1px #fff;
-  text-indent: 5px;
+  color: #ddd;
   font-size:1rem;
   outline: none;
   appearance:none;
