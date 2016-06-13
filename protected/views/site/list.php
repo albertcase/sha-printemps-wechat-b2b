@@ -24,6 +24,7 @@
             <!-- <option value="bak">Region</option> -->
             <option value="openidd">Login</option>
           </select>
+          <i class="fa-chevron-down" style="color:#fff"></i>
           <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           SHOW:
           <select id="everypage">
