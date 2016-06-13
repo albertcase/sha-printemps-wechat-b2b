@@ -4,7 +4,7 @@
 }
 
 .checkoption{
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .logpage{
@@ -115,7 +115,7 @@ input:focus{
 
 .bespeaklist{
     border-collapse:collapse;
-    margin:40px auto;
+    margin:30px auto;
     border-bottom:1px solid #ccc;
 }
 
