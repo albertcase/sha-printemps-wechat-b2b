@@ -24,7 +24,7 @@
             <!-- <option value="bak">Region</option> -->
             <option value="openidd">Login</option>
           </select>
-          <i class="fa-chevron-down" style="color:#fff"></i>
+          <i class="fa fa-chevron-down" style="color:#ddd"></i>
           <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           SHOW:
           <select id="everypage">
@@ -33,6 +33,7 @@
             <option value="40">40</option>
             <option value="50">50</option>
           </select>
+          <i class="fa fa-chevron-down" style="color:#ddd"></i>
           <button class="btn-blue" id="searchbt" style="margin-left:80px;">Search</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span id="sumtotal"></span>
