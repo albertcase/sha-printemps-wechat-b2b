@@ -12,6 +12,8 @@
 </head>
 <body>
     <div class="mainclass">
+      <img src="/html/image/printempslog.png" style="margin:0px auto;">
+      <hr style="margin:0px 50px">
       <div class="checkoption">
         <div>
           SEARCH CRITERIA

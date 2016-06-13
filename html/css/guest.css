@@ -240,14 +240,7 @@ input:focus{
   margin-right: 4px;
   color: black;
   display: inline;
-  /*border-left: 1px solid #09A04F;
-  border-top: 1px solid #09A04F;
-  border-bottom: 1px solid #09A04F;*/
   background-color: #efefef;
-}
-
-.bespeaklistfoot ul>li:last-child{
-  border-right: 1px solid #09A04F;
 }
 
 .bespeaklistfoot ul>.pagenum:hover{
