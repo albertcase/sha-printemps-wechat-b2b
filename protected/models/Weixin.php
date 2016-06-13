@@ -171,16 +171,16 @@ class Weixin{
             		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 				}else if($msgType=='image'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='voice'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='video'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='link'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}
 
 
