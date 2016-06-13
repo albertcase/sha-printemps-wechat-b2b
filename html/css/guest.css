@@ -32,8 +32,9 @@
 #allorders:after,#everypage:after{
   content: '';
   border:solid 0px #ce0058;
-  border-top:solid 10px #fff;
-  float:right;
+  border-top:solid 50px #fff;
+  postion:relative;
+  right:0px;
 }
 
 .logpage{
