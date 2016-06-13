@@ -103,7 +103,7 @@ input:focus{
 
 /*bespeaklist stert*/
 .bespeaklist thead>tr{
-  color:#337ab7 !important;
+  color:#ce0058 !important;
   font-size:110%;
   border-bottom:1px solid #ccc;
   height:35px !important;
@@ -228,7 +228,7 @@ input:focus{
 
 .bespeaklistfoot ul{
   padding: 0px;
-  margin-top: 20px;
+  margin-top: 40px;
   border-collapse:collapse;
   /*border: 1px solid #777;*/
 }
@@ -236,13 +236,14 @@ input:focus{
 .bespeaklistfoot ul>li{
   padding: 10px;
   margin: 0px;
-  margin-left: -4px;
-  color: blue;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: black;
   display: inline;
-  border-left: 1px solid #09A04F;
+  /*border-left: 1px solid #09A04F;
   border-top: 1px solid #09A04F;
-  border-bottom: 1px solid #09A04F;
-  background-color: #fff;
+  border-bottom: 1px solid #09A04F;*/
+  background-color: #efefef;
 }
 
 .bespeaklistfoot ul>li:last-child{
@@ -255,7 +256,7 @@ input:focus{
 }
 
 .bespeaklistfoot ul>.chooseli{
-  background-color: #09A04F !important;
+  background-color: #ce0058 !important;
 }
 /*bespeaklist end*/
 
