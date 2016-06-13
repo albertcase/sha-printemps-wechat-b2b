@@ -111,8 +111,7 @@ input:focus{
 
 .bespeaklist{
     border-collapse:collapse;
-    margin-top:20px;
-    margin-left:20px;
+    margin:10px auto;
     border-bottom:1px solid #ccc;
 }
 
