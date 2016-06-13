@@ -3,6 +3,10 @@
   width:900px;
 }
 
+.checkoption{
+  margin-top: 30px;
+}
+
 .logpage{
   margin:180px auto;
   background-color: #ddd;
@@ -111,7 +115,7 @@ input:focus{
 
 .bespeaklist{
     border-collapse:collapse;
-    margin:10px auto;
+    margin:40px auto;
     border-bottom:1px solid #ccc;
 }
 
