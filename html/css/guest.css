@@ -17,12 +17,12 @@
 }
 
 #allorders,#everypage{
-  background-color: #fff;
-  color: #000;
+  background-color: #ce0058;
+  color: #eee;
   border: solid 1px #fff;
   text-indent: 5px;
-  height:30px;
-  border-radius: 0px;
+  font-size:1rem;
+  outline: none;
   appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
