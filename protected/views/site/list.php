@@ -15,7 +15,7 @@
       <img src="/html/image/printempslog.png" style="margin:0px auto;">
       <hr style="margin:0px 50px">
       <div class="checkoption">
-        <div>
+        <div class="tableinfo">
           SEARCH CRITERIA
           <select id="allorders">
             <!-- <option value="firstname">First Name</option> -->
