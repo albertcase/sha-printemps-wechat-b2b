@@ -31,10 +31,10 @@
 
 #allorders:after,#everypage:after{
   content: '';
-  /*border:solid 0px #ce0058;*/
-  border-top:50px solid #fff;
-  postion:relative;
-  right:0px;
+  border:50px solid #ce0058;
+  /*border-top:50px solid #fff;*/
+  postion:absolute;
+  /*right:0px;*/
 }
 
 .logpage{
