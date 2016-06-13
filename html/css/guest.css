@@ -19,6 +19,8 @@
 #allorders,#everypage{
   background-color: #ce0058;
   color: #ddd;
+  padding:5px;
+  border:0;
   font-size:1rem;
   outline: none;
   appearance:none;
