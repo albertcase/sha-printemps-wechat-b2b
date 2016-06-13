@@ -26,6 +26,14 @@
   appearance:none;
   -moz-appearance:none;
   -webkit-appearance:none;
+  position:relative;
+}
+
+#allorders:after,#everypage:after{
+  content: '';
+  border:solid 0px #ce0058;
+  border-top:solid 10px #fff;
+  float:right;
 }
 
 .logpage{
