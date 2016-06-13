@@ -16,7 +16,7 @@
       <hr style="margin:0px 50px">
       <div class="checkoption">
         <div class="tableinfo">
-          SEARCH CRITERIA
+          SEARCH CRITERIA:
           <select id="allorders">
             <!-- <option value="firstname">First Name</option> -->
             <option value="firstname">Family Name</option>
@@ -25,7 +25,7 @@
             <option value="openidd">Login</option>
           </select>
           <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          SHOW：
+          SHOW:
           <select id="everypage">
             <option value="20">20</option>
             <option value="30">30</option>
