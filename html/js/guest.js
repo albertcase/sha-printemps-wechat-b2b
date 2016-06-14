@@ -402,7 +402,8 @@ var adminlist = {
     //upload userlist
     $("#myfiles").change(function(){
       var name = $("#myfiles").val().toLowerCase().split(".");
-      if(name.pop() != "xlsx"){
+      var exp = name.pop();
+      if(exp != "xlsx" || exp != "xls"){
         html.tips("this file is not a xlsx file");
         return false;
       }

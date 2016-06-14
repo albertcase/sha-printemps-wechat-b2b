@@ -78,7 +78,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=printemps_b2b',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => '123456',
 			'charset' => 'utf8',
 		),
 

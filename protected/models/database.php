@@ -115,7 +115,7 @@ class database
   }
 
   public function insertUData(array $data=array(), $table){
-      if($this->checkData($data=array() ,$table)){
+      if($this->checkData($data ,$table)){
       $this->sql->createCommand()->insert($table, $data);
       return $this->sql->getLastInsertID();
     }
