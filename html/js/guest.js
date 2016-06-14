@@ -406,7 +406,7 @@ var adminlist = {
         html.tips("this file is not a xlsx file");
         return false;
       }
-      alert(name.pop());
+      $(this)[0].files[0];
     });
   }
 

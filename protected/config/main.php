@@ -17,6 +17,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'ext.yii-mail.YiiMailMessage',
+		'ext.phpoffice.myphpexcel',
 	),
 
 	'modules'=>array(
