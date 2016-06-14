@@ -1,3 +1,42 @@
+var fileupload = {
+  sendfiles:function(data, obj){
+	var self=this;
+  html.pagehold();
+	var formData = new FormData();
+	var xhr = new XMLHttpRequest();
+	formData.append("uploadfile",data);
+	xhr.open ('POST',"/adminapi/uploadimage/");
+	xhr.onload = function(event) {
+    html.closepop2();
+    if (xhr.status === 200) {
+      var aa = JSON.parse(xhr.responseText);
+      if(aa.code == '10'){
+        // fileupload.replaceinput(aa.path,obj);//////////////change function
+        html.tips("upload success");
+        return true;
+      }
+      html.tips(aa.msg);
+    } else {
+      html.tips("upload error");
+    }
+  };
+    xhr.upload.onprogress = self.updateProgress;
+    xhr.send (formData);
+  },
+  updateProgress:function(event){
+    if (event.lengthComputable){
+        var percentComplete = event.loaded;
+        var percentCompletea = event.total;
+        var press = (percentComplete*100/percentCompletea).toFixed(2);//onprogress show
+    }
+  },
+  replaceinput:function(url ,obj){
+    var a= '<i class="fa fa-times"></i><img src="'+url+'" style="width:200px;display:block;" class="newspic">';
+    obj.after(a);
+    obj.remove();
+  },
+}
+
 var popbox={
   logsubmit:function(){
     html.pagehold();
@@ -359,6 +398,10 @@ var adminlist = {
       var pagid = $(this).attr("pagid");
       adminlist.page = pagid;
       adminlist.changepage();
+    });
+    //upload userlist
+    $("#myfiles").change(function(){
+      alert($("#myfiles").val());
     });
   }
 
