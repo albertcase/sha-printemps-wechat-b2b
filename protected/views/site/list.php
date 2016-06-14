@@ -25,7 +25,7 @@
             <option value="openidd">Login</option>
           </select>
           <i class="fa fa-chevron-down" style="color:#ddd;margin-left:-10px"></i>
-          <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <i class="fa fa-plus-square"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           SHOW:
           <select id="everypage">
             <option value="20">20</option>
@@ -36,7 +36,7 @@
           <i class="fa fa-chevron-down" style="color:#ddd"></i>
           <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span>UPLOAD</span>&nbsp;|&nbsp;
+          <span>UPLOAD<input type="file" id="myfiles" style="display:none"/></input></span>&nbsp;|&nbsp;
           <span id="sumtotal"></span>
           <span id="logout">Logout</span>
         </div>
