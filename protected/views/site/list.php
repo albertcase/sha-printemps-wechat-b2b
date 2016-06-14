@@ -36,7 +36,7 @@
           <i class="fa fa-chevron-down" style="color:#ddd"></i>
           <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span>UPLOAD<input type="file" id="myfiles" style="display:none"/></input></span>&nbsp;|&nbsp;
+          <span>UPLOAD<input type="file" id="myfiles"/></input></span>&nbsp;|&nbsp;
           <span id="sumtotal"></span>
           <span id="logout">Logout</span>
         </div>
