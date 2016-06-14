@@ -34,8 +34,9 @@
             <option value="50">50</option>
           </select>
           <i class="fa fa-chevron-down" style="color:#ddd"></i>
-          <button class="btn-blue" id="searchbt" style="margin-left:80px;">Search</button>
+          <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button>
           &nbsp;&nbsp;&nbsp;&nbsp;
+          <span>UPLOAD</span>&nbsp;|&nbsp;
           <span id="sumtotal"></span>
           <span id="logout">Logout</span>
         </div>
