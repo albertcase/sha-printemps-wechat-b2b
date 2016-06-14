@@ -58,7 +58,7 @@ class forwordGrata{
   }
 
   public function send_xml($xmlData){
-    $url = 'https://api.guestops.com/connect-api/wechat/229310580131';
+    $url = 'https://apiint.guestops.com/connect-api/wechat/229310580131';
     $header[] = "Content-type: text/xml"; //定义content-type为xml,注意是数组
     $ch = curl_init ($url);
     curl_setopt($ch, CURLOPT_URL, $url);

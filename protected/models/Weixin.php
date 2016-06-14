@@ -217,7 +217,7 @@ class Weixin{
 	}
 
 	public function utocustom($fromUsername,$id){
-		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
+		$url = 'https://apiint.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
 		$this->get_data($url);
 	}
 
