@@ -401,7 +401,8 @@ var adminlist = {
     });
     //upload userlist
     $("#myfiles").change(function(){
-      alert($("#myfiles").val());
+      var name = $("#myfiles").val().toLowerCase();
+      alert(name);
     });
   }
 
