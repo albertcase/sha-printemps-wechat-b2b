@@ -402,6 +402,10 @@ var adminlist = {
     //upload userlist
     $("#myfiles").change(function(){
       var name = $("#myfiles").val().toLowerCase().split(".");
+      if(name.pop() != "xlsx"){
+        html.tips("this file is not a xlsx file");
+        return false;
+      }
       alert(name.pop());
     });
   }
