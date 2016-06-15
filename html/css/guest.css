@@ -97,7 +97,7 @@ input:focus{
 }
 
 .tips{
-  position:absolute;
+  position:fixed;
   top:13px;
   left:40%;
   z-index:201;
