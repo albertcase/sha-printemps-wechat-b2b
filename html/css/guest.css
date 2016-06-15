@@ -16,6 +16,10 @@
   color:#fff;
 }
 
+#searchbt:hover{
+  color: #880058;
+}
+
 #allorders,#everypage{
   background-color: #ce0058;
   color: #ddd;

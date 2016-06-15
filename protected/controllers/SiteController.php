@@ -199,10 +199,10 @@ class SiteController extends Controller
 public function actionAdminapi($action){
 	$guestadmin = new guestadmin();
 	$session = new Session();
-	// if($session->has('loguser')){
+	if($session->has('loguser')){
 		echo json_encode($guestadmin->$action());
 		Yii::app()->end();
-	// }
+	}
 	echo json_encode('4');/*not login*/
 	Yii::app()->end();
 }

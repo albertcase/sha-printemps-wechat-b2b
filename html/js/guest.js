@@ -1,23 +1,22 @@
-var fileupload = {
+var fileupload = {//
   sendfiles:function(data, obj){
 	var self=this;
   html.pagehold();
 	var formData = new FormData();
 	var xhr = new XMLHttpRequest();
-	formData.append("uploadfile",data);
-	xhr.open ('POST',"/adminapi/uploadimage/");
+	formData.append("printempslogin",data);
+	xhr.open ('POST',"/site/adminapi/action/uploadfile");
 	xhr.onload = function(event) {
     html.closepop2();
     if (xhr.status === 200) {
       var aa = JSON.parse(xhr.responseText);
-      if(aa.code == '10'){
-        // fileupload.replaceinput(aa.path,obj);//////////////change function
-        html.tips("upload success");
-        return true;
-      }
+      if( aa.code == '10')
+        adminlist.opsearch();
       html.tips(aa.msg);
+      $("#myfiles").val('');
     } else {
       html.tips("upload error");
+      $("#myfiles").val('');
     }
   };
     xhr.upload.onprogress = self.updateProgress;
@@ -403,11 +402,11 @@ var adminlist = {
     $("#myfiles").change(function(){
       var name = $("#myfiles").val().toLowerCase().split(".");
       var exp = name.pop();
-      if(exp != "xlsx" || exp != "xls"){
-        html.tips("this file is not a xlsx file");
+      if(exp != "xlsx" && exp != "xls"){
+        html.tips("this file is not a xlsx or xls file");
         return false;
       }
-      $(this)[0].files[0];
+      fileupload.sendfiles($(this)[0].files[0], $(this));
     });
   }
 

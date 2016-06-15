@@ -10943,3 +10943,19 @@ Stack trace:
 #13 {main}
 REQUEST_URI=/site/adminapi/action/uploadfile
 ---
+2016/06/15 12:21:44 [error] [php] move_uploaded_file(./upload/Printemps - User Log-Ins.xlsx): failed to open stream: No such file or directory (/vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php:80)
+Stack trace:
+#0 unknown(0): SiteController->actionAdminapi()
+#1 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs()
+#2 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(286): SiteController->runAction()
+#5 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /vagrant/sha-printemps-wechat-b2b/protected/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /vagrant/sha-printemps-wechat-b2b/protected/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /vagrant/sha-printemps-wechat-b2b/index.php(19): CWebApplication->run()
+REQUEST_URI=/site/adminapi/action/uploadfile
+in /vagrant/sha-printemps-wechat-b2b/protected/models/guestadmin.php (80)
+in /vagrant/sha-printemps-wechat-b2b/protected/controllers/SiteController.php (203)
+in /vagrant/sha-printemps-wechat-b2b/index.php (19)

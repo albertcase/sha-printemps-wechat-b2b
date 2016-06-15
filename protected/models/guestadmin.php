@@ -100,7 +100,7 @@ class guestadmin
             if(in_array($col, array('cardno','firstname','secondname', 'bak', 'openid')))//control insert datas
               $data[$col] = trim($sheet->getCell($column.$row)->getValue());
           }
-           if(implode($data)!=""){
+           if(implode($data)!="" && isset($data['cardno'])){
              if(!$this->sql->checkData(array('cardno' => $data['cardno']), 'same_login')){
                 $this->sql->insertData($data, 'same_login');
                 $totle++;

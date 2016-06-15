@@ -34,7 +34,8 @@
             <option value="50">50</option>
           </select>
           <i class="fa fa-chevron-down" style="color:#ddd"></i>
-          <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button>
+          <!-- <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button> -->
+          <span id="searchbt" style="margin-left:40px;cursor:pointer">SEARCH</span>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <span><label for="myfiles" style="cursor:pointer">UPLOAD</label><input type="file" id="myfiles" style="display:none"/></input></span>&nbsp;|&nbsp;
           <span id="sumtotal"></span>
