@@ -37,7 +37,7 @@
           <!-- <button class="btn-blue" id="searchbt" style="margin-left:40px;">Search</button> -->
           <span id="searchbt" style="margin-left:40px;cursor:pointer">SEARCH</span>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span><label for="myfiles" style="cursor:pointer">UPLOAD</label><input type="file" id="myfiles" style="display:none"/></input></span>&nbsp;|&nbsp;
+          <span id="uploadpage">UPLOAD</span>&nbsp;|&nbsp;
           <span id="sumtotal"></span>
           <span id="logout">Logout</span>
         </div>
@@ -46,7 +46,7 @@
         </div>
         <div>
         </div>
-      <div>
+      <div id = "loginlist">
         <table border="1"  class="bespeaklist">
           <thead>
             <tr>
@@ -71,6 +71,73 @@
           </ul>
         </div>
       </div>
+<!-- updatelist start-->
+      <div id = "updatelist" style="display:none">
+        <div class="uploaddiv">
+          <input type="file" id="myfiless" style=""/></input>
+          <button class="btn-red" style="margin-left:40px;" id="fileupload">UPLOAD</button>
+          <button class="btn-red uploadcancel" style="margin-left:10px;">CANCEL</button>
+        </div>
+        <div class="resultdiv"  style="display:none">
+          <div class="listtitle">
+            Guides to Delete
+          </div>
+          <div>
+            <table border="1"  class="gdellist">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <!-- <th>First Name</th> -->
+                  <th>Family Name</th>
+                  <th>Tour Guide No.</th>
+                  <!-- <th>Region</th> -->
+                </tr>
+              </thead>
+              <tbody>
+    <!-- bespeak list -->
+    <!-- bespeak list end -->
+              </tbody>
+            </table>
+          </div>
+          <div class="gdellistfoot">
+            <ul>
+  <!-- page list -->
+  <!-- page list end -->
+            </ul>
+          </div>
+          <div class="listtitle">
+            Guides to Add
+          </div>
+          <div>
+            <table border="1"  class="gaddlist">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <!-- <th>First Name</th> -->
+                  <th>Family Name</th>
+                  <th>Tour Guide No.</th>
+                  <!-- <th>Region</th> -->
+                </tr>
+              </thead>
+              <tbody>
+    <!-- bespeak list -->
+    <!-- bespeak list end -->
+              </tbody>
+            </table>
+          </div>
+          <div class="gaddlistfoot">
+            <ul>
+  <!-- page list -->
+  <!-- page list end -->
+            </ul>
+          </div>
+          <div style="margin-top:40px" id="submitfoot">
+            <button class="btn-red uploadcancel">Cancel</button>
+            <button class="btn-red" style="margin-left:80px;">Comfirm</button>
+          </div>
+        </div>
+      </div>
+<!-- updatelist end-->
     </div>
 </div>
     <div class="tembox"></div>

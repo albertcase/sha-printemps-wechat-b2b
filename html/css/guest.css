@@ -16,8 +16,9 @@
   color:#fff;
 }
 
-#searchbt:hover{
+#searchbt:hover,#uploadpage:hover{
   color: #880058;
+  cursor:pointer;
 }
 
 #allorders,#everypage{
@@ -80,6 +81,38 @@ input:focus{
   text-align:center;
 }
 
+.btn-red{
+  background-color:#ce0058;
+  border:1px solid #be0058;
+  /*border-radius:4px;*/
+  color:#fff;
+  padding:0px 15px;
+  cursor:pointer;
+  height:26px;
+  /*font-size:105%;*/
+}
+
+.btn-red:hover{
+  background-color:#be0058;
+  color:#ccc;
+}
+
+.uploaddiv{
+  width:100%;
+  text-align:center;
+  margin-top: 100px
+}
+
+.resultdiv{
+  width:100%;
+  text-align:center;
+
+}
+
+.listtitle{
+    margin-top: 50px
+}
+
 .btn-blue{
   background-color:#337ab7;
   border:1px solid #2e6da4;
@@ -132,7 +165,7 @@ input:focus{
 
 
 /*bespeaklist stert*/
-.bespeaklist thead>tr{
+.bespeaklist thead>tr,.gaddlist thead>tr,.gdellist thead>tr{
   color:#ce0058 !important;
   font-size:110%;
   border-bottom:1px solid #ccc;
@@ -146,21 +179,45 @@ input:focus{
     width:100%;
 }
 
-.bespeaklist tr{
+.gaddlist,.gdellist{
+    border-collapse:collapse;
+    margin:30px auto;
+    border-bottom:1px solid #ccc;
+    width:60%;
+}
+
+.listtitle{
+  color:#ce0058 !important;
+  font-size:110%;
+}
+
+.bespeaklist tr,.gaddlist tr,.gdellist tr{
   color:#333;
   text-align:left;
   height:30px;
 }
 
-.bespeaklist tbody>tr:hover{
+.bespeaklist tbody>tr:hover,.gaddlist tbody>tr:hover,.gdellist tbody>tr:hover{
   background-color: #ddd;
 }
 
-.bespeaklist tr>th{
+.bespeaklist tr>th,.gaddlist tr>th,.gdellist tr>th{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding:2px 7px;
+}
+
+.gaddlist tr>th:nth-child(1),.gdellist tr>th:nth-child(1){
+  max-width:20%;
+}
+
+.gaddlist tr>th:nth-child(2),.gdellist tr>th:nth-child(2){
+  max-width:40%;
+}
+
+.gaddlist tr>th:nth-child(3),.gdellist tr>th:nth-child(3){
+  max-width:40%;
 }
 
 .bespeaklist tr>th:nth-child(1){
@@ -253,18 +310,18 @@ input:focus{
   cursor: pointer;
 }
 
-.bespeaklistfoot{
+.bespeaklistfoot,.gdellistfoot,.gaddlistfoot{
   text-align: center;
 }
 
-.bespeaklistfoot ul{
+.bespeaklistfoot ul,.gdellistfoot ul,.gaddlistfoot ul{
   padding: 0px;
   margin-top: 40px;
   border-collapse:collapse;
   /*border: 1px solid #777;*/
 }
 
-.bespeaklistfoot ul>li{
+.bespeaklistfoot ul>li,.gdellistfoot ul>li,.gaddlistfoot ul>li{
   padding: 10px;
   margin: 0px;
   margin-left: 4px;
@@ -274,12 +331,12 @@ input:focus{
   background-color: #efefef;
 }
 
-.bespeaklistfoot ul>.pagenum:hover{
+.bespeaklistfoot ul>.pagenum:hover,.gdellistfoot ul>.pagenum:hover,.gaddlistfoot ul>.pagenum:hover{
   background-color: #ddd;
   cursor: pointer;
 }
 
-.bespeaklistfoot ul>.chooseli{
+.bespeaklistfoot ul>.chooseli,.gdellistfoot ul>.chooseli,.gaddlistfoot ul>.chooseli{
   background-color: #ce0058 !important;
 }
 /*bespeaklist end*/
