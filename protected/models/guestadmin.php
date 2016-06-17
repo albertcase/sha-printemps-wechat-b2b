@@ -117,6 +117,7 @@ class guestadmin
           $nos[] = $data['cardno'];
           if(implode($data)!="" && isset($data['cardno'])){
              if(!$this->sql->checkData(array('cardno' => $data['cardno']), 'same_login')){
+                $data['createtime'] = '0000-00-00 00:00:00';
                 $out['add'][] = $data;
               }
           }

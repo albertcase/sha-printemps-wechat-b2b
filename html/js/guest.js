@@ -149,6 +149,8 @@ var adminlist = {
           }else{
             a += '<th>No</th>';
           }
+        if(data[i]['createtime'] == "0000-00-00 00:00:00")
+          data[i]['createtime'] = "";
         a += '<th>'+data[i]["createtime"]+'</th>';
         a += '</tr>';
     }
