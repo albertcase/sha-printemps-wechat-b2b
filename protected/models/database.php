@@ -115,7 +115,7 @@ class database
   }
 
   public function insertUData(array $data=array(), $table){
-      if($this->checkData($data=array() ,$table)){
+      if($this->checkData($data ,$table)){
       $this->sql->createCommand()->insert($table, $data);
       return $this->sql->getLastInsertID();
     }
@@ -130,7 +130,7 @@ class database
   }
 
   public function insertUDatas(array $datas=array(), $table){
-  	foreach($data as $x){
+  	foreach($datas as $x){
   	    if($this->checkData($x, $table))
   		    continue;
   	    $this->insertData($x, $table);
@@ -140,23 +140,51 @@ class database
 
 // sub function
 
-public function Sqlupdate($table,array $data = array(),$where,$warray){
-     $result = $this->sql->createCommand()->update($table, $data ,$where ,$warray);
-     if($result){
-       return true;
-     }else {
-       return false;
-     }
-}
+  public function Sqlupdate($table,array $data = array(),$where,$warray){
+       $result = $this->sql->createCommand()->update($table, $data ,$where ,$warray);
+       if($result){
+         return true;
+       }else {
+         return false;
+       }
+  }
 
-public function Sqlselectall($sql){
-   $result = $this->sql->createCommand($sql)->queryAll();
-   return $result;
-}
+  public function Sqlselectall($sql){
+     $result = $this->sql->createCommand($sql)->queryAll();
+     return $result;
+  }
 
-public function Sqldelete($table,$where=""){
-   $result = $this->sql->createCommand()->delete($table, $where);
-   return $result;
-}
+  public function Sqldeletes($table, $wheres){
+    foreach($wheres as $x){
+      $this->Sqldelete($table,$x);
+    }
+    return true;
+  }
+
+  public function Sqldelete($table, array $where = array()){
+    $result = false;
+    if($where){
+      $result = $this->sql->createCommand()->delete($table, $this->buildparm($where), $this->buildval($where));
+    }
+    return $result;
+  }
+
+  // sub function
+  public function buildparm($data){
+    $data = array_keys($data);
+    $keys = array();
+    foreach($data as $x){
+      $keys[] = $x . '=:'.$x;
+    }
+    return implode(' and ', $keys);
+  }
+
+  public function buildval($data){
+    $out = array();
+    foreach($data as $x => $x_val){
+      $out[':'.$x] = $x_val;
+    }
+    return $out;
+  }
 
 }

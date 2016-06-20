@@ -73,4 +73,82 @@ class guestadmin
     unset($keys['openidd']);
     return array('count' => $this->sql->Reggetcount('same_login',$keys));
   }
+
+  public function uploadfile(){
+    $memcaches = new memcaches();
+    $uid = 'b2bup'.session_id();
+    if(!$data = $memcaches->getData($uid))
+      return array('code' => '9', 'msg' => 'web expired');
+    $this->sql->insertUDatas($data['add'], 'same_login');
+    $this->sql->Sqldeletes('same_login', $data['del']);
+    return array('code' => '10', 'msg' => 'update success');
+  }
+
+  public function confirmlist(){
+    $file = $_FILES;
+    $uploadname = "./upload/" . $file["printempslogin"]["name"];
+    $result = move_uploaded_file($file["printempslogin"]["tmp_name"],$uploadname);
+    if($result){
+      $myphpexcel = new myphpexcel();
+      $excel = $myphpexcel->loadexcel5(realpath($uploadname));
+      $sheet = $excel['sheet'];
+      $highestRow = $excel['highestRow'];
+      $highestColumm = $excel['highestColumm'];
+      for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
+          for ($column = 'A'; $column <= $highestColumm; $column++) {//列数是以A列开始
+              $title[$column] = $this->translate(trim($sheet->getCell($column.$row)->getValue()));
+          }
+          if(!in_array('',$title)){//$title is the keys
+          break;
+          }
+      }
+      $row++;
+      $nos = array();
+      $out = array(
+        'del' => array(),
+        'add' => array(),
+      );
+      for ($row ; $row <= $highestRow; $row++){
+          for ($column = 'A'; $column <= $highestColumm; $column++) {
+            $col = $title[$column];
+            if(in_array($col, array('cardno','firstname','secondname', 'bak', 'openid')))//control insert datas
+              $data[$col] = trim($sheet->getCell($column.$row)->getValue());
+          }
+          $nos[] = $data['cardno'];
+          if(implode($data)!="" && isset($data['cardno'])){
+             if(!$this->sql->checkData(array('cardno' => $data['cardno']), 'same_login')){
+                $data['createtime'] = '0000-00-00 00:00:00';
+                $out['add'][] = $data;
+              }
+          }
+      }
+      $out['del'] = $this->getdelNo($nos);
+      $memcaches = new memcaches();
+      $uid = 'b2bup'.session_id();
+      $memcaches->addData($uid, $out, '3600');
+      unlink($uploadname);
+      return array('code' => '10', 'out' => $out, 'msg' => 'success');
+    }
+    unlink($uploadname);
+    return array('code' => '9', 'msg' => 'upload file errors');
+  }
+
+//sub function
+  private function translate($name){
+    $list = array(
+      'NUMERO' => 'cardno',
+      'NOM' => 'firstname',
+      'PRENOM' => 'secondname',
+      'PAYS' => 'bak',
+    );
+    if(isset($list[$name]))
+      return $list[$name];
+    return $name;
+  }
+
+  private function getdelNo($ext){
+    $in = implode(",", $ext);
+    $sql = "SELECT cardno,firstname FROM same_login WHERE cardno NOT IN (".$in.")";
+    return $this->sql->Sqlselectall($sql);
+  }
 }

@@ -1,3 +1,46 @@
+var fileupload = {//
+  sendfiles:function(data, obj){
+	var self=this;
+  html.pagehold();
+	var formData = new FormData();
+	var xhr = new XMLHttpRequest();
+	formData.append("printempslogin",data);
+	xhr.open ('POST',"/site/adminapi/action/confirmlist");
+	xhr.onload = function(event) {
+    html.closepop2();
+    if (xhr.status === 200) {
+      var aa = JSON.parse(xhr.responseText);
+      if( aa.code == '10'){
+        b2bdatas.userlist = aa.out;
+        adminlist.showchange(b2bdatas.userlist["del"] ,"1" , "10", $(".gdellist tbody"), $(".gdellistfoot ul"));
+        adminlist.showchange(b2bdatas.userlist["add"] ,"1" , "10", $(".gaddlist tbody"), $(".gaddlistfoot ul"));
+        $(".uploaddiv").hide();
+        $(".resultdiv").show();
+      }
+      html.tips(aa.msg);
+      $("#myfiless").val('');
+    } else {
+      html.tips("upload error");
+      $("#myfiles").val('');
+    }
+  };
+    xhr.upload.onprogress = self.updateProgress;
+    xhr.send (formData);
+  },
+  updateProgress:function(event){
+    if (event.lengthComputable){
+        var percentComplete = event.loaded;
+        var percentCompletea = event.total;
+        var press = (percentComplete*100/percentCompletea).toFixed(2);//onprogress show
+    }
+  },
+  replaceinput:function(url ,obj){
+    var a= '<i class="fa fa-times"></i><img src="'+url+'" style="width:200px;display:block;" class="newspic">';
+    obj.after(a);
+    obj.remove();
+  },
+}
+
 var popbox={
   logsubmit:function(){
     html.pagehold();
@@ -37,6 +80,10 @@ var popbox={
 
 
 var adminlist = {
+  delpage:1,
+  addpage:1,
+  delcount:0,
+  addcount:0,
   orderlist:[],
   page:1,
   count:0,
@@ -102,12 +149,39 @@ var adminlist = {
           }else{
             a += '<th>No</th>';
           }
+        if(data[i]['createtime'] == "0000-00-00 00:00:00")
+          data[i]['createtime'] = "";
         a += '<th>'+data[i]["createtime"]+'</th>';
         a += '</tr>';
     }
     return a;
   },
-  shownav: function(pm, pc){/*a is pagenumber b count of pag*/
+  showchangelsit: function(data, start){
+    var al = data.length;
+    var a = '';
+    for(var i=0 ;i<al ;i++){
+        a += '<tr>';
+        a += '<th>'+parseInt(start+i+1)+'</th>';
+        a += '<th>'+data[i]["firstname"]+'</th>';
+        a += '<th>'+data[i]["cardno"]+'</th>';
+        a += '</tr>';
+    }
+    return a;
+  },
+  showchange: function(data ,a , b, obja, objb){/*data is all a is pagnumber ,b is suminonepage*/
+    var self = this;
+    var al = data.length;
+    var sum = Math.ceil(al/b);//page count
+    var start = (a-1)*b;
+    var end = a*b;
+    var show = data.slice(start, end);
+    obja.html("");
+    objb.html("");
+    obja.html(self.showchangelsit(show, start));
+    if(sum > 1)
+      objb.html(self.shownav(a, sum));
+  },
+  shownav: function(pm, pc){/*pm is pagenumber pc count of pag*/
     var a = '';
     var b = '';
     if(pc <= 15 ){
@@ -337,6 +411,29 @@ var adminlist = {
       }
     });
   },
+  ajaxloadupdate: function(){
+    html.pagehold();
+    $.ajax({
+      url:"/site/adminapi/action/uploadfile",
+      dataType:"json",
+      type:"POST",
+      error: function(jqXHR, textStatus, errorMsg){
+        html.closepop2();
+        html.tips("Request Error");
+      },
+      success:function(data){
+          if(data.code == '10'){
+            adminlist.opsearch();
+            $(".resultdiv").hide();
+            $("#updatelist").hide();
+            $(".uploaddiv").show();
+            $("#loginlist").show();
+          }
+          html.closepop2();
+          html.tips(data.msg);
+      }
+    });
+  },
   onload:function(){
     var self = this;
     $(".checkoption .fa-plus-square").click(function(){
@@ -359,6 +456,39 @@ var adminlist = {
       var pagid = $(this).attr("pagid");
       adminlist.page = pagid;
       adminlist.changepage();
+    });
+    //upload userlist
+    $("#uploadpage").click(function(){
+      $(".resultdiv").hide();
+      $("#updatelist").show();
+      $(".uploaddiv").show();
+      $("#loginlist").hide();
+    });
+    $("#fileupload").click(function(){
+      var name = $("#myfiless").val().toLowerCase().split(".");
+      var exp = name.pop();
+      if(exp != "xlsx" && exp != "xls"){
+        html.tips("this file is not a xlsx or xls file");
+        return false;
+      }
+      fileupload.sendfiles($("#myfiless")[0].files[0], $("#myfiless"));
+    });
+    $(".gaddlistfoot").on("click" ,".pagenum" ,function(){
+      var pagid = $(this).attr("pagid");
+      adminlist.showchange(b2bdatas.userlist["add"] ,pagid , "10", $(".gaddlist tbody"), $(".gaddlistfoot ul"));
+    });
+    $(".gdellistfoot").on("click" ,".pagenum" ,function(){
+      var pagid = $(this).attr("pagid");
+      adminlist.showchange(b2bdatas.userlist["del"] ,pagid , "10", $(".gdellist tbody"), $(".gdellistfoot ul"));
+    });
+    $(".uploadcancel").click(function(){
+      $(".resultdiv").hide();
+      $("#updatelist").hide();
+      $(".uploaddiv").show();
+      $("#loginlist").show();
+    });
+    $("#submitfoot button:nth-child(2)").click(function(){
+      self.ajaxloadupdate();
     });
   }
 
@@ -408,6 +538,10 @@ var html={
     $(".popupbox2").empty();
     $(".popupbox2").css("display","none");
   },
+}
+
+var b2bdatas = {
+  userlist: {},
 }
 
 $(function(){

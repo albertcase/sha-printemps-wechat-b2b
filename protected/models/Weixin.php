@@ -171,16 +171,16 @@ class Weixin{
             		return $this->sendMsgForNews($fromUsername, $toUsername, $time, $data);
 				}else if($msgType=='image'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='voice'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='video'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}else if($msgType=='link'){
 					$this->systemLog($postStr,$fromUsername,$msgType);
-					return;
+					return $this->sendMsgtoCustomer($fromUsername, $toUsername);
 				}
 
 
@@ -217,7 +217,7 @@ class Weixin{
 	}
 
 	public function utocustom($fromUsername,$id){
-		$url = 'https://api.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
+		$url = 'https://apiint.guestops.com/connect-api/chat/updateUserGroup.jsn?access_token=b5fe1b8887cfb061c5f6dea0798dd51e&open_id='.trim($fromUsername).'&user_group='.$id;
 		$this->get_data($url);
 	}
 
@@ -228,7 +228,9 @@ class Weixin{
 			$this->sendtoGrata();
 			return "";
 		}
-		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
+		$sql = "SELECT content FROM `same_wmenu_event` WHERE event='text' and msgtype='text' and keyword=''";
+		$rs = $this->_db->createCommand($sql)->select()->queryAll();
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $rs['0']['content']);
 	}
 //send to Grata
 	public function sendtoGrata(){
