@@ -228,7 +228,7 @@ class Weixin{
 			$this->sendtoGrata();
 			return "";
 		}
-		$sql = "SELECT content FROM `same_wmenu_event` WHERE event=`text` and msgtype=`text` and keyword=``";
+		$sql = "SELECT content FROM `same_wmenu_event` WHERE event='text' and msgtype='text' and keyword=''";
 		$rs = $this->_db->createCommand($sql)->select()->queryAll();
 		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $rs['0']['content']);
 	}
