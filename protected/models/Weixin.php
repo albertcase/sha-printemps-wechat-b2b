@@ -228,7 +228,9 @@ class Weixin{
 			$this->sendtoGrata();
 			return "";
 		}
-		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", "如有需要，您可以在服务时间期间，通过《关于我们》联系奥斯曼旗舰店客服或卢浮春天百货客服。");
+		$sql = "SELECT content FROM `same_wmenu_event` WHERE event=`text` and msgtype=`text` and keyword=``";
+		$rs = $this->_db->createCommand($sql)->select()->queryAll();
+		return $this->sendMsgForText($fromUsername, $toUsername, time(), "text", $rs['0']['content']);
 	}
 //send to Grata
 	public function sendtoGrata(){
