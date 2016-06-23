@@ -447,14 +447,38 @@ footer.personal_footer .con a img{
 
 .loginframe{
 	display: none;
+	width: 100%;
+	position: relative;
 }
 
 #successTips img{
 	width: 82%;
 	display: inline-block;
-	/*margin: 9em 0 0 0;*/
 }
 
+.lfScrollCon{
+	width: 100%; 
+	height: 100%; 
+	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 8%;
+	z-index: 2;
+	display: inline-block;
+}
+
+.lfScrollCon p{
+	width: 100%;
+	padding: 10px 0;
+	text-align: left;
+	line-height: 1.2rem;
+	float: left;
+	display: inline-block;
+}
+
+.lfScrollCon p a{
+	color: #000;
+}
 
 
 /* store */
