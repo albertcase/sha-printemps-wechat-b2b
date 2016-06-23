@@ -667,6 +667,11 @@ footer.personal_footer .con a img{
 	display: inline-block;
 }
 
+.loginbg{
+	width: 100%;
+	display: inline-block;
+}
+
 
 
 /* 6plus */
@@ -700,7 +705,9 @@ footer.personal_footer .con a img{
 	}
 
 	.loginbg{
-		height: 100%;
+		width: 104%;
+		margin: 0 0 0 -2%;
+		display: inline-block;
 	}
 }
 
@@ -734,7 +741,9 @@ footer.personal_footer .con a img{
 	}
 
 	.loginbg{
-		height: 100%;
+		width: 104%;
+		margin: 0 0 0 -2%;
+		display: inline-block;
 	}
 
 }

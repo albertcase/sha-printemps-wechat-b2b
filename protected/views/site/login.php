@@ -1,6 +1,6 @@
 <div class="page login">
 	
-	<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/login_bg.jpg" width="100%" class="loginbg" />
+	<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/login_bg.jpg" class="loginbg" />
 	<div class="loginContainer">
 		<div class="login_con">
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/logo.png" width="100%" />
