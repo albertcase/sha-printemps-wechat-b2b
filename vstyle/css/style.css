@@ -698,6 +698,10 @@ footer.personal_footer .con a img{
 		text-align: left;
 		color: #111010;
 	}
+
+	.loginbg{
+		height: 100%;
+	}
 }
 
 /* 6 */
@@ -727,6 +731,10 @@ footer.personal_footer .con a img{
 		display: inline-block;
 		text-align: left;
 		color: #111010;
+	}
+
+	.loginbg{
+		height: 100%;
 	}
 
 }
