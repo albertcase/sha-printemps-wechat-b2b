@@ -106,7 +106,7 @@ class ApiController extends Controller
 		$command->bindParam(':firstname',$name,PDO::PARAM_STR);
 		$rs = $command->queryRow();
 		if (!$rs) {
-			echo json_encode(array('code' => '3', 'msg' => '验证失败'));
+			echo json_encode(array('code' => '3', 'msg' => '很抱歉，登录失败。请重新输入'));
 			Yii::app()->end();
 		}
 		if ($rs['openid']!='') {
