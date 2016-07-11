@@ -95,11 +95,12 @@
 //    }
 
     function arabic_Chinese_change_fun(v){
-        if(v === 0){
-            return "RDC"
-        }else{
-            return v + "er étage";
-        }
+        return v;
+        // if(v === 0){
+        //     return "RDC"
+        // }else{
+        //     return v + "er étage";
+        // }
     }
 
     //console.log(arabic_Chinese_change_fun("12345678090"));
