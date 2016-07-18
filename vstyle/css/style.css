@@ -651,6 +651,7 @@ footer.personal_footer .con a img{
 .login_tips span{
 	width: 100%;
 	font-size: 12px;
+	text-align: left;
 	display: inline-block;
 	padding: 3px 0;
 	line-height:16px;
