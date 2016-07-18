@@ -73,7 +73,7 @@
 	}
 	function funTips(callBt){
 		$(".login_tips").addClass("error").html(callBt);
-		setTimeout('$(".login_tips").removeClass("error").html("欢迎关注<br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', 6000)
+		setTimeout('$(".login_tips").removeClass("error").html("欢迎关注<br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', 3000)
 	}
 
 	function checkForm(){
