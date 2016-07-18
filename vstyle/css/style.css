@@ -204,7 +204,7 @@ footer .con a img{
 }
 
 .login_con{
-	width: 84%;
+	width: 80%;
 	display: inline-block;
 	margin: 12% 0 6% 0;
 }
@@ -766,6 +766,12 @@ footer.personal_footer .con a img{
 	.login_tips{
 		margin: 4px 0 0 0;
 		height: auto;
+	}
+
+	.login_con{
+		width: 84%;
+		display: inline-block;
+		margin: 12% 0 6% 0;
 	}
 }
 
