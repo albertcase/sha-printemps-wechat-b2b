@@ -71,9 +71,9 @@
 		$("input").val("");
 		funTips(callbackTips);
 	}
-	function funTips(callBt){
+	function funTips(callBt, _time){
 		$(".login_tips").addClass("error").html(callBt);
-		setTimeout('$(".login_tips").removeClass("error").html("欢迎关注<br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', 1500)
+		setTimeout('$(".login_tips").removeClass("error").html("欢迎关注<br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', _time)
 	}
 
 	function checkForm(){
@@ -81,9 +81,9 @@
 		var name = $("input[name=name]").val();
 
 		if(codenum == ""){
-			funTips("请输入春天商务编号！");
+			funTips("请输入春天商务编号！", "1000");
 		}else if(name == ""){
-			funTips("请输入姓氏拼音！");
+			funTips("请输入姓氏拼音！", "1000");
 		}else{
 
 			$.ajax({
@@ -105,7 +105,7 @@
 		    	}
 		    	
 				$("input").val("");
-				funTips(callbackTips);
+				funTips(callbackTips, "6000");
 		    })
 			
 		}
