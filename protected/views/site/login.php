@@ -105,7 +105,7 @@
 		    	}
 		    	
 				$("input").val("");
-				funTips(callbackTips, "6000");
+				funTips(callbackTips, "6700");
 		    })
 			
 		}
