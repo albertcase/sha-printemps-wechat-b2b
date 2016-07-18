@@ -101,7 +101,7 @@
 		    		$("#successTips").css({"display":"inline-block"});
 		    		callbackTips = "验证成功";
 		    	}else{
-		    		callbackTips = "<em>很抱歉，登陆失败<br>请重新输入</em><p style='font-size:14px;'>如需要联系法国春天百货国际部<br>请致电：<a href='tel:+33142825579'>+33 1 42 82 55 79</a> <br /><a href='tel:+33142825580'>+33 1 42 82 55 80</a></p><br>";
+		    		callbackTips = "<em>很抱歉，登陆失败<br>请重新输入</em><p style='font-size:16px;'>如需要联系法国春天百货国际部<br>请致电：<a href='tel:+33142825579'>+33 1 42 82 55 79</a> <br /><a href='tel:+33142825580'>+33 1 42 82 55 80</a></p><br>";
 		    	}
 		    	
 				$("input").val("");
