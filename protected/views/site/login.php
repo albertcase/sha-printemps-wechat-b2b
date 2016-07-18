@@ -6,7 +6,7 @@
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/logo.png" width="100%" />
 			<div class="loginframe" style="display:inline-block;">
 				<div class="login_tips">
-					<h3>欢迎关注</h3><br />
+					<h5>欢迎关注</h5><br />
 					法国春天百货PRINTEMPS商务微信号<br />
                     <span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>
 				</div>
@@ -73,7 +73,7 @@
 	}
 	function funTips(callBt, _time){
 		$(".login_tips").addClass("error").html(callBt);
-		setTimeout('$(".login_tips").removeClass("error").html("<h3>欢迎关注</h3><br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', _time)
+		setTimeout('$(".login_tips").removeClass("error").html("<h5>欢迎关注</h5><br />法国春天百货PRINTEMPS商务微信号<br /><span>此微信号仅用于商务交流，如果您是春天百货的客人，请关注春天百货的官方公众号。如果您是春天百货的商务伙伴，请通过您的春天商务编号与您的姓氏拼音登录，谢谢！</span>");', _time)
 	}
 
 	function checkForm(){
