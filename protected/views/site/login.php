@@ -32,7 +32,7 @@
 			<div class="loginframe" id="successTips">
 				<div class="lfScrollCon">
 					<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/success.png" width="100%" />
-					<p>
+					<!-- <p>
 						我们将在这里与您分享奥斯曼旗舰店和卢浮春天百货的最新产品、商务信息 以及最新活动资讯。
 						如有需要，您可以在服务时间期间，通过《在线服务》联系奥斯曼旗舰店或卢浮春天百货国际部的团队。
 					</p>
@@ -48,7 +48,7 @@
 					</p>
 					<p>
 						更多详情敬请查询法国春天百货官方网站: <a href="http://www.printempsparis.cn" target="_blank">www.printempsparis.cn</a>
-					</p>
+					</p> -->
 				</div>
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/vstyle/imgs/success.png" style="opacity:0;" width="100%" />
 			</div>
