@@ -33,6 +33,7 @@ class SiteController extends Controller
 	}
 
 	public function actionLogin(){
+		//$_SESSION['openid'] = '123';  //测试用
 		if (!isset($_SESSION['openid'])) {
 			Header("Location:/weixin/oauth2?callback=/site/login");
 			Yii::app()->end();
@@ -41,6 +42,7 @@ class SiteController extends Controller
 		$command = Yii::app()->db->createCommand($sql);
 		$command->bindParam(':openid',$_SESSION['openid'],PDO::PARAM_STR);
 		$rs = $command->queryScalar();
+		//$rs = 1;   //测试用
 		if (!$rs) {
 			$rs = 0;
 		}
