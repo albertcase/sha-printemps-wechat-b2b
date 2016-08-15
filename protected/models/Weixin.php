@@ -202,7 +202,7 @@ class Weixin{
 	}
 
 	private function useCustomer($fromUsername, $toUsername ,$kfaccount){
-		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
+		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '172800');
 		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 		if($kfaccount == 'A3'){
 			$feedback = '卢浮春天百货客服为您服务,有什么可以帮你的吗？';
@@ -223,7 +223,7 @@ class Weixin{
 
 	private function sendMsgtoCustomer($fromUsername, $toUsername){
 		if($kfaccount = $this->_memcache->getData('oncustomer:'.$fromUsername)){
-			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '3600');
+			$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '172800');
 			// return $this->sendService($fromUsername, $toUsername);
 			$this->sendtoGrata();
 			return "";
