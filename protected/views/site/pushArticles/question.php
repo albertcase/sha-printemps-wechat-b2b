@@ -167,6 +167,19 @@
         <div class="qNode">
             <dl class="qtitle">
                 <dt><b>Q:</b></dt>
+                <dd>我可以使用支付宝付款吗？</dd>
+            </dl>
+            <dl>
+                <dt>A:</dt>
+                <dd>
+                    法国春天百货现支持支付宝付款。请您链接至店内免费无线网Internet-by-Printemps并于付款时出示您的支付宝支付码，店员扫描支付码后您收到付款提示即支付成功。
+                </dd>
+            </dl>
+        </div>
+
+        <div class="qNode">
+            <dl class="qtitle">
+                <dt><b>Q:</b></dt>
                 <dd>请问法国春天百货接受中国颁发的信用卡吗？</dd>
             </dl>
             <dl>
