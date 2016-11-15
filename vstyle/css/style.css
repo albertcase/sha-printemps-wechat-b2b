@@ -568,13 +568,13 @@ footer.personal_footer .con a img{
 }
 
 .storeInfo p em{
-	width: 39%;
+	width: 38%;
 	float: left;
 	display: inline-block;
 }
 
 .storeInfo p span{
-	width: 60%;
+	width: 62%;
 	float: left;
 	display: inline-block;
 }
@@ -585,12 +585,13 @@ footer.personal_footer .con a img{
 }
 
 .storeInfo p.time1 em{
-	width: 26%;
+	width: 25%;
 }
 
 .storeInfo p.time1 span{
-	width: 73%;
+	width: 75%;
 }
+
 
 
 
@@ -739,6 +740,22 @@ footer.personal_footer .con a img{
 		margin: 0 0 0 -2%;
 		display: inline-block;
 	}
+
+	.storeInfo p em{
+		width: 34%;
+	}
+
+	.storeInfo p span{
+		width: 66%;
+	}
+
+	.storeInfo p.time1 em{
+		width: 22%;
+	}
+
+	.storeInfo p.time1 span{
+		width: 78%;
+	}
 }
 
 /* 6 */
@@ -774,6 +791,22 @@ footer.personal_footer .con a img{
 		width: 104%;
 		margin: 0 0 0 -2%;
 		display: inline-block;
+	}
+
+	.storeInfo p em{
+		width: 34%;
+	}
+
+	.storeInfo p span{
+		width: 66%;
+	}
+
+	.storeInfo p.time1 em{
+		width: 22%;
+	}
+
+	.storeInfo p.time1 span{
+		width: 78%;
 	}
 
 }
