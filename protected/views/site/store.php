@@ -14,7 +14,12 @@
     	    <h3><?php echo $store['name'];?></h3>
     	    <p>地址: <?php echo $store['address'];?></p>
     	    <p class="teltext">电话: <span id="telSpace"><?php echo $store['telphone'];?></span></p>
-    	    <p>营业时间: <?php echo $store['open'];?></p>
+            <p>
+            <em>营业时间:</em> 
+            <span>
+                <?php echo $store['open'];?>
+            </span>
+            </p>
     	</div>
 </div>
 
