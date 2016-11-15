@@ -13,8 +13,8 @@
     	    <span class="flagIcon"></span>
     	    <h3><?php echo $store['name'];?></h3>
     	    <p>地址: <?php echo $store['address'];?></p>
-    	    <p class="teltext">电话: <span id="telSpace"><?php echo $store['telphone'];?></span></p>
-            <p>
+    	    <p class="teltext">电话: <i id="telSpace"><?php echo $store['telphone'];?></i></p>
+            <p class="time1">
             <em>营业时间:</em> 
             <span>
                 <?php echo $store['open'];?>
