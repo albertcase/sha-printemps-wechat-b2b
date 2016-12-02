@@ -498,7 +498,8 @@ footer.personal_footer .con a img{
 	display: inline-block;
 	font-size: 14px;
 	line-height:22px;
-	font-family: "Heiti TC", Arial;
+	/*font-family: "Heiti TC", Arial;*/
+	font-family: Arial;
 	color: #444;
 	width: 90%;
 	margin: 0 0 0 10%;
