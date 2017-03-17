@@ -34,8 +34,13 @@ class SiteController extends Controller
 
 	public function actionLogin(){
 		//$_SESSION['openid'] = '123';  //测试用
+
 		if (!isset($_SESSION['openid'])) {
-			Header("Location:/weixin/oauth2?callback=/site/login");
+			$param ="";
+			if (count($_GET)>0) {
+				$param = "?".http_build_query($_GET);
+			}
+			Header("Location:/weixin/oauth2?callback=/site/login".$param);
 			Yii::app()->end();
 		}
 		$sql = 'SELECT id FROM same_login WHERE openid=:openid';
