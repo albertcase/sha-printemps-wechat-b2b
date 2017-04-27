@@ -205,10 +205,10 @@ class Weixin{
 		$this->_memcache->addData('oncustomer:'.$fromUsername, $kfaccount, '172800');
 		// return $this->transferService($fromUsername, $toUsername ,$kfaccount);
 		if($kfaccount == 'A3'){
-			$feedback = '卢浮春天百货客服为您服务,有什么可以帮你的吗？';
+			$feedback = '卢浮春天百货客服为您服务,有什么可以帮您的吗？';
 			$code = 'v6DPQ';
 		}else{
-			$feedback = '奥斯曼旗舰店客服为您服务，有什么可以帮你的吗？';
+			$feedback = '奥斯曼旗舰店客服为您服务，有什么可以帮您的吗？';
 			$code = 'YOHog';
 		}
 		// $this->Gratacustom($code);
